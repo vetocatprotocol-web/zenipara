@@ -9,7 +9,7 @@ import Input from '@/features/shared/components/common/Input';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useUIStore } from '@/store/uiStore';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { ShiftSchedule } from '@/types';
 import { canWrite } from '@/features/shared/lib/rolePermissions';

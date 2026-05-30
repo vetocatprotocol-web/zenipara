@@ -9,7 +9,7 @@ import Badge from '@/features/shared/components/common/Badge';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useUIStore } from '@/store/uiStore';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useLogisticsRequests } from '@/features/shared/hooks/useLogisticsRequests';
 import { supabase } from '@/features/shared/lib/supabase';
 import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';

@@ -11,7 +11,7 @@ import { AttendanceBadge } from '@/features/shared/components/common/Badge';
 import Pagination from '@/features/shared/components/ui/Pagination';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { useSatuans } from '@/features/shared/hooks/useSatuans';
 import { supabase } from '@/features/shared/lib/supabase';

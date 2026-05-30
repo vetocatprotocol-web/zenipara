@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useGatePassStore } from '@/store/gatePassStore';
 import { debounce } from '@/features/shared/lib/debounce';
 

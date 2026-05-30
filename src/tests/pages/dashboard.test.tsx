@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useUIStore } from '@/store/uiStore';
 import { supabase } from '@/features/shared/lib/supabase';

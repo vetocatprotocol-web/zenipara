@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import ProtectedRoute from '@/app/ProtectedRoute';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
 

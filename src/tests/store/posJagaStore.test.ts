@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { supabase } from '@/features/shared/lib/supabase';
 import { usePosJagaStore } from '@/store/posJagaStore';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import type { PosJaga, ScanPosJagaResult } from '@/types';
 
 const mockSupabase = supabase as unknown as {

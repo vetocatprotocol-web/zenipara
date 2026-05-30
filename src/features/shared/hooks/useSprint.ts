@@ -8,7 +8,7 @@ import {
   updateSprintStatus,
   type CreateSprintParams,
 } from '@/features/shared/lib/api/sprint';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import type { Sprint, SprintPersonel, SprintStatus } from '@/types';
 
 interface UseSprintReturn {

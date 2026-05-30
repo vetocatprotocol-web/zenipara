@@ -10,7 +10,7 @@ import { supabase } from '@/features/shared/lib/supabase';
 import { clearAuditLogs } from '@/features/shared/lib/api/auditLogs';
 import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged } from '@/features/shared/lib/dataSync';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { DEFAULT_FEATURE_FLAGS, FEATURE_DEFINITIONS, type FeatureKey } from '@/features/shared/lib/featureFlags';
 import { useFeatureStore } from '@/store/featureStore';
 import { usePlatformStore } from '@/store/platformStore';

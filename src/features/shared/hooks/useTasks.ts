@@ -4,7 +4,7 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { Task, TaskStatus } from '@/types';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 
 interface UseTasksOptions {
   assignedTo?: string;

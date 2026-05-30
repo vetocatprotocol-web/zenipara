@@ -8,7 +8,7 @@ import Modal from '@/features/shared/components/common/Modal';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { useTasks } from '@/features/shared/hooks/useTasks';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useUIStore } from '@/store/uiStore';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';

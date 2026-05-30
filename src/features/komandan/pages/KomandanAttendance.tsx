@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import Table from '@/features/shared/components/ui/Table';
 import { AttendanceBadge } from '@/features/shared/components/common/Badge';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { Attendance } from '@/types';
 import PageHeader from '@/features/shared/components/ui/PageHeader';

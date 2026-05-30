@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { searchAll, type SearchResult as ApiSearchResult } from '@/features/shared/lib/api/search';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { readSessionContext } from '@/features/shared/lib/sessionContext';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { handleError } from '@/features/shared/lib/handleError';

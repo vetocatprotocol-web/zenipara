@@ -5,7 +5,7 @@ import { useTasks } from '@/features/shared/hooks/useTasks';
 import { useAttendance } from '@/features/shared/hooks/useAttendance';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
 import { useMessages } from '@/features/shared/hooks/useMessages';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useUIStore } from '@/store/uiStore';
 import { useGatePassStore } from '@/store/gatePassStore';

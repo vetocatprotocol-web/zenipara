@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useGatePass } from '@/features/shared/hooks/useGatePass';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { GatePass } from '@/types';
 

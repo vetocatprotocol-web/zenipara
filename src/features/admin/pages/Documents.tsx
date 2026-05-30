@@ -11,7 +11,7 @@ import { useUIStore } from '@/store/uiStore';
 import { fetchDocuments, insertDocument, deleteDocument } from '@/features/shared/lib/api/documents';
 import { handleError } from '@/features/shared/lib/handleError';
 import type { Document } from '@/types';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 
 export default function Documents() {
   const { showNotification } = useUIStore();

@@ -4,7 +4,7 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { GatePass } from '@/types';
 import { generateQrToken } from '@/utils/gatepass';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 
 export function useGatePass() {
   const [gatePasses, setGatePasses] = useState<GatePass[]>([]);

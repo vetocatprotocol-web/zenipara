@@ -4,7 +4,7 @@ import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { useUIStore } from '@/store/uiStore';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { useApel } from '@/features/shared/hooks/useApel';
 import type { ApelJenis } from '@/types';
 

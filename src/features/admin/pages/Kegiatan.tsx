@@ -6,7 +6,7 @@ import Modal from '@/features/shared/components/common/Modal';
 import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import { isRoleAdmin } from '@/features/shared/lib/rolePermissions';
 import { useUIStore } from '@/store/uiStore';
 import { useKegiatan } from '@/features/shared/hooks/useKegiatan';

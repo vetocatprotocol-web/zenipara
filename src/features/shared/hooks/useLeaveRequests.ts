@@ -6,7 +6,7 @@ import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/d
 import { supabase } from '@/features/shared/lib/supabase';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { LeaveRequest, LeaveStatus } from '@/types';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 
 interface UseLeaveRequestsOptions {
   userId?: string;

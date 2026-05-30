@@ -7,7 +7,7 @@ import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/d
 import { SimpleCache } from '@/features/shared/lib/cache';
 import { requestCoalescer } from '@/features/shared/lib/requestCoalescer';
 import type { Message } from '@/types';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 
 const inboxCache = new SimpleCache<Message[]>();
 const sentCache = new SimpleCache<Message[]>();

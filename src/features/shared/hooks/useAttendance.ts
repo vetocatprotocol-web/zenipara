@@ -4,7 +4,7 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { Attendance } from '@/types';
-import { useAuthStore } from '@/store/authStore';
+import { useAuthStore } from '@/features/store/authStore';
 import type { GeoCoordinates } from '@/features/shared/lib/geolocation';
 
 /** Module-level cache: data absensi di-cache 5 menit per user */
