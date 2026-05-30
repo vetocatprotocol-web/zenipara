@@ -1,16 +1,16 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { CheckCircle, XCircle, CheckSquare, Clock, Calendar, RefreshCw, Download } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import BarChart from '../../components/ui/BarChart';
-import { supabase } from '../../lib/supabase';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import BarChart from '@/features/shared/components/ui/BarChart';
+import { supabase } from '@/features/shared/lib/supabase';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import { useLeaveRequests } from '../../hooks/useLeaveRequests';
-import { AttendanceBadge, TaskStatusBadge, LeaveStatusBadge } from '../../components/common/Badge';
-import EmptyState from '../../components/common/EmptyState';
-import { CardListSkeleton, StatCardsSkeleton } from '../../components/common/Skeleton';
-import PageHeader from '../../components/ui/PageHeader';
+import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
+import { AttendanceBadge, TaskStatusBadge, LeaveStatusBadge } from '@/features/shared/components/common/Badge';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { CardListSkeleton, StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import type { Attendance, Task } from '../../types';
 
 function downloadCSV(rows: string[][], filename: string) {

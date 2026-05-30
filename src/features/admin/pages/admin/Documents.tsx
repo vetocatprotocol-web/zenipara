@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Layers3, Search, FolderOpen, Download, Upload, FileText, RotateCcw } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import Input from '../../components/common/Input';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import Input from '@/features/shared/components/common/Input';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useUIStore } from '../../store/uiStore';
-import { fetchDocuments, insertDocument, deleteDocument } from '../../lib/api/documents';
-import { handleError } from '../../lib/handleError';
+import { fetchDocuments, insertDocument, deleteDocument } from '@/features/shared/lib/api/documents';
+import { handleError } from '@/features/shared/lib/handleError';
 import type { Document } from '../../types';
 import { useAuthStore } from '../../store/authStore';
 

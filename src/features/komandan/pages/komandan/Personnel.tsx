@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { Award, Search } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import PageHeader from '../../components/ui/PageHeader';
-import { RoleBadge } from '../../components/common/Badge';
-import { TableSkeleton } from '../../components/common/Skeleton';
-import UserDetailModal from '../../components/common/UserDetailModal';
-import { useUsers } from '../../hooks/useUsers';
-import { useDebounce } from '../../hooks/useDebounce';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import { RoleBadge } from '@/features/shared/components/common/Badge';
+import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
+import UserDetailModal from '@/features/shared/components/common/UserDetailModal';
+import { useUsers } from '@/features/shared/hooks/useUsers';
+import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { useAuthStore } from '../../store/authStore';
-import { getKomandanScopeLabel, getKomandanScopeDescription, isRoleKomandan } from '../../lib/rolePermissions';
+import { getKomandanScopeLabel, getKomandanScopeDescription, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import type { User } from '../../types';
 
 export default function Personnel() {

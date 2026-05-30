@@ -14,7 +14,7 @@ import {
   canAutoApprove,
   validateScanQrToken,
   validateStatusTransition,
-} from '../lib/validation/gatePassValidation';
+} from '@/features/shared/lib/validation/gatePassValidation';
 
 describe('Gate Pass Validation Functions', () => {
   describe('validateKeperluan', () => {

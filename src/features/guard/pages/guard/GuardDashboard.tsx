@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import QRScanner from '../../components/guard/QRScanner';
-import ScanResultCard from '../../components/guard/ScanResultCard';
-import PageHeader from '../../components/ui/PageHeader';
-import StatCard, { StatsGrid } from '../../components/ui/StatCard';
-import Button from '../../components/common/Button';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import QRScanner from '@/features/shared/components/guard/QRScanner';
+import ScanResultCard from '@/features/shared/components/guard/ScanResultCard';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import StatCard, { StatsGrid } from '@/features/shared/components/ui/StatCard';
+import Button from '@/features/shared/components/common/Button';
 import { ICONS } from '../../icons';
 import { useGatePassStore } from '../../store/gatePassStore';
-import { useGatePassRealtime } from '../../hooks/useGatePassRealtime';
-import { useVisibilityAwareRefresh } from '../../hooks/useVisibilityAwareRefresh';
+import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
+import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import type { GatePass } from '../../types';
 
 export default function GuardDashboard() {

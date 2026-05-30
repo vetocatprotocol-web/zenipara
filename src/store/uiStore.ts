@@ -5,7 +5,7 @@ import {
   updateUserPreferences,
   type DisplayDensity,
   type UserPreferencesPayload,
-} from '../lib/api/userPreferences';
+} from '@/features/shared/lib/api/userPreferences';
 
 type NotificationType = 'success' | 'error' | 'info' | 'warning';
 const NOTIFICATION_DURATION_MS = 4000;

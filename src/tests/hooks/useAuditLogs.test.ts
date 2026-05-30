@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useAuditLogs, clearAuditLogsCache } from '../../hooks/useAuditLogs';
-import { supabase } from '../../lib/supabase';
+import { useAuditLogs, clearAuditLogsCache } from '@/features/shared/hooks/useAuditLogs';
+import { supabase } from '@/features/shared/lib/supabase';
 import { useAuthStore } from '../../store/authStore';
 import type { AuditLog } from '../../types';
 

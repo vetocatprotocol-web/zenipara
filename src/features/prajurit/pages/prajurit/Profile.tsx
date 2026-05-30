@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Pencil, BarChart2, ClipboardList, CheckCircle, CalendarDays, TrendingUp } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import AvatarUpload from '../../components/common/AvatarUpload';
-import { RoleBadge } from '../../components/common/Badge';
-import AttendanceHeatmap from '../../components/ui/AttendanceHeatmap';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import AvatarUpload from '@/features/shared/components/common/AvatarUpload';
+import { RoleBadge } from '@/features/shared/components/common/Badge';
+import AttendanceHeatmap from '@/features/shared/components/ui/AttendanceHeatmap';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import { useAttendance } from '../../hooks/useAttendance';
-import { useUsers } from '../../hooks/useUsers';
-import { supabase } from '../../lib/supabase';
-import { fetchUserPersonalStats } from '../../lib/api/users';
-import { notifyDataChanged } from '../../lib/dataSync';
-import { handleError } from '../../lib/handleError';
-import { getRoleCode, getRoleDisplayLabel } from '../../lib/rolePermissions';
+import { useAttendance } from '@/features/shared/hooks/useAttendance';
+import { useUsers } from '@/features/shared/hooks/useUsers';
+import { supabase } from '@/features/shared/lib/supabase';
+import { fetchUserPersonalStats } from '@/features/shared/lib/api/users';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
+import { handleError } from '@/features/shared/lib/handleError';
+import { getRoleCode, getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
 import type { User } from '../../types';
 
 interface PersonalStats {

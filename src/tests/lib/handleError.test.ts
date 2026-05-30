@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { handleError } from '../../lib/handleError';
+import { handleError } from '@/features/shared/lib/handleError';
 
 describe('handleError', () => {
   afterEach(() => {

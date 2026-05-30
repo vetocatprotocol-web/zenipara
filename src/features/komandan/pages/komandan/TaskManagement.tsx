@@ -1,23 +1,23 @@
 import { useMemo, useState } from 'react';
 import { ClipboardList, Check, FileText, Paperclip, X } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import TaskCard from '../../components/ui/TaskCard';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Input from '../../components/common/Input';
-import UserSearchSelect from '../../components/common/UserSearchSelect';
-import EmptyState from '../../components/common/EmptyState';
-import { TaskStatusBadge } from '../../components/common/Badge';
-import { useTasks } from '../../hooks/useTasks';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import TaskCard from '@/features/shared/components/ui/TaskCard';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Input from '@/features/shared/components/common/Input';
+import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { TaskStatusBadge } from '@/features/shared/components/common/Badge';
+import { useTasks } from '@/features/shared/hooks/useTasks';
 import { useAuthStore } from '../../store/authStore';
 import { useFeatureStore } from '../../store/featureStore';
 import { useUIStore } from '../../store/uiStore';
-import PageHeader from '../../components/ui/PageHeader';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import type { Task, TaskReport, TaskStatus } from '../../types';
-import { CardListSkeleton } from '../../components/common/Skeleton';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { Link } from 'react-router-dom';
-import { isPathEnabled } from '../../lib/featureFlags';
-import { canWrite, getOperationalRoleLabel } from '../../lib/rolePermissions';
+import { isPathEnabled } from '@/features/shared/lib/featureFlags';
+import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
 
 export default function TaskManagement() {
   const { user } = useAuthStore();

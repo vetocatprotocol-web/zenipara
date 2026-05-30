@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { fetchGatePassesByUser, fetchAllGatePasses, fetchGatePassByQrToken, insertGatePass, patchGatePassStatus, rpcScanGatePass, type InsertGatePassResponse } from '../lib/api/gatepass';
+import { fetchGatePassesByUser, fetchAllGatePasses, fetchGatePassByQrToken, insertGatePass, patchGatePassStatus, rpcScanGatePass, type InsertGatePassResponse } from '@/features/shared/lib/api/gatepass';
 import { GatePass, GatePassStatus } from '../types';
-import { isRoleAdmin, isRoleGuard, isRolePrajurit } from '../lib/rolePermissions';
+import { isRoleAdmin, isRoleGuard, isRolePrajurit } from '@/features/shared/lib/rolePermissions';
 import { generateQrToken, normalizeScannedQrToken } from '../utils/gatepass';
 import { useAuthStore } from './authStore';
-import { notifyDataChanged } from '../lib/dataSync';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 
 interface GatePassState {
   gatePasses: GatePass[];

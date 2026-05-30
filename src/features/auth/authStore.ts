@@ -1,7 +1,7 @@
 import { create } from 'zustand';
-import { supabase } from '../../lib/supabase';
-import { clearSessionContext, readSessionContext, writeSessionContext } from '../../lib/sessionContext';
-import { normalizeRole } from '../../lib/rolePermissions';
+import { supabase } from '@/features/shared/lib/supabase';
+import { clearSessionContext, readSessionContext, writeSessionContext } from '@/features/shared/lib/sessionContext';
+import { normalizeRole } from '@/features/shared/lib/rolePermissions';
 import type { User, KaryoSession } from '../../types';
 
 const SESSION_KEY = 'karyo_session';

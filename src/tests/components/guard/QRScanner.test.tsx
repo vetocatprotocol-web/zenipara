@@ -9,7 +9,7 @@ vi.mock('html5-qrcode', () => ({
 }));
 
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import QRScanner from '../../../components/guard/QRScanner';
+import QRScanner from '@/features/shared/components/guard/QRScanner';
 
 describe('QRScanner', () => {
   it('renders scanner placeholder and initializes scanner', async () => {

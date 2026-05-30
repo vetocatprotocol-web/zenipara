@@ -1,18 +1,18 @@
 import { useMemo, useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import EmptyState from '../../components/common/EmptyState';
-import { CardListSkeleton } from '../../components/common/Skeleton';
-import Table from '../../components/ui/Table';
-import Badge from '../../components/common/Badge';
-import { useSprint } from '../../hooks/useSprint';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
+import Table from '@/features/shared/components/ui/Table';
+import Badge from '@/features/shared/components/common/Badge';
+import { useSprint } from '@/features/shared/hooks/useSprint';
 import { useAuthStore } from '../../store/authStore';
-import { isRoleAdmin, isRoleKomandan } from '../../lib/rolePermissions';
+import { isRoleAdmin, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import { useUIStore } from '../../store/uiStore';
-import UserSearchSelect from '../../components/common/UserSearchSelect';
+import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
 import type { Sprint, SprintPersonel, SprintStatus } from '../../types';
 
 const STATUS_LABEL: Record<SprintStatus, string> = {

@@ -1,18 +1,18 @@
 import { create } from 'zustand';
 import { useAuthStore } from './authStore';
-import { notifyDataChanged } from '../lib/dataSync';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 import {
   FEATURE_DEFINITIONS,
   DEFAULT_FEATURE_FLAGS,
   type FeatureFlagsState,
   type FeatureKey,
-} from '../lib/featureFlags';
+} from '@/features/shared/lib/featureFlags';
 import {
   getFeatureFlags as apiGetFeatureFlags,
   updateFeatureFlags as apiUpdateFeatureFlags,
   updateFeatureFlag as apiUpdateFeatureFlag,
-} from '../lib/api/featureFlags';
-import { requestCoalescer } from '../lib/requestCoalescer';
+} from '@/features/shared/lib/api/featureFlags';
+import { requestCoalescer } from '@/features/shared/lib/requestCoalescer';
 
 const FEATURE_FLAGS_CACHE_KEY = 'karyo_feature_flags';
 const featureFlagsRequestKey = (userId: string, force: boolean) => `feature_flags:${force ? 'force' : 'normal'}:${userId}`;

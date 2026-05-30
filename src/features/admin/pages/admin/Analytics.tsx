@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import StatCard, { StatsGrid } from '../../components/ui/StatCard';
-import BarChart from '../../components/ui/BarChart';
-import Button from '../../components/common/Button';
-import EmptyState from '../../components/common/EmptyState';
-import { StatCardsSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import StatCard, { StatsGrid } from '@/features/shared/components/ui/StatCard';
+import BarChart from '@/features/shared/components/ui/BarChart';
+import Button from '@/features/shared/components/common/Button';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
 import { ICONS } from '../../icons';
-import { useSatuans } from '../../hooks/useSatuans';
-import { fetchAnalyticsSnapshot, type AnalyticsSnapshot } from '../../lib/api/analytics';
-import { handleError } from '../../lib/handleError';
-import { getRoleDisplayLabel } from '../../lib/rolePermissions';
+import { useSatuans } from '@/features/shared/hooks/useSatuans';
+import { fetchAnalyticsSnapshot, type AnalyticsSnapshot } from '@/features/shared/lib/api/analytics';
+import { handleError } from '@/features/shared/lib/handleError';
+import { getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
 
 // Colour map for task statuses
 const TASK_STATUS_COLOR: Record<string, string> = {

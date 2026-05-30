@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { handleError } from '../../lib/handleError';
+import { handleError } from '@/features/shared/lib/handleError';
 import {
   fetchAdminDashboardSnapshot,
   refreshAdminDashboardSnapshot,
   type AdminDashboardSnapshot,
-} from '../../lib/api/dashboard';
+} from '@/features/shared/lib/api/dashboard';
 
 interface AdminDashboardStore {
   snapshot: AdminDashboardSnapshot | null;

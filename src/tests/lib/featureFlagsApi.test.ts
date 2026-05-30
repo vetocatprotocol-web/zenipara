@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { supabase } from '../../lib/supabase';
-import { DEFAULT_FEATURE_FLAGS } from '../../lib/featureFlags';
-import { updateFeatureFlag, updateFeatureFlags } from '../../lib/api/featureFlags';
+import { supabase } from '@/features/shared/lib/supabase';
+import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
+import { updateFeatureFlag, updateFeatureFlags } from '@/features/shared/lib/api/featureFlags';
 
 const mockSupabase = supabase as unknown as {
   rpc: ReturnType<typeof vi.fn>;

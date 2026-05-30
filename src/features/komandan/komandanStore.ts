@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { handleError } from '../../lib/handleError';
-import { fetchKomandanDashboardStats } from '../../lib/api/dashboard';
-import { requestCoalescer } from '../../lib/requestCoalescer';
-import { CacheWithTTL } from '../../lib/cacheWithTTL';
+import { handleError } from '@/features/shared/lib/handleError';
+import { fetchKomandanDashboardStats } from '@/features/shared/lib/api/dashboard';
+import { requestCoalescer } from '@/features/shared/lib/requestCoalescer';
+import { CacheWithTTL } from '@/features/shared/lib/cacheWithTTL';
 
 interface KomandanDashboardStore {
   onlineCount: number;

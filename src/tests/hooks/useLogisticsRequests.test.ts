@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useLogisticsRequests, clearLogisticsRequestsCache } from '../../hooks/useLogisticsRequests';
+import { useLogisticsRequests, clearLogisticsRequestsCache } from '@/features/shared/hooks/useLogisticsRequests';
 import { useAuthStore } from '../../store/authStore';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import type { LogisticsRequest } from '../../types';
 
 const mockSupabase = supabase as unknown as {

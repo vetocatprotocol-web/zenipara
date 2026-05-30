@@ -1,14 +1,14 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import PageHeader from '../../components/ui/PageHeader';
-import { RoleBadge } from '../../components/common/Badge';
-import { TableSkeleton } from '../../components/common/Skeleton';
-import Pagination from '../../components/ui/Pagination';
-import UserDetailModal from '../../components/common/UserDetailModal';
-import UserTableActions from '../../components/admin/UserTableActions';
-import BatchOperationModals from '../../components/admin/BatchOperationModals';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import { RoleBadge } from '@/features/shared/components/common/Badge';
+import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
+import Pagination from '@/features/shared/components/ui/Pagination';
+import UserDetailModal from '@/features/shared/components/common/UserDetailModal';
+import UserTableActions from '@/features/shared/components/admin/UserTableActions';
+import BatchOperationModals from '@/features/shared/components/admin/BatchOperationModals';
 import {
   CreateUserModal,
   ResetPinModal,
@@ -17,18 +17,18 @@ import {
   DeleteUserModal,
   UnlockUserModal,
   ImportPersonelModal,
-} from '../../components/admin/modals';
-import { useUsers } from '../../hooks/useUsers';
-import { useSatuans } from '../../hooks/useSatuans';
+} from '@/features/shared/components/admin/modals';
+import { useUsers } from '@/features/shared/hooks/useUsers';
+import { useSatuans } from '@/features/shared/hooks/useSatuans';
 import { useUIStore } from '../../store/uiStore';
 import { useAuthStore } from '../../store/authStore';
-import { useDebounce } from '../../hooks/useDebounce';
+import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { ICONS } from '../../icons';
-import { supabase } from '../../lib/supabase';
-import { notifyDataChanged } from '../../lib/dataSync';
-import { ensureSessionContext } from '../../lib/api/sessionContext';
-import { ROLE_OPTIONS, getRoleCode, getRoleDisplayLabel, isRoleAdmin, isRoleKomandan, normalizeRole } from '../../lib/rolePermissions';
-import { validatePin, validateRoleEditForm, getFirstErrorMessage } from '../../lib/validation/personelValidation';
+import { supabase } from '@/features/shared/lib/supabase';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
+import { ensureSessionContext } from '@/features/shared/lib/api/sessionContext';
+import { ROLE_OPTIONS, getRoleCode, getRoleDisplayLabel, isRoleAdmin, isRoleKomandan, normalizeRole } from '@/features/shared/lib/rolePermissions';
+import { validatePin, validateRoleEditForm, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
 import type { User, Role, CommandLevel } from '../../types';
 
 const PAGE_SIZE = 50;

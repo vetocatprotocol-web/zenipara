@@ -9,7 +9,7 @@ vi.mock('html5-qrcode', () => ({
 }));
 
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import GatePassScanner from '../../../components/gatepass/GatePassScanner';
+import GatePassScanner from '@/features/shared/components/gatepass/GatePassScanner';
 
 describe('GatePassScanner', () => {
   it('renders scanner container and initializes Html5QrcodeScanner', async () => {

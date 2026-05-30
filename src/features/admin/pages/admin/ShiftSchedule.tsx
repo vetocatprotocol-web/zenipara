@@ -1,18 +1,18 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { CalendarDays, List } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import Input from '../../components/common/Input';
-import UserSearchSelect from '../../components/common/UserSearchSelect';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import Input from '@/features/shared/components/common/Input';
+import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useUIStore } from '../../store/uiStore';
 import { useAuthStore } from '../../store/authStore';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import type { ShiftSchedule } from '../../types';
-import { canWrite } from '../../lib/rolePermissions';
+import { canWrite } from '@/features/shared/lib/rolePermissions';
 
 const SHIFT_COLORS: Record<string, { bg: string; text: string; label: string }> = {
   pagi:  { bg: 'bg-accent-gold/20',  text: 'text-accent-gold',  label: 'Pagi'   },

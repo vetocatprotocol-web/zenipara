@@ -1,10 +1,10 @@
 import { act } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { DEFAULT_FEATURE_FLAGS } from '../../lib/featureFlags';
-import { notifyDataChanged } from '../../lib/dataSync';
+import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 import { useAuthStore } from '../../store/authStore';
 import { useFeatureStore } from '../../store/featureStore';
-import { updateFeatureFlags } from '../../lib/api/featureFlags';
+import { updateFeatureFlags } from '@/features/shared/lib/api/featureFlags';
 
 vi.mock('../../lib/api/featureFlags', () => ({
   getFeatureFlags: vi.fn().mockResolvedValue(DEFAULT_FEATURE_FLAGS),

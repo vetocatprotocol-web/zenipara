@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useAttendance, clearAttendanceCache } from '../../hooks/useAttendance';
-import { supabase } from '../../lib/supabase';
+import { useAttendance, clearAttendanceCache } from '@/features/shared/hooks/useAttendance';
+import { supabase } from '@/features/shared/lib/supabase';
 import { useAuthStore } from '../../store/authStore';
 import type { Attendance } from '../../types';
 

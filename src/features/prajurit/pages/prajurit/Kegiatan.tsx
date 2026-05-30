@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import EmptyState from '../../components/common/EmptyState';
-import { CardListSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useUIStore } from '../../store/uiStore';
-import { useKegiatan } from '../../hooks/useKegiatan';
+import { useKegiatan } from '@/features/shared/hooks/useKegiatan';
 import { ICONS } from '../../icons';
 import type { Kegiatan, KegiatanJenis, RsvpStatus } from '../../types';
 

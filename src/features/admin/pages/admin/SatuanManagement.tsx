@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Plus, Search, Edit2, Trash2, Shield, MapPin, UsersRound, Layers3, ImageIcon, ExternalLink, CircleDot, RotateCcw } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Input from '../../components/common/Input';
-import Table from '../../components/ui/Table';
-import Badge from '../../components/common/Badge';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Input from '@/features/shared/components/common/Input';
+import Table from '@/features/shared/components/ui/Table';
+import Badge from '@/features/shared/components/common/Badge';
 import { useUIStore } from '../../store/uiStore';
 import { useAuthStore } from '../../store/authStore';
-import { createSatuan, deleteSatuan, fetchSatuans, updateSatuan } from '../../lib/api/satuans';
+import { createSatuan, deleteSatuan, fetchSatuans, updateSatuan } from '@/features/shared/lib/api/satuans';
 import type { Satuan } from '../../types';
 
 const EMPTY_FORM = {

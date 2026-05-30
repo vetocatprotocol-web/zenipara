@@ -1,6 +1,6 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
-import { APP_ROUTE_PATHS } from '../lib/rolePermissions';
+import { APP_ROUTE_PATHS } from '@/features/shared/lib/rolePermissions';
 
 interface LocationState {
   message?: string;

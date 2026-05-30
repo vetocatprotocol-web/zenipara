@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { createHashRouter, Link } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
-import { APP_ROUTE_PATHS, ROLE_ROUTE_PATHS, ROUTE_ROLE_GROUPS } from '../lib/rolePermissions';
-import LoadingSpinner from '../components/common/LoadingSpinner';
+import { APP_ROUTE_PATHS, ROLE_ROUTE_PATHS, ROUTE_ROLE_GROUPS } from '@/features/shared/lib/rolePermissions';
+import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 
 const Landing = lazy(() => import('../pages/Landing'));
 const Login = lazy(() => import('../pages/Login'));

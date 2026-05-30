@@ -1,21 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, CloudSun, Download, Palette, RefreshCcw, Upload } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Input from '../../components/common/Input';
-import PageHeader from '../../components/ui/PageHeader';
-import WeatherWidget from '../../components/ui/WeatherWidget';
-import { supabase } from '../../lib/supabase';
-import { clearAuditLogs } from '../../lib/api/auditLogs';
-import { handleError } from '../../lib/handleError';
-import { notifyDataChanged } from '../../lib/dataSync';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Input from '@/features/shared/components/common/Input';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import WeatherWidget from '@/features/shared/components/ui/WeatherWidget';
+import { supabase } from '@/features/shared/lib/supabase';
+import { clearAuditLogs } from '@/features/shared/lib/api/auditLogs';
+import { handleError } from '@/features/shared/lib/handleError';
+import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 import { useAuthStore } from '../../store/authStore';
-import { DEFAULT_FEATURE_FLAGS, FEATURE_DEFINITIONS, type FeatureKey } from '../../lib/featureFlags';
+import { DEFAULT_FEATURE_FLAGS, FEATURE_DEFINITIONS, type FeatureKey } from '@/features/shared/lib/featureFlags';
 import { useFeatureStore } from '../../store/featureStore';
 import { usePlatformStore } from '../../store/platformStore';
 import { useUIStore } from '../../store/uiStore';
-import { clearAuditLogsCache } from '../../hooks/useAuditLogs';
+import { clearAuditLogsCache } from '@/features/shared/hooks/useAuditLogs';
 
 /** Tables included in backup/restore. Ordered to satisfy FK constraints on restore. */
 const BACKUP_TABLES = [

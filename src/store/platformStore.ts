@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getPlatformSettings, updatePlatformSettings } from '../lib/api/platform';
+import { getPlatformSettings, updatePlatformSettings } from '@/features/shared/lib/api/platform';
 
 const PLATFORM_SETTINGS_CACHE_KEY = 'karyo_platform_settings';
 const WEATHER_API_KEY_STORE = 'karyo_weather_api_key';

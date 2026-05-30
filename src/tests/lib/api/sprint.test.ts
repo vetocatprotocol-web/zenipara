@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import {
   createSprint,
   deleteSprint,
   fetchSprint,
   fetchSprintPersonel,
   updateSprintStatus,
-} from '../../../lib/api/sprint';
+} from '@/features/shared/lib/api/sprint';
 
 const mockSupabase = supabase as unknown as {
   rpc: ReturnType<typeof vi.fn>;

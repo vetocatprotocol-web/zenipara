@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Search, Shield } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Input from '../../components/common/Input';
-import Badge from '../../components/common/Badge';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Input from '@/features/shared/components/common/Input';
+import Badge from '@/features/shared/components/common/Badge';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import { useDebounce } from '../../hooks/useDebounce';
-import { supabase } from '../../lib/supabase';
+import { useDebounce } from '@/features/shared/hooks/useDebounce';
+import { supabase } from '@/features/shared/lib/supabase';
 import type { DisciplineNote } from '../../types';
 import { AlertTriangle, Award, FileText } from 'lucide-react';
 

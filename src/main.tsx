@@ -12,12 +12,12 @@ import { useAuthStore } from './store/authStore';
 import { usePlatformStore } from './store/platformStore';
 import { useFeatureStore } from './store/featureStore';
 import { useUIStore } from './store/uiStore';
-import { useGlobalRealtimeSync } from './hooks/useGlobalRealtimeSync';
-import { useNotifications } from './hooks/useNotifications';
-import { subscribeDataChanges } from './lib/dataSync';
-import LoadingSpinner from './components/common/LoadingSpinner';
-import ErrorBoundary from './components/common/ErrorBoundary';
-import { measurePageLoad } from './lib/metrics';
+import { useGlobalRealtimeSync } from '@/features/shared/hooks/useGlobalRealtimeSync';
+import { useNotifications } from '@/features/shared/hooks/useNotifications';
+import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
+import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
+import ErrorBoundary from '@/features/shared/components/common/ErrorBoundary';
+import { measurePageLoad } from '@/features/shared/lib/metrics';
 
 // Mulai pengukuran load halaman sebelum render pertama
 measurePageLoad();

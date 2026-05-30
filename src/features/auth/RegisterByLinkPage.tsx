@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Input from '../components/common/Input';
-import Button from '../components/common/Button';
-import { APP_ROUTE_PATHS, getRoleDisplayLabel, normalizeRole } from '../lib/rolePermissions';
-import { supabase } from '../lib/supabase';
+import Input from '@/features/shared/components/common/Input';
+import Button from '@/features/shared/components/common/Button';
+import { APP_ROUTE_PATHS, getRoleDisplayLabel, normalizeRole } from '@/features/shared/lib/rolePermissions';
+import { supabase } from '@/features/shared/lib/supabase';
 
 interface TokenValidationResult {
   form_id: string | null;

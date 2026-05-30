@@ -1,7 +1,7 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ImportPersonelModal from '../../../../components/admin/modals/ImportPersonelModal';
+import ImportPersonelModal from '@/features/shared/components/admin/modals/ImportPersonelModal';
 
 describe('ImportPersonelModal', () => {
   const onImport = vi.fn();

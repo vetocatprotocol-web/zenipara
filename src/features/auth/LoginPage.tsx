@@ -2,12 +2,12 @@ import { useState, useEffect, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AlertTriangle, Eye, EyeOff, Link2, Lock, Pin, Zap } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
-import Button from '../components/common/Button';
-import Input from '../components/common/Input';
-import Notification from '../components/common/Notification';
-import { isSupabaseConfigured } from '../lib/supabase';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import Notification from '@/features/shared/components/common/Notification';
+import { isSupabaseConfigured } from '@/features/shared/lib/supabase';
 import { usePlatformStore } from '../store/platformStore';
-import { APP_ROUTE_PATHS, getRoleDefaultPath } from '../lib/rolePermissions';
+import { APP_ROUTE_PATHS, getRoleDefaultPath } from '@/features/shared/lib/rolePermissions';
 
 export default function Login() {
   const { login, isAuthenticated, requiresPinChange, user, isLoading, error, clearError } = useAuthStore();

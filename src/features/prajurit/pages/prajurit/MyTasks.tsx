@@ -1,19 +1,19 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CheckSquare } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import TaskCard from '../../components/ui/TaskCard';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import PageHeader from '../../components/ui/PageHeader';
-import EmptyState from '../../components/common/EmptyState';
-import { useTasks } from '../../hooks/useTasks';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import TaskCard from '@/features/shared/components/ui/TaskCard';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { useTasks } from '@/features/shared/hooks/useTasks';
 import { useAuthStore } from '../../store/authStore';
 import { useFeatureStore } from '../../store/featureStore';
 import { useUIStore } from '../../store/uiStore';
-import { CardListSkeleton } from '../../components/common/Skeleton';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import type { Task, TaskStatus } from '../../types';
-import { isPathEnabled } from '../../lib/featureFlags';
+import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 
 export default function MyTasks() {
   const { user } = useAuthStore();

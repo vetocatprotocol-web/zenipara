@@ -18,7 +18,7 @@ import {
   isRoleStaf,
   isKnownRole,
   normalizeRole,
-} from '../../lib/rolePermissions';
+} from '@/features/shared/lib/rolePermissions';
 
 describe('rolePermissions helpers', () => {
   it('normalizes role codes to canonical role', () => {

@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useGatePassStore } from '../../store/gatePassStore';
-import { useGatePassRealtime } from '../../hooks/useGatePassRealtime';
-import GatePassStatusBadge from '../../components/gatepass/GatePassStatusBadge';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Input from '../../components/common/Input';
-import Button from '../../components/common/Button';
-import { CardListSkeleton, StatCardsSkeleton } from '../../components/common/Skeleton';
+import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
+import GatePassStatusBadge from '@/features/shared/components/gatepass/GatePassStatusBadge';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Input from '@/features/shared/components/common/Input';
+import Button from '@/features/shared/components/common/Button';
+import { CardListSkeleton, StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
 import { MapPin } from 'lucide-react';
 import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual';
-import { useDebounce } from '../../hooks/useDebounce';
+import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import type { GatePass, GatePassStatus } from '../../types';
-import { supabase } from '../../lib/supabase';
-import { getGatePassReadResilienceStats } from '../../lib/api/gatepass';
+import { supabase } from '@/features/shared/lib/supabase';
+import { getGatePassReadResilienceStats } from '@/features/shared/lib/api/gatepass';
 
 interface MonitorGatePass extends GatePass {
   effectiveStatus: GatePassStatus;

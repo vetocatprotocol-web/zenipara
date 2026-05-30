@@ -1,18 +1,18 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Package, ClipboardList, Search, Plus, Layers3, RotateCcw } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Input from '../../components/common/Input';
-import Badge from '../../components/common/Badge';
-import EmptyState from '../../components/common/EmptyState';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Input from '@/features/shared/components/common/Input';
+import Badge from '@/features/shared/components/common/Badge';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useUIStore } from '../../store/uiStore';
 import { useAuthStore } from '../../store/authStore';
-import { useLogisticsRequests } from '../../hooks/useLogisticsRequests';
-import { supabase } from '../../lib/supabase';
-import { canWrite, getOperationalRoleLabel } from '../../lib/rolePermissions';
+import { useLogisticsRequests } from '@/features/shared/hooks/useLogisticsRequests';
+import { supabase } from '@/features/shared/lib/supabase';
+import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
 import type { LogisticsItem, LogisticsRequest } from '../../types';
 
 export default function Logistics() {

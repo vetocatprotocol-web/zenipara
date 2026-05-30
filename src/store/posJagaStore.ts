@@ -7,7 +7,7 @@ import {
   renamePosJaga as apiRenamePosJaga,
   rotatePosJagaQr as apiRotatePosJagaQr,
   rpcScanPosJagaWithCredentials,
-} from '../lib/api/posJaga';
+} from '@/features/shared/lib/api/posJaga';
 import type { PosJaga, ScanPosJagaResult } from '../types';
 import { useAuthStore } from './authStore';
 import { normalizeScannedQrToken } from '../utils/gatepass';

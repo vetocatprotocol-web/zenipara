@@ -1,20 +1,20 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import StatCard, { StatsGrid } from '../../components/ui/StatCard';
-import PageHeader from '../../components/ui/PageHeader';
-import EmptyState from '../../components/common/EmptyState';
-import DashboardShortcutGrid from '../../components/ui/DashboardShortcutGrid';
-import { StatCardsSkeleton, CardListSkeleton } from '../../components/common/Skeleton';
-import Button from '../../components/common/Button';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import StatCard, { StatsGrid } from '@/features/shared/components/ui/StatCard';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import DashboardShortcutGrid from '@/features/shared/components/ui/DashboardShortcutGrid';
+import { StatCardsSkeleton, CardListSkeleton } from '@/features/shared/components/common/Skeleton';
+import Button from '@/features/shared/components/common/Button';
 import { useAuthStore } from '../../store/authStore';
 import { useFeatureStore } from '../../store/featureStore';
-import { useAnnouncements } from '../../hooks/useAnnouncements';
-import { isPathEnabled } from '../../lib/featureFlags';
+import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
+import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { ICONS } from '../../icons';
-import { supabase } from '../../lib/supabase';
-import { subscribeDataChanges } from '../../lib/dataSync';
-import { ensureStoredSessionContext } from '../../lib/api/sessionContext';
-import { useVisibilityAwareRefresh } from '../../hooks/useVisibilityAwareRefresh';
+import { supabase } from '@/features/shared/lib/supabase';
+import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
+import { ensureStoredSessionContext } from '@/features/shared/lib/api/sessionContext';
+import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import type { IconName } from '../../icons';
 
 interface StafStats {

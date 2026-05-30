@@ -1,12 +1,12 @@
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import Badge from '../../components/common/Badge';
-import Table from '../../components/ui/Table';
-import EmptyState from '../../components/common/EmptyState';
-import { CardListSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import Badge from '@/features/shared/components/common/Badge';
+import Table from '@/features/shared/components/ui/Table';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useUIStore } from '../../store/uiStore';
-import { useLaporanOps } from '../../hooks/useLaporanOps';
+import { useLaporanOps } from '@/features/shared/hooks/useLaporanOps';
 import type { LaporanOpsStatus } from '../../types';
 import { useState } from 'react';
 

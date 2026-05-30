@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ScanResultCard from '../../../components/guard/ScanResultCard';
+import ScanResultCard from '@/features/shared/components/guard/ScanResultCard';
 
 describe('ScanResultCard', () => {
   it('shows allow entry button for checked_in status', () => {

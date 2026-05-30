@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Input from '../../components/common/Input';
-import Pagination from '../../components/ui/Pagination';
-import PageHeader from '../../components/ui/PageHeader';
-import { useAuditLogs } from '../../hooks/useAuditLogs';
-import { usePagination } from '../../hooks/usePagination';
-import { useDebounce } from '../../hooks/useDebounce';
-import { TableSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Input from '@/features/shared/components/common/Input';
+import Pagination from '@/features/shared/components/ui/Pagination';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import { useAuditLogs } from '@/features/shared/hooks/useAuditLogs';
+import { usePagination } from '@/features/shared/hooks/usePagination';
+import { useDebounce } from '@/features/shared/hooks/useDebounce';
+import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
 import type { AuditLog } from '../../types';
 
 const PAGE_SIZE = 50;

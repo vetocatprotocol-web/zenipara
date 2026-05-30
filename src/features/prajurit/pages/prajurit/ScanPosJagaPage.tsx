@@ -3,11 +3,11 @@ import type { FormEvent } from 'react';
 import { Camera, CheckCircle, Info, RotateCcw, ScanLine, ShieldCheck, XCircle } from 'lucide-react';
 import { usePosJagaStore } from '../../store/posJagaStore';
 import { useGatePassStore } from '../../store/gatePassStore';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import LoadingSpinner from '../../components/common/LoadingSpinner';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import type { ScanPosJagaResult } from '../../types';
 
 type ScanState = 'idle' | 'auth' | 'processing' | 'success' | 'error';

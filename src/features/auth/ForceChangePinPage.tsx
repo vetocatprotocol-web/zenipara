@@ -1,8 +1,8 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/common/Button';
-import Input from '../components/common/Input';
-import { APP_ROUTE_PATHS, getRoleDefaultPath } from '../lib/rolePermissions';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import { APP_ROUTE_PATHS, getRoleDefaultPath } from '@/features/shared/lib/rolePermissions';
 import { useAuthStore } from '../store/authStore';
 
 export default function ForceChangePin() {

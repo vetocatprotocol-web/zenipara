@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Pagination from '../../../components/ui/Pagination';
+import Pagination from '@/features/shared/components/ui/Pagination';
 
 describe('Pagination', () => {
   it('renders nothing when totalPages is 1', () => {

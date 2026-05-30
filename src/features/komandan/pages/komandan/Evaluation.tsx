@@ -1,16 +1,16 @@
 import { useState, useCallback, useEffect } from 'react';
 import { AlertTriangle, Award, FileText, Plus } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import Badge from '../../components/common/Badge';
-import UserSearchSelect from '../../components/common/UserSearchSelect';
-import PageHeader from '../../components/ui/PageHeader';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import Badge from '@/features/shared/components/common/Badge';
+import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import type { DisciplineNote } from '../../types';
 
 export default function Evaluation() {

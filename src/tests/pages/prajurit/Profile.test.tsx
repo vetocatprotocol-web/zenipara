@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Profile from '../../../pages/prajurit/Profile';
 import { useAuthStore } from '../../../store/authStore';
 import { useUIStore } from '../../../store/uiStore';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 
 const mockUpdateOwnProfile = vi.fn();
 const mockRestoreSession = vi.fn().mockResolvedValue(undefined);

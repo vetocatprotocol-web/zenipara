@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import Badge from '../../components/common/Badge';
-import Table from '../../components/ui/Table';
-import EmptyState from '../../components/common/EmptyState';
-import { CardListSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import Badge from '@/features/shared/components/common/Badge';
+import Table from '@/features/shared/components/ui/Table';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useAuthStore } from '../../store/authStore';
-import { isRoleAdmin } from '../../lib/rolePermissions';
+import { isRoleAdmin } from '@/features/shared/lib/rolePermissions';
 import { useUIStore } from '../../store/uiStore';
-import { useLaporanOps } from '../../hooks/useLaporanOps';
+import { useLaporanOps } from '@/features/shared/hooks/useLaporanOps';
 import type { LaporanOpsJenis, LaporanOpsStatus } from '../../types';
 
 const JENIS_OPTIONS: { value: LaporanOpsJenis; label: string }[] = [

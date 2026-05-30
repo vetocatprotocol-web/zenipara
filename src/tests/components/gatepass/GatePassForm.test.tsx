@@ -14,7 +14,7 @@ vi.mock('../../../store/uiStore', () => ({
   useUIStore: () => ({ showNotification: showNotificationMock }),
 }));
 
-import GatePassForm from '../../../components/gatepass/GatePassForm';
+import GatePassForm from '@/features/shared/components/gatepass/GatePassForm';
 
 describe('GatePassForm', () => {
   beforeEach(() => {

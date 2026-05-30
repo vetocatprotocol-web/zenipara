@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import AttendanceHeatmap from '../../../components/ui/AttendanceHeatmap';
+import AttendanceHeatmap from '@/features/shared/components/ui/AttendanceHeatmap';
 import type { Attendance } from '../../../../types';
 
 function makeAttendance(daysAgo: number, status: Attendance['status']): Attendance {

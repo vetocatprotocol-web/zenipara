@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getFirstErrorMessage, validateRoleEditForm } from '../../lib/validation/personelValidation';
+import { getFirstErrorMessage, validateRoleEditForm } from '@/features/shared/lib/validation/personelValidation';
 
 describe('personelValidation helpers', () => {
   it('requires tingkat komando when role is komandan', () => {

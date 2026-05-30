@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useMessages } from '../../hooks/useMessages';
+import { useMessages } from '@/features/shared/hooks/useMessages';
 import { useAuthStore } from '../../store/authStore';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import type { Message } from '../../types';
 
 const mockSupabase = supabase as unknown as {

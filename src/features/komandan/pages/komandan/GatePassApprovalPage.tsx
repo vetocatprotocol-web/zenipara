@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ClipboardCheck } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import EmptyState from '../../components/common/EmptyState';
-import GatePassStatusBadge from '../../components/gatepass/GatePassStatusBadge';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import GatePassStatusBadge from '@/features/shared/components/gatepass/GatePassStatusBadge';
 import { useGatePassStore } from '../../store/gatePassStore';
-import { useGatePassRealtime } from '../../hooks/useGatePassRealtime';
+import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
 import { useUIStore } from '../../store/uiStore';
 
 export default function GatePassApprovalPage() {

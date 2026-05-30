@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { CheckCircle, XCircle, Clock, Info } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Table from '../../components/ui/Table';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Input from '../../components/common/Input';
-import PageHeader from '../../components/ui/PageHeader';
-import EmptyState from '../../components/common/EmptyState';
-import { LeaveStatusBadge } from '../../components/common/Badge';
-import { TableSkeleton } from '../../components/common/Skeleton';
-import { useLeaveRequests } from '../../hooks/useLeaveRequests';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Table from '@/features/shared/components/ui/Table';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Input from '@/features/shared/components/common/Input';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import { LeaveStatusBadge } from '@/features/shared/components/common/Badge';
+import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
+import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import { canWrite, getOperationalRoleLabel } from '../../lib/rolePermissions';
+import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
 import type { LeaveRequest } from '../../types';
 
 const JENIS_LABEL: Record<string, string> = {

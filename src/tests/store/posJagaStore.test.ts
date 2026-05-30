@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import { usePosJagaStore } from '../../store/posJagaStore';
 import { useAuthStore } from '../../store/authStore';
 import type { PosJaga, ScanPosJagaResult } from '../../types';

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import {
   fetchGatePassesByUser,
   fetchAllGatePasses,
@@ -7,7 +7,7 @@ import {
   insertGatePass,
   patchGatePassStatus,
   rpcScanGatePass,
-} from '../../../lib/api/gatepass';
+} from '@/features/shared/lib/api/gatepass';
 import type { GatePass } from '../../../types';
 
 const mockSupabase = supabase as unknown as {

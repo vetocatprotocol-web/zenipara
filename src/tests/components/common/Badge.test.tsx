@@ -5,7 +5,7 @@ import Badge, {
   AttendanceBadge,
   LeaveStatusBadge,
   RoleBadge,
-} from '../../../components/common/Badge';
+} from '@/features/shared/components/common/Badge';
 
 describe('Badge', () => {
   it('renders children', () => {

@@ -1,18 +1,18 @@
 import { useMemo, useState } from 'react';
 import { Inbox, Pencil, Send, Users, Clock3 } from 'lucide-react';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import Modal from '../../components/common/Modal';
-import Badge from '../../components/common/Badge';
-import UserSearchSelect from '../../components/common/UserSearchSelect';
-import EmptyState from '../../components/common/EmptyState';
-import LoadingSpinner from '../../components/common/LoadingSpinner';
-import PageHeader from '../../components/ui/PageHeader';
-import { useMessages } from '../../hooks/useMessages';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import Modal from '@/features/shared/components/common/Modal';
+import Badge from '@/features/shared/components/common/Badge';
+import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import { useMessages } from '@/features/shared/hooks/useMessages';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
 import type { Message } from '../../types';
-import Input from '../../components/common/Input';
+import Input from '@/features/shared/components/common/Input';
 
 type Tab = 'inbox' | 'sent';
 

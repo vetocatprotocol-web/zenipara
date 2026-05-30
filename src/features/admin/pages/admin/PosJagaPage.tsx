@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { usePosJagaStore } from '../../store/posJagaStore';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import Modal from '../../components/common/Modal';
-import EmptyState from '../../components/common/EmptyState';
-import PageHeader from '../../components/ui/PageHeader';
-import PosJagaQRCode from '../../components/gatepass/PosJagaQRCode';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import Button from '@/features/shared/components/common/Button';
+import Input from '@/features/shared/components/common/Input';
+import Modal from '@/features/shared/components/common/Modal';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import PosJagaQRCode from '@/features/shared/components/gatepass/PosJagaQRCode';
 import { ICONS } from '../../icons';
 import type { PosJaga } from '../../types';
 

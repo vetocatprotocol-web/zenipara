@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { useUsers } from '../../hooks/useUsers';
-import { supabase } from '../../lib/supabase';
-import { userSearchCache } from '../../lib/cacheWithTTL600';
+import { useUsers } from '@/features/shared/hooks/useUsers';
+import { supabase } from '@/features/shared/lib/supabase';
+import { userSearchCache } from '@/features/shared/lib/cacheWithTTL600';
 import { useAuthStore } from '../../store/authStore';
 import type { User } from '../../types';
 

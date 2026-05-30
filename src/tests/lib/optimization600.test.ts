@@ -4,8 +4,8 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { RequestCoalescer, globalRequestCoalescer, createRequestKey } from '../../lib/requestCoalescer600';
-import { CacheWithTTL, createUserSearchCacheKey } from '../../lib/cacheWithTTL600';
+import { RequestCoalescer, globalRequestCoalescer, createRequestKey } from '@/features/shared/lib/requestCoalescer600';
+import { CacheWithTTL, createUserSearchCacheKey } from '@/features/shared/lib/cacheWithTTL600';
 
 describe('RequestCoalescer - 600+ User Optimization', () => {
   let coalescer: RequestCoalescer;

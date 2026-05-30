@@ -1,28 +1,28 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import DashboardLayout from '../../components/layout/DashboardLayout';
-import StatCard, { StatsGrid } from '../../components/ui/StatCard';
-import PageHeader from '../../components/ui/PageHeader';
-import Button from '../../components/common/Button';
-import ConfirmModal from '../../components/common/ConfirmModal';
-import EmptyState from '../../components/common/EmptyState';
-import DashboardShortcutGrid from '../../components/ui/DashboardShortcutGrid';
-import WeatherWidget from '../../components/ui/WeatherWidget';
-import { StatCardsSkeleton } from '../../components/common/Skeleton';
+import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
+import StatCard, { StatsGrid } from '@/features/shared/components/ui/StatCard';
+import PageHeader from '@/features/shared/components/ui/PageHeader';
+import Button from '@/features/shared/components/common/Button';
+import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
+import EmptyState from '@/features/shared/components/common/EmptyState';
+import DashboardShortcutGrid from '@/features/shared/components/ui/DashboardShortcutGrid';
+import WeatherWidget from '@/features/shared/components/ui/WeatherWidget';
+import { StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
-import AttendanceHeatmap from '../../components/ui/AttendanceHeatmap';
+import AttendanceHeatmap from '@/features/shared/components/ui/AttendanceHeatmap';
 import type { IconName } from '../../icons';
 import { ICONS } from '../../icons';
 import { useAdminDashboardStore } from '../../store/adminDashboardStore';
-import { subscribeDataChanges } from '../../lib/dataSync';
-import { useUsers } from '../../hooks/useUsers';
-import { useVisibilityAwareRefresh } from '../../hooks/useVisibilityAwareRefresh';
+import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
+import { useUsers } from '@/features/shared/hooks/useUsers';
+import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import { useFeatureStore } from '../../store/featureStore';
 import { usePlatformStore } from '../../store/platformStore';
-import { isPathEnabled } from '../../lib/featureFlags';
-import MigrationHistoryPanel from '../../components/admin/MigrationHistoryPanel';
-import GPSTrackingHistory from '../../components/admin/GPSTrackingHistory';
+import { isPathEnabled } from '@/features/shared/lib/featureFlags';
+import MigrationHistoryPanel from '@/features/shared/components/admin/MigrationHistoryPanel';
+import GPSTrackingHistory from '@/features/shared/components/admin/GPSTrackingHistory';
 
 const actionLabels: Record<string, string> = {
   LOGIN: 'Login',

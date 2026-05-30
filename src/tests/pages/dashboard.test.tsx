@@ -5,13 +5,13 @@ import { MemoryRouter } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import { useFeatureStore } from '../../store/featureStore';
 import { useUIStore } from '../../store/uiStore';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/features/shared/lib/supabase';
 import AdminDashboard from '../../pages/admin/AdminDashboard';
 import KomandanDashboard from '../../pages/komandan/KomandanDashboard';
 import PrajuritDashboard from '../../pages/prajurit/PrajuritDashboard';
 import GuardDashboard from '../../pages/guard/GuardDashboard';
-import { DEFAULT_FEATURE_FLAGS } from '../../lib/featureFlags';
-import type { AdminDashboardSnapshot } from '../../lib/api/dashboard';
+import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
+import type { AdminDashboardSnapshot } from '@/features/shared/lib/api/dashboard';
 
 vi.mock('html5-qrcode', () => ({
   Html5QrcodeScanner: vi.fn(() => ({

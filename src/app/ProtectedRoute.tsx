@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { useFeatureStore } from '../store/featureStore';
-import { isPathEnabled } from '../lib/featureFlags';
-import { APP_ROUTE_PATHS, getRoleDefaultPath, getRoleFallbackPaths } from '../lib/rolePermissions';
-import LoadingSpinner from '../components/common/LoadingSpinner';
+import { isPathEnabled } from '@/features/shared/lib/featureFlags';
+import { APP_ROUTE_PATHS, getRoleDefaultPath, getRoleFallbackPaths } from '@/features/shared/lib/rolePermissions';
+import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 import type { Role } from '../types';
 
 interface ProtectedRouteProps {
