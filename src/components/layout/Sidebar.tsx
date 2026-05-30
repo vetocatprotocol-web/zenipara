@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import useSatuanBranding from '../../hooks/useSatuanBranding';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ICONS, IconType } from '../../icons';
 import { useAuthStore } from '../../store/authStore';
@@ -29,24 +30,28 @@ const resolveNavSection = (item: NavItem): NavSection => {
   return 'Operasional';
 };
 
+const ADMIN_NAV: NavItem[] = [
+  { path: ROLE_ROUTE_PATHS.admin.dashboard,       label: 'Pusat Kendali',  icon: 'LayoutDashboard' },
+  { path: ROLE_ROUTE_PATHS.admin.satuan,          label: 'Satuan',         icon: 'Building2' },
+  { path: ROLE_ROUTE_PATHS.admin.users,           label: 'Personel',       icon: 'Users' },
+  { path: ROLE_ROUTE_PATHS.admin.analytics,       label: 'Analitik',       icon: 'TrendingUp' },
+  { path: ROLE_ROUTE_PATHS.admin.logistics,       label: 'Logistik',       icon: 'Package' },
+  { path: ROLE_ROUTE_PATHS.admin.documents,       label: 'Dokumen',        icon: 'FileText' },
+  { path: ROLE_ROUTE_PATHS.admin.announcements,   label: 'Pengumuman',     icon: 'Megaphone' },
+  { path: ROLE_ROUTE_PATHS.admin.schedule,        label: 'Jadwal Shift',   icon: 'CalendarDays' },
+  { path: ROLE_ROUTE_PATHS.admin.attendance,      label: 'Rekap Absensi',  icon: 'ClipboardCheck' },
+  { path: ROLE_ROUTE_PATHS.admin.apel,            label: 'Apel Digital',   icon: 'Bell' },
+  { path: ROLE_ROUTE_PATHS.admin.kegiatan,        label: 'Kalender Kegiatan', icon: 'CalendarDays' },
+  { path: ROLE_ROUTE_PATHS.admin.gatePassMonitor, label: 'Gate Pass',      icon: 'ClipboardCheck' },
+  { path: ROLE_ROUTE_PATHS.admin.posJaga,         label: 'Pos Jaga',       icon: 'MapPin' },
+  { path: ROLE_ROUTE_PATHS.admin.audit,           label: 'Audit Log',      icon: 'ScrollText' },
+  { path: ROLE_ROUTE_PATHS.admin.settings,        label: 'Pengaturan',     icon: 'Settings' },
+];
+
 const NAV_ITEMS: Record<Role, NavItem[]> = {
-  admin: [
-    { path: ROLE_ROUTE_PATHS.admin.dashboard,       label: 'Pusat Kendali',  icon: 'LayoutDashboard' },
-    { path: ROLE_ROUTE_PATHS.admin.satuan,          label: 'Satuan',         icon: 'Building2' },
-    { path: ROLE_ROUTE_PATHS.admin.users,           label: 'Personel',       icon: 'Users' },
-    { path: ROLE_ROUTE_PATHS.admin.analytics,       label: 'Analitik',       icon: 'TrendingUp' },
-    { path: ROLE_ROUTE_PATHS.admin.logistics,       label: 'Logistik',       icon: 'Package' },
-    { path: ROLE_ROUTE_PATHS.admin.documents,       label: 'Dokumen',        icon: 'FileText' },
-    { path: ROLE_ROUTE_PATHS.admin.announcements,   label: 'Pengumuman',     icon: 'Megaphone' },
-    { path: ROLE_ROUTE_PATHS.admin.schedule,        label: 'Jadwal Shift',   icon: 'CalendarDays' },
-    { path: ROLE_ROUTE_PATHS.admin.attendance,      label: 'Rekap Absensi',  icon: 'ClipboardCheck' },
-    { path: ROLE_ROUTE_PATHS.admin.apel,            label: 'Apel Digital',   icon: 'Bell' },
-    { path: ROLE_ROUTE_PATHS.admin.kegiatan,        label: 'Kalender Kegiatan', icon: 'CalendarDays' },
-    { path: ROLE_ROUTE_PATHS.admin.gatePassMonitor, label: 'Gate Pass',      icon: 'ClipboardCheck' },
-    { path: ROLE_ROUTE_PATHS.admin.posJaga,         label: 'Pos Jaga',       icon: 'MapPin' },
-    { path: ROLE_ROUTE_PATHS.admin.audit,           label: 'Audit Log',      icon: 'ScrollText' },
-    { path: ROLE_ROUTE_PATHS.admin.settings,        label: 'Pengaturan',     icon: 'Settings' },
-  ],
+  admin: ADMIN_NAV,
+  super_admin: ADMIN_NAV,
+  admin_satuan: ADMIN_NAV,
   komandan: [
     { path: ROLE_ROUTE_PATHS.komandan.dashboard,       label: 'Pusat Operasi',       icon: 'LayoutDashboard' },
     { path: ROLE_ROUTE_PATHS.komandan.tasks,           label: 'Tugas',                icon: 'CheckSquare' },
@@ -104,6 +109,7 @@ export default function Sidebar() {
   const { user, logout } = useAuthStore();
   const { sidebarOpen, setSidebarOpen, bottomNavigationEnabled } = useUIStore();
   const { settings } = usePlatformStore();
+  const { branding: satuanBranding } = useSatuanBranding();
   const { flags } = useFeatureStore();
   const location = useLocation();
   const navigate = useNavigate();
@@ -222,8 +228,14 @@ export default function Sidebar() {
         {/* Logo */}
         <div className="border-b border-surface/60 px-5 py-4">
           <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              {settings.platformLogoUrl ? (
+              <div className="flex items-center gap-3">
+              {satuanBranding?.logo_url ? (
+                <img
+                  src={satuanBranding.logo_url}
+                  alt={satuanBranding.nama_pendek ?? settings.platformName}
+                  className="h-10 w-10 rounded-2xl border border-primary/20 bg-primary/10 object-cover shadow-sm"
+                />
+              ) : settings.platformLogoUrl ? (
                 <img
                   src={settings.platformLogoUrl}
                   alt={settings.platformName}
@@ -233,7 +245,7 @@ export default function Sidebar() {
                 <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-primary to-blue-700 text-lg text-white shadow-md shadow-primary/30">◈</span>
               )}
               <div>
-                <div className="text-sm font-extrabold tracking-tight text-text-primary leading-tight">{settings.platformName}</div>
+                <div className="text-sm font-extrabold tracking-tight text-text-primary leading-tight">{satuanBranding?.nama_pendek ?? settings.platformName}</div>
                 <div className="text-[10px] uppercase tracking-[0.14em] text-text-muted">{settings.platformTagline}</div>
               </div>
             </div>

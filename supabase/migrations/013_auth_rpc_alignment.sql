@@ -25,7 +25,7 @@ $$;
 -- Match frontend contract: verify_user_pin returns user_id + user_role.
 DROP FUNCTION IF EXISTS public.verify_user_pin(TEXT, TEXT);
 CREATE OR REPLACE FUNCTION public.verify_user_pin(p_nrp TEXT, p_pin TEXT)
-RETURNS TABLE (user_id UUID, user_role TEXT)
+RETURNS TABLE (user_id UUID, user_role TEXT, force_change_pin BOOLEAN, satuan_id UUID)
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public, extensions
@@ -50,6 +50,8 @@ BEGIN
   IF v_user.pin_hash = extensions.crypt(p_pin, v_user.pin_hash) THEN
     user_id := v_user.id;
     user_role := v_user.role;
+    force_change_pin := COALESCE(v_user.force_change_pin, FALSE);
+    satuan_id := v_user.satuan_id;
 
     UPDATE public.users
     SET login_attempts = 0,

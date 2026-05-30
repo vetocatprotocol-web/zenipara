@@ -1,0 +1,4 @@
+/*    /index.html   200
+
+# Force SPA routing to index.html so client-side router handles paths
+/*  /index.html  200

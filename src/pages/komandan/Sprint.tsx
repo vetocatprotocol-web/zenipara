@@ -10,6 +10,7 @@ import Table from '../../components/ui/Table';
 import Badge from '../../components/common/Badge';
 import { useSprint } from '../../hooks/useSprint';
 import { useAuthStore } from '../../store/authStore';
+import { isRoleAdmin, isRoleKomandan } from '../../lib/rolePermissions';
 import { useUIStore } from '../../store/uiStore';
 import UserSearchSelect from '../../components/common/UserSearchSelect';
 import type { Sprint, SprintPersonel, SprintStatus } from '../../types';
@@ -62,7 +63,7 @@ export default function SprintPage() {
     active: sprint.filter((s) => s.status === 'active').length,
   }), [sprint]);
 
-  const canApprove = user?.role === 'komandan' || user?.role === 'admin';
+  const canApprove = isRoleKomandan(user?.role) || isRoleAdmin(user?.role);
 
   const selectedPersonelRows = personelRows.filter((row) => row.userId);
 

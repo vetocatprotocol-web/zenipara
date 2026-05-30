@@ -34,6 +34,7 @@ const sessionAwareFetch: typeof fetch = async (input, init) => {
   const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
   headers.set('x-karyo-user-id', session.user_id);
   headers.set('x-karyo-user-role', session.role);
+  headers.set('x-karyo-satuan-id', session.satuan_id ?? '');
 
   if (input instanceof Request) {
     return baseFetch(new Request(input, { ...init, headers }));

@@ -19,13 +19,17 @@ interface BottomTabItem {
 }
 
 /** Mobile bottom tab: show max 5 primary nav items per role (spec §10.2) */
+const ADMIN_TABS: BottomTabItem[] = [
+  { path: ROLE_ROUTE_PATHS.admin.dashboard,     label: 'Beranda',    icon: <LayoutDashboard size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin.users,         label: 'Personel',   icon: <Users size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin.announcements, label: 'Pengumuman', icon: <Megaphone size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin.settings,      label: 'Setelan',    icon: <Settings size={20} aria-hidden="true" /> },
+];
+
 const BOTTOM_TABS: Record<Role, BottomTabItem[]> = {
-  admin: [
-    { path: ROLE_ROUTE_PATHS.admin.dashboard,     label: 'Beranda',    icon: <LayoutDashboard size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.admin.users,         label: 'Personel',   icon: <Users size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.admin.announcements, label: 'Pengumuman', icon: <Megaphone size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.admin.settings,      label: 'Setelan',    icon: <Settings size={20} aria-hidden="true" /> },
-  ],
+  admin: ADMIN_TABS,
+  super_admin: ADMIN_TABS,
+  admin_satuan: ADMIN_TABS,
   komandan: [
     { path: ROLE_ROUTE_PATHS.komandan.dashboard,  label: 'Beranda',   icon: <LayoutDashboard size={20} aria-hidden="true" /> },
     { path: ROLE_ROUTE_PATHS.komandan.tasks,      label: 'Tugas',     icon: <CheckSquare size={20} aria-hidden="true" /> },

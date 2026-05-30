@@ -1252,7 +1252,7 @@ export default function UserManagement() {
                   onChange={(e) => setRegistrationRole(e.target.value as Role)}
                   className="form-control w-full bg-bg-card"
                 >
-                  {ROLE_OPTIONS.filter((opt) => opt.value !== 'admin').map((option) => (
+                  {ROLE_OPTIONS.filter((opt) => opt.value !== ('admin' as any)).map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))}
                 </select>

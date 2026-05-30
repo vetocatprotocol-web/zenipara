@@ -7,6 +7,7 @@ import ConfirmModal from '../../components/common/ConfirmModal';
 import EmptyState from '../../components/common/EmptyState';
 import { CardListSkeleton } from '../../components/common/Skeleton';
 import { useAuthStore } from '../../store/authStore';
+import { isRoleAdmin } from '../../lib/rolePermissions';
 import { useUIStore } from '../../store/uiStore';
 import { useKegiatan } from '../../hooks/useKegiatan';
 import { ICONS } from '../../icons';
@@ -127,7 +128,7 @@ export default function AdminKegiatanPage() {
           )}
           {k.deskripsi && <p className="text-xs text-text-secondary mt-1 line-clamp-2">{k.deskripsi}</p>}
         </div>
-        {user?.role === 'admin' && (
+        {isRoleAdmin(user?.role) && (
           <Button
             variant="ghost"
             size="sm"

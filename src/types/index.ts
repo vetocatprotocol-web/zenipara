@@ -35,14 +35,21 @@ export interface GatePass {
   user?: User;
 }
 
-export type Role = 'admin' | 'komandan' | 'prajurit' | 'guard' | 'staf';
+export type Role = 'super_admin' | 'admin_satuan' | 'komandan' | 'prajurit' | 'guard' | 'admin' | 'staf';
 export type CommandLevel = 'BATALION' | 'KOMPI' | 'PELETON';
+
+export interface SatuanBranding {
+  logo_url?: string;
+  warna_primer?: string;
+  nama_pendek?: string;
+}
 
 export interface Satuan {
   id: string;
   nama: string;
   kode_satuan: string;
   tingkat?: 'battalion' | 'company' | 'squad' | 'detachment';
+  branding?: SatuanBranding;
   logo_url?: string;
   is_active: boolean;
   created_by?: string;
@@ -393,6 +400,7 @@ export interface ScanPosJagaResult {
 export interface KaryoSession {
   user_id: string;
   role: Role;
+  satuan_id: string | null;
   expires_at: string;
 }
 

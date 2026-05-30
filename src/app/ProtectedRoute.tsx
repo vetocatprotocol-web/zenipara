@@ -3,7 +3,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { useFeatureStore } from '../store/featureStore';
 import { isPathEnabled } from '../lib/featureFlags';
-import { APP_ROUTE_PATHS, getRoleDefaultPath, getRoleFallbackPaths, normalizeRole } from '../lib/rolePermissions';
+import { APP_ROUTE_PATHS, getRoleDefaultPath, getRoleFallbackPaths } from '../lib/rolePermissions';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import type { Role } from '../types';
 
@@ -22,6 +22,7 @@ export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
   const isInitialized = useAuthStore((s) => s.isInitialized);
   const hasUser = useAuthStore((s) => Boolean(s.user));
   const userRole = useAuthStore((s) => s.user?.role ?? null);
+  const userSatuanId = useAuthStore((s) => s.user?.satuan_id ?? null);
   const { pathname } = useLocation();
   const { flags, isLoaded, loadFeatureFlags } = useFeatureStore();
 
@@ -39,11 +40,12 @@ export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
     return <Navigate to={APP_ROUTE_PATHS.login} replace />;
   }
 
-  const normalizedUserRole = normalizeRole(userRole ?? null) as string | null;
-  const normalizedAllowed = allowedRoles.map((r) => normalizeRole(r) as string);
-
-  if (!normalizedUserRole || !normalizedAllowed.includes(normalizedUserRole)) {
+  if (!allowedRoles.includes(userRole)) {
     return <Navigate to={getRoleDefaultPath(userRole) ?? APP_ROUTE_PATHS.login} replace />;
+  }
+
+  if (userRole !== 'super_admin' && !userSatuanId) {
+    return <Navigate to="/error" state={{ code: '403', message: 'Akun belum terdaftar di satuan manapun.' }} replace />;
   }
 
   if (requiresPinChange && pathname !== APP_ROUTE_PATHS.forceChangePin) {

@@ -9,6 +9,7 @@ import Table from '../../components/ui/Table';
 import EmptyState from '../../components/common/EmptyState';
 import { CardListSkeleton } from '../../components/common/Skeleton';
 import { useAuthStore } from '../../store/authStore';
+import { isRoleAdmin } from '../../lib/rolePermissions';
 import { useUIStore } from '../../store/uiStore';
 import { useLaporanOps } from '../../hooks/useLaporanOps';
 import type { LaporanOpsJenis, LaporanOpsStatus } from '../../types';
@@ -112,7 +113,7 @@ export default function StafLaporanOpsPage() {
     : laporan;
 
   const canDelete = (dibuatOleh: string | undefined, status: LaporanOpsStatus) =>
-    (dibuatOleh === user?.id || user?.role === 'admin') && status === 'draft';
+    (dibuatOleh === user?.id || isRoleAdmin(user?.role)) && status === 'draft';
 
   return (
     <DashboardLayout title="Laporan Operasional">

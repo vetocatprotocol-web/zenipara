@@ -7,7 +7,7 @@ import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './index.css';
-import { router } from './router';
+import { router } from './app/router';
 import { useAuthStore } from './store/authStore';
 import { usePlatformStore } from './store/platformStore';
 import { useFeatureStore } from './store/featureStore';
