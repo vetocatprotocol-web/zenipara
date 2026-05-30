@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import StafLeaveReview from '../../../pages/staf/LeaveReview';
+import StaffLeaveReview from '../../../pages/staf/LeaveReview';
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
@@ -83,7 +83,7 @@ vi.mock('../../../store/authStore', () => ({
   useAuthStore: () => ({
     user: {
       id: 'staf-s1',
-      role: 'staf',
+      role: 'staff_satuan',
       jabatan: 'S-1 Personalia',
       satuan: 'BATALION 1',
     },
@@ -96,7 +96,7 @@ vi.mock('../../../store/uiStore', () => ({
 
 vi.mock('../../../lib/rolePermissions', () => ({
   canWrite: (_user: unknown, module: string) => module === 'leave',
-  getOperationalRoleLabel: () => 'Staf S-1',
+  getOperationalRoleLabel: () => 'Staff S-1',
 }));
 
 const mockRequests = [
@@ -136,42 +136,42 @@ vi.mock('../../../hooks/useLeaveRequests', () => ({
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 
-describe('StafLeaveReview', () => {
+describe('StaffLeaveReview', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it('renders page title', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     expect(screen.getByText('Permohonan Izin Personel')).toBeInTheDocument();
   });
 
   it('shows pending count badge when there are pending requests', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     expect(screen.getByText(/menunggu persetujuan/i)).toBeInTheDocument();
   });
 
   it('shows pending requests by default', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     expect(screen.getByText('Budi Santoso')).toBeInTheDocument();
     expect(screen.queryByText('Sari Dewi')).not.toBeInTheDocument();
   });
 
   it('switches to "Semua" filter and shows all requests', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     fireEvent.click(screen.getByText('Semua'));
     expect(screen.getByText('Budi Santoso')).toBeInTheDocument();
     expect(screen.getByText('Sari Dewi')).toBeInTheDocument();
   });
 
   it('shows empty state when filter has no results', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     fireEvent.click(screen.getByText('Ditolak'));
     expect(screen.getByTestId('empty')).toBeInTheDocument();
   });
 
   it('calls reviewLeaveRequest with approved when Setujui is clicked', async () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     // Use exact text to avoid matching the "Disetujui" filter tab
     const approveBtn = screen.getByRole('button', { name: 'Setujui' });
     fireEvent.click(approveBtn);
@@ -185,14 +185,14 @@ describe('StafLeaveReview', () => {
   });
 
   it('opens rejection modal when Tolak is clicked', () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     const rejectBtn = screen.getByRole('button', { name: 'Tolak' });
     fireEvent.click(rejectBtn);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   it('calls reviewLeaveRequest with rejected from modal confirm', async () => {
-    render(<StafLeaveReview />);
+    render(<StaffLeaveReview />);
     fireEvent.click(screen.getByRole('button', { name: 'Tolak' }));
     const confirmBtn = screen.getByRole('button', { name: 'Ya, Tolak Izin' });
     fireEvent.click(confirmBtn);

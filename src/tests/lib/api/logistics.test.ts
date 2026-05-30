@@ -62,7 +62,7 @@ describe('logistics API', () => {
   describe('patchLogisticsRequestStatus', () => {
     it('calls rpc with status approved and admin_note', async () => {
       mockSupabase.rpc.mockResolvedValue({ data: null, error: null });
-      await patchLogisticsRequestStatus(CALLER_ID, 'admin', 'req1', 'approved', 'u2', 'Disetujui');
+      await patchLogisticsRequestStatus(CALLER_ID, 'admin_satuan', 'req1', 'approved', 'u2', 'Disetujui');
       expect(mockSupabase.rpc).toHaveBeenCalledWith('api_update_logistics_status', expect.objectContaining({
         p_id: 'req1', p_status: 'approved', p_admin_note: 'Disetujui',
       }));
@@ -70,13 +70,13 @@ describe('logistics API', () => {
 
     it('passes null admin_note when not provided', async () => {
       mockSupabase.rpc.mockResolvedValue({ data: null, error: null });
-      await patchLogisticsRequestStatus(CALLER_ID, 'admin', 'req1', 'rejected', 'u2');
+      await patchLogisticsRequestStatus(CALLER_ID, 'admin_satuan', 'req1', 'rejected', 'u2');
       expect(mockSupabase.rpc).toHaveBeenCalledWith('api_update_logistics_status', expect.objectContaining({ p_admin_note: null }));
     });
 
     it('throws when rpc fails', async () => {
       mockSupabase.rpc.mockResolvedValue({ data: null, error: new Error('update failed') });
-      await expect(patchLogisticsRequestStatus(CALLER_ID, 'admin', 'req1', 'approved', 'u2')).rejects.toThrow('update failed');
+      await expect(patchLogisticsRequestStatus(CALLER_ID, 'admin_satuan', 'req1', 'approved', 'u2')).rejects.toThrow('update failed');
     });
   });
 });

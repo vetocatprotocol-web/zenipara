@@ -54,7 +54,7 @@ interface RegistrationFormLink {
 
 function normalizeImportedRole(value: string | undefined): Role {
   const normalized = normalizeRole(value ?? '') ?? 'prajurit';
-  return (normalized === 'admin' || normalized === 'komandan' || normalized === 'staf' || normalized === 'guard' || normalized === 'prajurit')
+  return (normalized === 'admin_satuan' || normalized === 'komandan' || normalized === 'staff_satuan' || normalized === 'guard' || normalized === 'prajurit')
     ? normalized
     : 'prajurit';
 }
@@ -1252,7 +1252,7 @@ export default function UserManagement() {
                   onChange={(e) => setRegistrationRole(e.target.value as Role)}
                   className="form-control w-full bg-bg-card"
                 >
-                  {ROLE_OPTIONS.filter((opt) => opt.value !== ('admin' as any)).map((option) => (
+                  {ROLE_OPTIONS.filter((opt) => opt.value !== ('admin_satuan' as any)).map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))}
                 </select>
@@ -1549,7 +1549,7 @@ export default function UserManagement() {
         isOpen={showDetail}
         onClose={() => { setShowDetail(false); setDetailUser(null); }}
         user={detailUser}
-        viewerRole="admin"
+        viewerRole="admin_satuan"
         mode="edit"
         onSave={handleSaveDetail}
       />

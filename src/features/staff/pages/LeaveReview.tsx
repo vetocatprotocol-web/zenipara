@@ -28,7 +28,7 @@ function durasi(mulai: string, selesai: string): string {
   return `${days} hari`;
 }
 
-export default function StafLeaveReview() {
+export default function StaffLeaveReview() {
   const { user } = useAuthStore();
   const { showNotification } = useUIStore();
   const { requests, isLoading, reviewLeaveRequest } = useLeaveRequests({ satuan: user?.satuan });
@@ -95,7 +95,7 @@ export default function StafLeaveReview() {
           <div className="flex items-start gap-3 rounded-xl border border-accent-gold/30 bg-accent-gold/8 px-4 py-3">
             <Info className="mt-0.5 h-4 w-4 text-accent-gold" aria-hidden="true" />
             <p className="text-sm text-text-muted">
-              <span className="font-medium text-accent-gold">{getOperationalRoleLabel(user)}</span> — hanya dapat membaca data. Persetujuan izin dilakukan oleh Staf S-1 atau Komandan.
+              <span className="font-medium text-accent-gold">{getOperationalRoleLabel(user)}</span> — hanya dapat membaca data. Persetujuan izin dilakukan oleh Staff S-1 atau Komandan.
             </p>
           </div>
         )}

@@ -11,7 +11,7 @@ const mockSupabase = supabase as unknown as {
 };
 
 const mockAdminUser = {
-  id: 'admin-1', nrp: '00001', nama: 'Admin', role: 'admin' as const,
+  id: 'admin-1', nrp: '00001', nama: 'Admin', role: 'admin_satuan' as const,
   satuan: 'HQ', is_active: true, is_online: true, login_attempts: 0,
   created_at: '2024-01-01T00:00:00Z', updated_at: '2024-01-01T00:00:00Z',
 };
@@ -149,7 +149,7 @@ describe('useUsers', () => {
 
       expect(mockSupabase.rpc).toHaveBeenCalledWith('api_delete_user', {
         p_caller_id: 'admin-1',
-        p_caller_role: 'admin',
+        p_caller_role: 'admin_satuan',
         p_target_id: 'u1',
       });
     });

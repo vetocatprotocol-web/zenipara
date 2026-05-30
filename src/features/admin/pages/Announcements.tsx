@@ -15,7 +15,7 @@ import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
 import type { Announcement, Role } from '../../types';
 
-const ANNOUNCEMENT_TARGET_ROLES = ['admin', 'komandan', 'prajurit'] as const;
+const ANNOUNCEMENT_TARGET_ROLES = ['admin_satuan', 'komandan', 'prajurit'] as const;
 type AnnouncementTargetRole = (typeof ANNOUNCEMENT_TARGET_ROLES)[number];
 type SortMode = 'terbaru' | 'terlama' | 'ber-pin-paling-banyak';
 
@@ -93,7 +93,7 @@ export default function Announcements() {
       isi: ann.isi,
       target_satuan: ann.target_satuan ?? '',
       is_pinned: ann.is_pinned,
-      target_admin: ann.target_role?.includes('admin') ?? false,
+      target_admin: ann.target_role?.includes('admin_satuan') ?? false,
       target_komandan: ann.target_role?.includes('komandan') ?? false,
       target_prajurit: ann.target_role?.includes('prajurit') ?? false,
     });
@@ -112,7 +112,7 @@ export default function Announcements() {
       return;
     }
     const targetRole: Role[] = [];
-    if (form.target_admin) targetRole.push('admin');
+    if (form.target_admin) targetRole.push('admin_satuan');
     if (form.target_komandan) targetRole.push('komandan');
     if (form.target_prajurit) targetRole.push('prajurit');
 

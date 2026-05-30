@@ -17,7 +17,7 @@ import {
   getRoleProfilePath,
   isRoleAdmin,
   isRolePrajurit,
-  isRoleStaf,
+  isRoleStaff,
 } from '@/features/shared/lib/rolePermissions';
 import GlobalSearch from '../ui/GlobalSearch';
 import OfflineIndicator from '../common/OfflineIndicator';
@@ -210,7 +210,7 @@ export default function Navbar({ title }: NavbarProps) {
               </div>
 
               {/* Profil link — only for roles that have a profile page */}
-              {(isRolePrajurit(user?.role) || isRoleStaf(user?.role)) && user?.role && (
+              {(isRolePrajurit(user?.role) || isRoleStaff(user?.role)) && user?.role && (
                 <Link
                   to={profilePath ?? APP_ROUTE_PATHS.login}
                   role="menuitem"
@@ -218,7 +218,7 @@ export default function Navbar({ title }: NavbarProps) {
                   className="dropdown-item"
                 >
                   {ICONS.User ? <ICONS.User className="w-4 h-4 text-text-muted" aria-hidden="true" /> : null}
-                  {isRoleStaf(user.role) ? 'Dasbor Staf' : 'Profil Saya'}
+                  {isRoleStaff(user.role) ? 'Dasbor Staff' : 'Profil Saya'}
                 </Link>
               )}
 

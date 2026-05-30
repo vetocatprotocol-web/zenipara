@@ -157,7 +157,7 @@ export async function batchToggleUserStatus(userIds: string[], isActive: boolean
   const results = await Promise.all(
     userIds.map(userId => supabase.rpc('api_update_user', {
       p_caller_id: userId, // This should be the current user ID
-      p_caller_role: 'admin',
+      p_caller_role: 'admin_satuan',
       p_target_id: userId,
       p_updates: { is_active: isActive },
     }))

@@ -47,7 +47,7 @@ const defaultForm = {
   rekomendasi: '',
 };
 
-export default function StafLaporanOpsPage() {
+export default function StaffLaporanOpsPage() {
   const { user } = useAuthStore();
   const { showNotification } = useUIStore();
   const { laporan, isLoading, createLaporan, updateStatus, removeLaporan } = useLaporanOps();

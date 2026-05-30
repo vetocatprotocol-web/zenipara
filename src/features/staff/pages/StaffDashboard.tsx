@@ -17,21 +17,21 @@ import { ensureStoredSessionContext } from '@/features/shared/lib/api/sessionCon
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import type { IconName } from '../../icons';
 
-interface StafStats {
+interface StafffStats {
   totalPersonel: number;
   hadirHariIni: number;
   tugasAktif: number;
   logistikPending: number;
 }
 
-const EMPTY_STATS: StafStats = {
+const EMPTY_STATS: StafffStats = {
   totalPersonel: 0,
   hadirHariIni: 0,
   tugasAktif: 0,
   logistikPending: 0,
 };
 
-async function fetchStafStats(satuan: string): Promise<StafStats> {
+async function fetchStafffStats(satuan: string): Promise<StafffStats> {
   await ensureStoredSessionContext();
   const { data, error } = await supabase.rpc('api_get_staf_stats', {
     p_satuan: satuan,
@@ -65,10 +65,10 @@ function detectBidang(jabatan?: string): 'pers' | 'log' | 'ops' | 'umum' {
 }
 
 const BIDANG_LABEL: Record<string, string> = {
-  pers: 'Staf Personel (S-1)',
-  log: 'Staf Logistik (S-4)',
-  ops: 'Staf Operasional (S-3)',
-  umum: 'Staf Operasional',
+  pers: 'Staff Personel (S-1)',
+  log: 'Staff Logistik (S-4)',
+  ops: 'Staff Operasional (S-3)',
+  umum: 'Staff Operasional',
 };
 
 /** Quick-access module cards per bidang */
@@ -77,17 +77,17 @@ const BIDANG_MODULES: Record<string, { path: string; label: string; icon: IconNa
     { path: '/admin/users',       label: 'Manajemen Personel', icon: 'Users', color: 'border-blue-500/30 bg-blue-500/5' },
     { path: '/admin/attendance',  label: 'Rekap Absensi',      icon: 'ClipboardCheck', color: 'border-emerald-500/30 bg-emerald-500/5' },
     { path: '/admin/schedule',    label: 'Jadwal Shift',       icon: 'CalendarDays', color: 'border-amber-500/30 bg-amber-500/5' },
-    { path: '/staf/messages',     label: 'Pesan',              icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
+    { path: '/staff/messages',     label: 'Pesan',              icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
   ],
   log: [
     { path: '/admin/logistics',   label: 'Inventaris Logistik', icon: 'Package', color: 'border-orange-500/30 bg-orange-500/5' },
     { path: '/admin/users',       label: 'Data Personel',       icon: 'Users', color: 'border-blue-500/30 bg-blue-500/5' },
-    { path: '/staf/messages',     label: 'Pesan',               icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
+    { path: '/staff/messages',     label: 'Pesan',               icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
     { path: '/admin/attendance',  label: 'Rekap Absensi',       icon: 'ClipboardCheck', color: 'border-emerald-500/30 bg-emerald-500/5' },
   ],
   ops: [
     { path: '/komandan/tasks',    label: 'Manajemen Tugas',     icon: 'CheckCircle2', color: 'border-green-500/30 bg-green-500/5' },
-    { path: '/staf/sprint',       label: 'Surat Perintah',      icon: 'ScrollText', color: 'border-cyan-500/30 bg-cyan-500/5' },
+    { path: '/staff/sprint',       label: 'Surat Perintah',      icon: 'ScrollText', color: 'border-cyan-500/30 bg-cyan-500/5' },
     { path: '/admin/pos-jaga',    label: 'Pos Jaga',            icon: 'Shield', color: 'border-red-500/30 bg-red-500/5' },
     { path: '/admin/users',       label: 'Data Personel',       icon: 'Users', color: 'border-blue-500/30 bg-blue-500/5' },
   ],
@@ -95,16 +95,16 @@ const BIDANG_MODULES: Record<string, { path: string; label: string; icon: IconNa
     { path: '/admin/users',       label: 'Data Personel',       icon: 'Users', color: 'border-blue-500/30 bg-blue-500/5' },
     { path: '/admin/attendance',  label: 'Rekap Absensi',       icon: 'ClipboardCheck', color: 'border-emerald-500/30 bg-emerald-500/5' },
     { path: '/admin/logistics',   label: 'Logistik',            icon: 'Package', color: 'border-orange-500/30 bg-orange-500/5' },
-    { path: '/staf/messages',     label: 'Pesan',               icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
+    { path: '/staff/messages',     label: 'Pesan',               icon: 'MessageSquare', color: 'border-purple-500/30 bg-purple-500/5' },
   ],
 };
 
-export default function StafDashboard() {
+export default function StafffDashboard() {
   const { user } = useAuthStore();
   const { flags } = useFeatureStore();
   const { announcements, isLoading: announcementsLoading } = useAnnouncements();
 
-  const [stats, setStats] = useState<StafStats>(EMPTY_STATS);
+  const [stats, setStats] = useState<StafffStats>(EMPTY_STATS);
   const [statsLoading, setStatsLoading] = useState(true);
   const [statsError, setStatsError] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -115,7 +115,7 @@ export default function StafDashboard() {
     if (!user?.satuan) return;
     setStatsError(null);
     try {
-      const data = await fetchStafStats(user.satuan);
+      const data = await fetchStafffStats(user.satuan);
       setStats(data);
     } catch {
       setStatsError('Gagal memuat statistik. Coba muat ulang.');
@@ -154,10 +154,10 @@ export default function StafDashboard() {
   ), [stats.hadirHariIni, stats.totalPersonel]);
 
   return (
-    <DashboardLayout title="Pusat Staf">
+    <DashboardLayout title="Pusat Staff">
       <div className="space-y-6">
         <PageHeader
-          title={`${user?.pangkat ? `${user.pangkat} ` : ''}${user?.nama ?? 'Staf'}`}
+          title={`${user?.pangkat ? `${user.pangkat} ` : ''}${user?.nama ?? 'Staff'}`}
           subtitle={`${BIDANG_LABEL[bidang]} · Satuan: ${user?.satuan ?? '—'} · ${new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`}
           meta={
             <>
@@ -278,13 +278,13 @@ function getModuleDescription(path: string) {
       return 'Tinjau rekap kehadiran harian dan tren.';
     case '/admin/schedule':
       return 'Atur rotasi dan jadwal jaga satuan.';
-    case '/staf/messages':
+    case '/staff/messages':
       return 'Baca dan kirim pesan internal satuan.';
     case '/admin/logistics':
       return 'Pantau inventaris dan item yang perlu perhatian.';
     case '/komandan/tasks':
       return 'Kelola tugas operasional dan progres personel.';
-    case '/staf/sprint':
+    case '/staff/sprint':
       return 'Akses surat perintah dan dokumen tugas.';
     case '/admin/pos-jaga':
       return 'Kelola titik jaga dan QR statis.';

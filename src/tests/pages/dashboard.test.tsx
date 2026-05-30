@@ -58,7 +58,7 @@ const dataMap = {
     { id: 'l1', nama_item: 'Obat', jumlah: 2, kondisi: 'kurang_baik', kategori: 'Medis', lokasi: 'Brankas', satuan_item: 'pcs' },
   ],
   audit_logs: [
-    { id: 'log1', action: 'LOGIN', user: { id: 'u1', nama: 'Admin', nrp: '12345', role: 'admin' }, created_at: '2026-04-14T08:00:00Z' },
+    { id: 'log1', action: 'LOGIN', user: { id: 'u1', nama: 'Admin', nrp: '12345', role: 'admin_satuan' }, created_at: '2026-04-14T08:00:00Z' },
   ],
 };
 
@@ -203,7 +203,7 @@ beforeEach(() => {
 describe('End-to-end dashboard rendering', () => {
   it('renders the admin dashboard for admin role', async () => {
     useAuthStore.setState({
-      user: { id: 'u1', nrp: '12345', nama: 'Admin One', role: 'admin', satuan: 'Pusat', is_active: true, is_online: true, login_attempts: 0, created_at: '2026-04-14T00:00:00Z', updated_at: '2026-04-14T00:00:00Z' },
+      user: { id: 'u1', nrp: '12345', nama: 'Admin One', role: 'admin_satuan', satuan: 'Pusat', is_active: true, is_online: true, login_attempts: 0, created_at: '2026-04-14T00:00:00Z', updated_at: '2026-04-14T00:00:00Z' },
       isAuthenticated: true,
     });
 

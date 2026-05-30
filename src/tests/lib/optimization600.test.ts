@@ -162,22 +162,22 @@ describe('CacheWithTTL - Search Result Caching', () => {
 
 describe('User Search Cache Keys', () => {
   it('should create consistent cache keys for user searches', () => {
-    const key1 = createUserSearchCacheKey('budi', 'admin', 'satuan1', true, 1, 50);
-    const key2 = createUserSearchCacheKey('budi', 'admin', 'satuan1', true, 1, 50);
+    const key1 = createUserSearchCacheKey('budi', 'admin_satuan', 'satuan1', true, 1, 50);
+    const key2 = createUserSearchCacheKey('budi', 'admin_satuan', 'satuan1', true, 1, 50);
     
     expect(key1).toBe(key2);
   });
 
   it('should differentiate cache keys for different searches', () => {
-    const key1 = createUserSearchCacheKey('budi', 'admin', undefined, true, 1, 50);
-    const key2 = createUserSearchCacheKey('ahmad', 'admin', undefined, true, 1, 50);
+    const key1 = createUserSearchCacheKey('budi', 'admin_satuan', undefined, true, 1, 50);
+    const key2 = createUserSearchCacheKey('ahmad', 'admin_satuan', undefined, true, 1, 50);
     
     expect(key1).not.toBe(key2);
   });
 
   it('should differentiate cache keys for different pages', () => {
-    const key1 = createUserSearchCacheKey('budi', 'admin', undefined, true, 1, 50);
-    const key2 = createUserSearchCacheKey('budi', 'admin', undefined, true, 2, 50);
+    const key1 = createUserSearchCacheKey('budi', 'admin_satuan', undefined, true, 1, 50);
+    const key2 = createUserSearchCacheKey('budi', 'admin_satuan', undefined, true, 2, 50);
     
     expect(key1).not.toBe(key2);
   });

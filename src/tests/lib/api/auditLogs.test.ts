@@ -6,7 +6,7 @@ import type { AuditLog } from '../../../types';
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 
 const CALLER_ID = 'caller-1';
-const CALLER_ROLE = 'admin';
+const CALLER_ROLE = 'admin_satuan';
 
 const sampleLogs: AuditLog[] = [
   { id: 'l1', action: 'LOGIN', created_at: '2024-01-01T08:00:00Z' },

@@ -14,7 +14,7 @@ const mockSupabase = supabase as unknown as {
 };
 
 const CALLER_ID = 'caller-1';
-const CALLER_ROLE = 'admin';
+const CALLER_ROLE = 'admin_satuan';
 
 describe('posJaga API', () => {
   beforeEach(() => { vi.clearAllMocks(); });

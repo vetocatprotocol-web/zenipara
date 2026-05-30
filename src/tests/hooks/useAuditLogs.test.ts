@@ -8,7 +8,7 @@ import type { AuditLog } from '../../types';
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 
 const mockUser = {
-  id: 'u-admin', nrp: '11111', nama: 'Admin A', role: 'admin' as const,
+  id: 'u-admin', nrp: '11111', nama: 'Admin A', role: 'admin_satuan' as const,
   satuan: 'Satuan X', is_active: true, is_online: true, login_attempts: 0,
   created_at: '2024-01-01T00:00:00Z', updated_at: '2024-01-01T00:00:00Z',
 };

@@ -185,7 +185,7 @@ export function canAutoApprove(criteria: AutoApprovalCriteria): boolean {
   }
 
   // Admin can force approve
-  if (criteria.executorRole === 'admin') {
+  if (criteria.executorRole === 'admin_satuan') {
     return true;
   }
 

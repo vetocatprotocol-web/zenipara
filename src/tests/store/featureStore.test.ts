@@ -41,7 +41,7 @@ describe('featureStore', () => {
         id: 'admin-1',
         nrp: '12345',
         nama: 'Admin',
-        role: 'admin',
+        role: 'admin_satuan',
         satuan: 'Satuan Test',
         is_active: true,
         is_online: true,
@@ -62,7 +62,7 @@ describe('featureStore', () => {
     });
 
     expect(mockUpdateFeatureFlags).toHaveBeenCalledTimes(1);
-    expect(mockUpdateFeatureFlags).toHaveBeenCalledWith('admin-1', 'admin', expect.objectContaining({
+    expect(mockUpdateFeatureFlags).toHaveBeenCalledWith('admin-1', 'admin_satuan', expect.objectContaining({
       user_management: false,
       reports: false,
     }));
@@ -85,7 +85,7 @@ describe('featureStore', () => {
     });
 
     expect(mockUpdateFeatureFlags).toHaveBeenCalledTimes(1);
-    expect(mockUpdateFeatureFlags).toHaveBeenCalledWith('admin-1', 'admin', customFlags);
+    expect(mockUpdateFeatureFlags).toHaveBeenCalledWith('admin-1', 'admin_satuan', customFlags);
     expect(useFeatureStore.getState().flags).toMatchObject(customFlags);
   });
 });

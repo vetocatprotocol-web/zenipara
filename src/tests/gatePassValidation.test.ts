@@ -189,7 +189,7 @@ describe('Gate Pass Validation Functions', () => {
 
     it('should auto-approve admin submissions', () => {
       const result = canAutoApprove({
-        executorRole: 'admin',
+        executorRole: 'admin_satuan',
       });
       expect(result).toBe(true);
     });

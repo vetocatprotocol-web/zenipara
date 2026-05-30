@@ -40,7 +40,7 @@ function buildRpcQuery(result: { data: unknown; error: unknown }) {
 const SESSION_KEY = 'karyo_session';
 
 // Session helpers that use the real AES-GCM encryption so tests match production behaviour.
-async function makeValidEncryptedSession(userId = 'u1', role: Role = 'admin') {
+async function makeValidEncryptedSession(userId = 'u1', role: Role = 'admin_satuan') {
   const expiresAt = new Date();
   expiresAt.setHours(expiresAt.getHours() + 8);
   await saveSession({ user_id: userId, role, expires_at: expiresAt.toISOString() });
@@ -49,14 +49,14 @@ async function makeValidEncryptedSession(userId = 'u1', role: Role = 'admin') {
 async function makeExpiredEncryptedSession() {
   const expiresAt = new Date();
   expiresAt.setHours(expiresAt.getHours() - 1);
-  await saveSession({ user_id: 'u1', role: 'admin', expires_at: expiresAt.toISOString() });
+  await saveSession({ user_id: 'u1', role: 'admin_satuan', expires_at: expiresAt.toISOString() });
 }
 
 const mockUser = {
   id: 'u1',
   nrp: '12345',
   nama: 'Test User',
-  role: 'admin' as const,
+  role: 'admin_satuan' as const,
   satuan: 'Satuan A',
   is_active: true,
   is_online: false,
@@ -110,7 +110,7 @@ describe('authStore', () => {
     });
 
     it('restores user and sets isAuthenticated when session is valid', async () => {
-      await makeValidEncryptedSession('u1', 'admin');
+      await makeValidEncryptedSession('u1', 'admin_satuan');
       // Current implementation fetches the user via RPC, not supabase.from
       mockSupabase.rpc.mockReturnValue(buildRpcQuery({ data: mockUser, error: null }));
 
@@ -130,7 +130,7 @@ describe('authStore', () => {
       expiresAt.setHours(expiresAt.getHours() + 8);
       localStorage.setItem('karyo_session_context', JSON.stringify({
         user_id: 'u1',
-        role: 'admin',
+        role: 'admin_satuan',
         expires_at: expiresAt.toISOString(),
       }));
       localStorage.setItem(SESSION_KEY, JSON.stringify({ iv: 'abc', data: 'def' }));
@@ -261,7 +261,7 @@ describe('authStore', () => {
     it('authenticates on successful login', async () => {
       // Sequence: verify_user_pin → set_session_context → get_user_by_id → update_user_login → insert_audit_log
       mockSupabase.rpc
-        .mockReturnValueOnce(buildRpcQuery({ data: { user_id: 'u1', user_role: 'admin' }, error: null }))   // verify_user_pin
+        .mockReturnValueOnce(buildRpcQuery({ data: { user_id: 'u1', user_role: 'admin_satuan' }, error: null }))   // verify_user_pin
         .mockReturnValueOnce(buildRpcQuery({ data: null, error: null }))                                      // set_session_context
         .mockReturnValueOnce(buildRpcQuery({ data: mockUser, error: null }))                                 // get_user_by_id
         .mockReturnValue(buildRpcQuery({ data: null, error: null }));                                        // update_user_login, insert_audit_log

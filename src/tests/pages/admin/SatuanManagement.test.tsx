@@ -87,7 +87,7 @@ beforeEach(() => {
       id: 'admin-1',
       nrp: '12345',
       nama: 'Admin Test',
-      role: 'admin',
+      role: 'admin_satuan',
       satuan: 'HQ',
       is_active: true,
       is_online: true,

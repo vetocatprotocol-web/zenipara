@@ -78,7 +78,7 @@ export const FEATURE_DEFINITIONS: FeatureDefinition[] = [
   {
     key: 'laporan_ops',
     label: 'Laporan Operasional',
-    description: 'Laporan harian dan insidentil dari Staf S-3 dengan alur review komandan.',
+    description: 'Laporan harian dan insidentil dari Staff S-3 dengan alur review komandan.',
     paths: ['/staf/laporan-ops', '/komandan/laporan-ops'],
   },
   {

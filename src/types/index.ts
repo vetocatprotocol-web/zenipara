@@ -35,7 +35,7 @@ export interface GatePass {
   user?: User;
 }
 
-export type Role = 'super_admin' | 'admin_satuan' | 'komandan' | 'prajurit' | 'guard' | 'admin' | 'staf';
+export type Role = 'super_admin' | 'admin_satuan' | 'komandan' | 'staff_satuan' | 'prajurit';
 export type CommandLevel = 'BATALION' | 'KOMPI' | 'PELETON';
 
 export interface SatuanBranding {

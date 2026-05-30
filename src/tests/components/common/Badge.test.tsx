@@ -88,11 +88,11 @@ describe('LeaveStatusBadge', () => {
 
 describe('RoleBadge', () => {
   const cases = [
-    { role: 'admin', label: 'Super Admin' },
+    { role: 'admin_satuan', label: 'Super Admin' },
     { role: 'komandan', label: 'Komandan' },
     { role: 'prajurit', label: 'Prajurit' },
     { role: 'guard', label: 'Petugas Jaga / Provost' },
-    { role: 'staf', label: 'Staf Operasional' },
+    { role: 'staff_satuan', label: 'Staff Operasional' },
   ] as const;
 
   for (const { role, label } of cases) {

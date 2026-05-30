@@ -11,7 +11,7 @@ import type { Announcement } from '../../../types';
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 
 const CALLER_ID = 'caller-1';
-const CALLER_ROLE = 'admin';
+const CALLER_ROLE = 'admin_satuan';
 
 const sampleAnnouncements: Announcement[] = [
   { id: 'a1', judul: 'Pengumuman Upacara', isi: 'Upacara bendera dilaksanakan besok pagi', is_pinned: true, created_at: '2024-01-01T00:00:00Z' },

@@ -20,10 +20,10 @@ interface BottomTabItem {
 
 /** Mobile bottom tab: show max 5 primary nav items per role (spec §10.2) */
 const ADMIN_TABS: BottomTabItem[] = [
-  { path: ROLE_ROUTE_PATHS.admin.dashboard,     label: 'Beranda',    icon: <LayoutDashboard size={20} aria-hidden="true" /> },
-  { path: ROLE_ROUTE_PATHS.admin.users,         label: 'Personel',   icon: <Users size={20} aria-hidden="true" /> },
-  { path: ROLE_ROUTE_PATHS.admin.announcements, label: 'Pengumuman', icon: <Megaphone size={20} aria-hidden="true" /> },
-  { path: ROLE_ROUTE_PATHS.admin.settings,      label: 'Setelan',    icon: <Settings size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin_satuan.dashboard,     label: 'Beranda',    icon: <LayoutDashboard size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin_satuan.users,         label: 'Personel',   icon: <Users size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin_satuan.announcements, label: 'Pengumuman', icon: <Megaphone size={20} aria-hidden="true" /> },
+  { path: ROLE_ROUTE_PATHS.admin_satuan.settings,      label: 'Setelan',    icon: <Settings size={20} aria-hidden="true" /> },
 ];
 
 const BOTTOM_TABS: Record<Role, BottomTabItem[]> = {
@@ -48,13 +48,13 @@ const BOTTOM_TABS: Record<Role, BottomTabItem[]> = {
     { path: ROLE_ROUTE_PATHS.guard.gatePassScan, label: 'Scan',     icon: <CheckSquare size={20} aria-hidden="true" /> },
     { path: ROLE_ROUTE_PATHS.guard.discipline,   label: 'Disiplin', icon: <ScrollText  size={20} aria-hidden="true" /> },
   ],
-  // Staf Operasional
+  // Staff Operasional
   staf: [
-    { path: ROLE_ROUTE_PATHS.staf.dashboard,      label: 'Beranda',  icon: <LayoutDashboard size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.admin.users,         label: 'Personel', icon: <Users size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.admin.attendance,    label: 'Absensi',  icon: <CalendarDays size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.staf.leaveReview,    label: 'Izin',     icon: <UserCheck size={20} aria-hidden="true" /> },
-    { path: ROLE_ROUTE_PATHS.staf.messages,       label: 'Pesan',    icon: <Megaphone size={20} aria-hidden="true" />, hasMessageBadge: true },
+    { path: ROLE_ROUTE_PATHS.staff_satuan.dashboard,      label: 'Beranda',  icon: <LayoutDashboard size={20} aria-hidden="true" /> },
+    { path: ROLE_ROUTE_PATHS.admin_satuan.users,         label: 'Personel', icon: <Users size={20} aria-hidden="true" /> },
+    { path: ROLE_ROUTE_PATHS.admin_satuan.attendance,    label: 'Absensi',  icon: <CalendarDays size={20} aria-hidden="true" /> },
+    { path: ROLE_ROUTE_PATHS.staff_satuan.leaveReview,    label: 'Izin',     icon: <UserCheck size={20} aria-hidden="true" /> },
+    { path: ROLE_ROUTE_PATHS.staff_satuan.messages,       label: 'Pesan',    icon: <Megaphone size={20} aria-hidden="true" />, hasMessageBadge: true },
   ],
 };
 

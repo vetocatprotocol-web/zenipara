@@ -103,7 +103,7 @@ describe('gatePassStore', () => {
 
   it('rejects cancel gate pass for non-prajurit role', async () => {
     useAuthStore.setState({
-      user: { id: 'u3', nrp: '33333', nama: 'Admin A', role: 'admin', satuan: 'Mabes', is_active: true, is_online: true, login_attempts: 0, created_at: now.toISOString(), updated_at: now.toISOString() },
+      user: { id: 'u3', nrp: '33333', nama: 'Admin A', role: 'admin_satuan', satuan: 'Mabes', is_active: true, is_online: true, login_attempts: 0, created_at: now.toISOString(), updated_at: now.toISOString() },
       isAuthenticated: true, isLoading: false, isInitialized: true, error: null,
     });
 

@@ -35,7 +35,7 @@ describe('ProtectedRoute', () => {
     render(
       <MemoryRouter initialEntries={['/admin/dashboard']}>
         <Routes>
-          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin']} />}> 
+          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin_satuan']} />}> 
             <Route path="" element={<div>Allowed</div>} />
           </Route>
         </Routes>
@@ -51,7 +51,7 @@ describe('ProtectedRoute', () => {
       <MemoryRouter initialEntries={['/admin/dashboard']}>
         <Routes>
           <Route path="/login" element={<div>LoginPage</div>} />
-          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin']} />}> 
+          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin_satuan']} />}> 
             <Route path="" element={<div>Allowed</div>} />
           </Route>
         </Routes>
@@ -67,7 +67,7 @@ describe('ProtectedRoute', () => {
       <MemoryRouter initialEntries={['/admin/dashboard']}>
         <Routes>
           <Route path="/komandan/dashboard" element={<div>KomandanDashboard</div>} />
-          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin']} />}> 
+          <Route path="/*" element={<ProtectedRoute allowedRoles={['admin_satuan']} />}> 
             <Route path="" element={<div>Allowed</div>} />
           </Route>
         </Routes>
@@ -78,11 +78,11 @@ describe('ProtectedRoute', () => {
   });
 
   it('renders child outlet for authorized user', () => {
-    useAuthStore.setState({ isInitialized: true, isAuthenticated: true, user: { id: 'u1', nrp: '11111', nama: 'Admin A', role: 'admin', satuan: 'Pusat', is_active: true, is_online: true, login_attempts: 0, created_at: '2026-04-14T00:00:00Z', updated_at: '2026-04-14T00:00:00Z' } });
+    useAuthStore.setState({ isInitialized: true, isAuthenticated: true, user: { id: 'u1', nrp: '11111', nama: 'Admin A', role: 'admin_satuan', satuan: 'Pusat', is_active: true, is_online: true, login_attempts: 0, created_at: '2026-04-14T00:00:00Z', updated_at: '2026-04-14T00:00:00Z' } });
     render(
       <MemoryRouter initialEntries={['/admin/dashboard']}>
         <Routes>
-          <Route path="/admin/dashboard" element={<ProtectedRoute allowedRoles={['admin']} />}>
+          <Route path="/admin/dashboard" element={<ProtectedRoute allowedRoles={['admin_satuan']} />}>
             <Route index element={<div>Allowed</div>} />
           </Route>
         </Routes>

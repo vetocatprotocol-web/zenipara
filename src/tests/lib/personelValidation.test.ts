@@ -17,7 +17,7 @@ describe('personelValidation helpers', () => {
   });
 
   it('accepts non-komandan roles without tingkat komando', () => {
-    const errors = validateRoleEditForm({ role: 'admin' });
+    const errors = validateRoleEditForm({ role: 'admin_satuan' });
     expect(errors).toHaveLength(0);
   });
 });

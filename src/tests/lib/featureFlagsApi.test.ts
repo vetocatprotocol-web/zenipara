@@ -8,7 +8,7 @@ const mockSupabase = supabase as unknown as {
 };
 
 const adminId = '11111111-1111-1111-1111-111111111111';
-const adminRole = 'admin';
+const adminRole = 'admin_satuan';
 
 describe('featureFlags API fallback', () => {
   beforeEach(() => {

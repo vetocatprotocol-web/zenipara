@@ -1,4 +1,4 @@
-vscode-remote://codespaces%2Bglorious-space-fortnight-x5jw6jwr4xgwfwg7/workspaces/zenipara/srcimport { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Shield, Zap, Users, BarChart3, Lock } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';

@@ -15,43 +15,43 @@ import {
   isRoleGuard,
   isRoleKomandan,
   isRolePrajurit,
-  isRoleStaf,
+  isRoleStaff,
   isKnownRole,
   normalizeRole,
 } from '@/features/shared/lib/rolePermissions';
 
 describe('rolePermissions helpers', () => {
   it('normalizes role codes to canonical role', () => {
-    expect(normalizeRole('SAD')).toBe('admin');
+    expect(normalizeRole('SAD')).toBe('admin_satuan');
     expect(normalizeRole('KMD')).toBe('komandan');
-    expect(normalizeRole('STF')).toBe('staf');
+    expect(normalizeRole('STF')).toBe('staff_satuan');
     expect(normalizeRole('PRJ')).toBe('prajurit');
     expect(normalizeRole('PJP')).toBe('guard');
   });
 
   it('keeps canonical roles as-is', () => {
-    expect(normalizeRole('admin')).toBe('admin');
+    expect(normalizeRole('admin_satuan')).toBe('admin_satuan');
     expect(normalizeRole('komandan')).toBe('komandan');
-    expect(normalizeRole('staf')).toBe('staf');
+    expect(normalizeRole('staff_satuan')).toBe('staff_satuan');
     expect(normalizeRole('prajurit')).toBe('prajurit');
     expect(normalizeRole('guard')).toBe('guard');
   });
 
   it('normalizes common human-friendly role aliases', () => {
-    expect(normalizeRole('Super Admin')).toBe('admin');
-    expect(normalizeRole('Staff Operasional')).toBe('staf');
+    expect(normalizeRole('Super Admin')).toBe('admin_satuan');
+    expect(normalizeRole('Stafff Operasional')).toBe('staff_satuan');
     expect(normalizeRole('Petugas Jaga / Provos')).toBe('guard');
   });
 
   it('recognizes known roles from canonical and code forms', () => {
-    expect(isKnownRole('admin')).toBe(true);
+    expect(isKnownRole('admin_satuan')).toBe(true);
     expect(isKnownRole('SAD')).toBe(true);
     expect(isKnownRole('PJP')).toBe(true);
     expect(isKnownRole('unknown')).toBe(false);
   });
 
   it('returns correct display label and role code', () => {
-    expect(getRoleDisplayLabel('admin')).toBe('Super Admin');
+    expect(getRoleDisplayLabel('admin_satuan')).toBe('Super Admin');
     expect(getRoleDisplayLabel('SAD')).toBe('Super Admin');
     expect(getRoleDisplayLabel('guard')).toBe('Petugas Jaga / Provost');
     expect(getRoleCode('komandan')).toBe('KMD');
@@ -61,32 +61,32 @@ describe('rolePermissions helpers', () => {
   it('returns access description and default path for both code and canonical role', () => {
     expect(getRoleAccessDescription('STF')).toBe('Input operasional sesuai bidang (S-1/S-3/S-4)');
     expect(getRoleDefaultPath('PRJ')).toBe('/prajurit/dashboard');
-    expect(getRoleDefaultPath('admin')).toBe('/admin/dashboard');
+    expect(getRoleDefaultPath('admin_satuan')).toBe('/admin/dashboard');
     expect(getRoleDefaultPath('unknown')).toBeNull();
   });
 
   it('returns profile and message paths for canonical and code roles', () => {
     expect(getRoleProfilePath('PRJ')).toBe('/prajurit/profile');
-    expect(getRoleProfilePath('admin')).toBe('/admin/users');
+    expect(getRoleProfilePath('admin_satuan')).toBe('/admin/users');
     expect(getRoleMessagesPath('KMD')).toBe('/komandan/messages');
     expect(getRoleMessagesPath('PJP')).toBeNull();
     expect(getRoleMessagesPath('unknown')).toBeNull();
   });
 
   it('keeps centralized route path catalog in sync with helper outputs', () => {
-    expect(ROLE_ROUTE_PATHS.admin.dashboard).toBe('/admin/dashboard');
+    expect(ROLE_ROUTE_PATHS.admin_satuan.dashboard).toBe('/admin/dashboard');
     expect(ROLE_ROUTE_PATHS.guard.gatePassScan).toBe('/guard/gatepass-scan');
-    expect(getRoleDefaultPath('admin')).toBe(ROLE_ROUTE_PATHS.admin.dashboard);
+    expect(getRoleDefaultPath('admin_satuan')).toBe(ROLE_ROUTE_PATHS.admin_satuan.dashboard);
     expect(getRoleProfilePath('PRJ')).toBe(ROLE_ROUTE_PATHS.prajurit.profile);
-    expect(getRoleMessagesPath('STF')).toBe(ROLE_ROUTE_PATHS.staf.messages);
+    expect(getRoleMessagesPath('STF')).toBe(ROLE_ROUTE_PATHS.staff_satuan.messages);
   });
 
   it('maps global search result type and role to centralized route paths', () => {
     expect(getGlobalSearchResultPath('task', 'PRJ')).toBe(ROLE_ROUTE_PATHS.prajurit.tasks);
     expect(getGlobalSearchResultPath('task', 'KMD')).toBe(ROLE_ROUTE_PATHS.komandan.tasks);
-    expect(getGlobalSearchResultPath('user', 'SAD')).toBe(ROLE_ROUTE_PATHS.admin.users);
+    expect(getGlobalSearchResultPath('user', 'SAD')).toBe(ROLE_ROUTE_PATHS.admin_satuan.users);
     expect(getGlobalSearchResultPath('user', 'komandan')).toBe(ROLE_ROUTE_PATHS.komandan.personnel);
-    expect(getGlobalSearchResultPath('announcement', 'admin')).toBe(ROLE_ROUTE_PATHS.admin.announcements);
+    expect(getGlobalSearchResultPath('announcement', 'admin_satuan')).toBe(ROLE_ROUTE_PATHS.admin_satuan.announcements);
     expect(getGlobalSearchResultPath('announcement', 'PRJ')).toBe(ROLE_ROUTE_PATHS.prajurit.dashboard);
     expect(getGlobalSearchResultPath('announcement', 'unknown')).toBe(APP_ROUTE_PATHS.login);
     expect(APP_ROUTE_PATHS.error).toBe('/error');
@@ -95,18 +95,18 @@ describe('rolePermissions helpers', () => {
   it('returns fallback paths and role options with code labels', () => {
     expect(getRoleFallbackPaths('SAD')).toContain('/admin/settings');
     expect(getRoleFallbackPaths('PJP')).toContain('/guard/discipline');
-    const adminOption = ROLE_OPTIONS.find((opt) => opt.value === 'admin');
+    const adminOption = ROLE_OPTIONS.find((opt) => opt.value === 'admin_satuan');
     expect(adminOption?.label).toBe('Super Admin (SAD)');
     expect(adminOption?.description).toBe('Super Admin: konfigurasi sistem & audit');
   });
 
   it('supports semantic role predicates for code and canonical values', () => {
-    expect(isRoleAdmin('admin')).toBe(true);
+    expect(isRoleAdmin('admin_satuan')).toBe(true);
     expect(isRoleAdmin('SAD')).toBe(true);
     expect(isRoleKomandan('KMD')).toBe(true);
-    expect(isRoleStaf('STF')).toBe(true);
+    expect(isRoleStaff('STF')).toBe(true);
     expect(isRolePrajurit('PRJ')).toBe(true);
     expect(isRoleGuard('PJP')).toBe(true);
-    expect(isRoleGuard('staf')).toBe(false);
+    expect(isRoleGuard('staff_satuan')).toBe(false);
   });
 });

@@ -82,7 +82,7 @@ export function RoleBadge({ role }: { role: Role }) {
     komandan: { label: 'Komandan',     variant: 'info' },
     prajurit: { label: 'Prajurit',     variant: 'neutral' },
     guard:    { label: 'Petugas Jaga / Provost', variant: 'info' },
-    staf:     { label: 'Staf Operasional', variant: 'warning' },
+    staf:     { label: 'Staff Operasional', variant: 'warning' },
   };
   const roleMeta = map[role];
   const label = roleMeta?.label ?? getRoleDisplayLabel(role);
