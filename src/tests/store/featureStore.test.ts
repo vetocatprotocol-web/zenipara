@@ -2,17 +2,17 @@ import { act } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
 import { notifyDataChanged } from '@/features/shared/lib/dataSync';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
+import { useAuthStore } from '@/features/auth/authStore';
+import { useFeatureStore } from '@/store/featureStore';
 import { updateFeatureFlags } from '@/features/shared/lib/api/featureFlags';
 
-vi.mock('../../lib/api/featureFlags', () => ({
+vi.mock('@/features/shared/lib/api/featureFlags', () => ({
   getFeatureFlags: vi.fn().mockResolvedValue(DEFAULT_FEATURE_FLAGS),
   updateFeatureFlag: vi.fn().mockResolvedValue(undefined),
   updateFeatureFlags: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock('../../lib/dataSync', () => ({
+vi.mock('@/features/shared/lib/dataSync', () => ({
   notifyDataChanged: vi.fn(),
 }));
 

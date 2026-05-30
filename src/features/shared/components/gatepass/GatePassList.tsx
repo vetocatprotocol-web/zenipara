@@ -1,19 +1,18 @@
 import React from 'react';
-import { GatePass } from '../../types';
+import { GatePass } from '@/types';
 import GatePassStatusBadge from './GatePassStatusBadge';
 import EmptyState from '../common/EmptyState';
 import { ClipboardList, CheckCircle2, Clock } from 'lucide-react';
-import { formatTimeOnly } from '../../utils/timeFormatter';
+import { formatTimeOnly } from '@/utils/timeFormatter';
 import Button from '../common/Button';
 
 interface Props {
   gatePasses: GatePass[];
-  guard?: string;
   onCancel?: (gatePass: GatePass) => void | Promise<void>;
   cancellingId?: string | null;
 }
 
-const GatePassList: React.FC<Props> = ({ gatePasses, guard, onCancel, cancellingId = null }) => {
+const GatePassList: React.FC<Props> = ({ gatePasses, onCancel, cancellingId = null }) => {
   if (gatePasses.length === 0) {
     return (
       <EmptyState
@@ -40,7 +39,7 @@ const GatePassList: React.FC<Props> = ({ gatePasses, guard, onCancel, cancelling
               <p className="truncate text-sm font-semibold text-text-primary">{gp.tujuan}</p>
               <p className="text-xs text-text-muted">{gp.keperluan}</p>
             </div>
-            <GatePassStatusBadge gatePass={gp} guard={guard} />
+            <GatePassStatusBadge gatePass={gp} />
           </div>
 
           {/* Waktu Keluar */}

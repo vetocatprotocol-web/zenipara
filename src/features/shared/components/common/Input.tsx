@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;

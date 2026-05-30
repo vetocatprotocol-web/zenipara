@@ -5,9 +5,9 @@ import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import GatePassStatusBadge from '@/features/shared/components/gatepass/GatePassStatusBadge';
-import { useGatePassStore } from '../../store/gatePassStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 export default function GatePassApprovalPage() {
   const gatePasses = useGatePassStore((s) => s.gatePasses);

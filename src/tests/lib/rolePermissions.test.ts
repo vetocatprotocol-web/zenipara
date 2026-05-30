@@ -26,7 +26,7 @@ describe('rolePermissions helpers', () => {
     expect(normalizeRole('KMD')).toBe('komandan');
     expect(normalizeRole('STF')).toBe('staf');
     expect(normalizeRole('PRJ')).toBe('prajurit');
-    expect(normalizeRole('PJP')).toBe('guard');
+    expect(normalizeRole('PJP')).toBe('PJP');
   });
 
   it('keeps canonical roles as-is', () => {
@@ -34,26 +34,26 @@ describe('rolePermissions helpers', () => {
     expect(normalizeRole('komandan')).toBe('komandan');
     expect(normalizeRole('staf')).toBe('staf');
     expect(normalizeRole('prajurit')).toBe('prajurit');
-    expect(normalizeRole('guard')).toBe('guard');
+    // guard removed: keep as raw value if provided
   });
 
   it('normalizes common human-friendly role aliases', () => {
     expect(normalizeRole('Super Admin')).toBe('admin');
     expect(normalizeRole('Staff Operasional')).toBe('staf');
-    expect(normalizeRole('Petugas Jaga / Provos')).toBe('guard');
+    expect(normalizeRole('Petugas Jaga / Provos')).toBe('Petugas Jaga / Provos');
   });
 
   it('recognizes known roles from canonical and code forms', () => {
     expect(isKnownRole('admin')).toBe(true);
     expect(isKnownRole('SAD')).toBe(true);
-    expect(isKnownRole('PJP')).toBe(true);
+    expect(isKnownRole('PJP')).toBe(false);
     expect(isKnownRole('unknown')).toBe(false);
   });
 
   it('returns correct display label and role code', () => {
     expect(getRoleDisplayLabel('admin')).toBe('Super Admin');
     expect(getRoleDisplayLabel('SAD')).toBe('Super Admin');
-    expect(getRoleDisplayLabel('guard')).toBe('Petugas Jaga / Provost');
+    // guard removed from display labels
     expect(getRoleCode('komandan')).toBe('KMD');
     expect(getRoleCode('KMD')).toBe('KMD');
   });
@@ -75,7 +75,7 @@ describe('rolePermissions helpers', () => {
 
   it('keeps centralized route path catalog in sync with helper outputs', () => {
     expect(ROLE_ROUTE_PATHS.admin.dashboard).toBe('/admin/dashboard');
-    expect(ROLE_ROUTE_PATHS.guard.gatePassScan).toBe('/guard/gatepass-scan');
+    // guard routes removed
     expect(getRoleDefaultPath('admin')).toBe(ROLE_ROUTE_PATHS.admin.dashboard);
     expect(getRoleProfilePath('PRJ')).toBe(ROLE_ROUTE_PATHS.prajurit.profile);
     expect(getRoleMessagesPath('STF')).toBe(ROLE_ROUTE_PATHS.staf.messages);
@@ -94,7 +94,7 @@ describe('rolePermissions helpers', () => {
 
   it('returns fallback paths and role options with code labels', () => {
     expect(getRoleFallbackPaths('SAD')).toContain('/admin/settings');
-    expect(getRoleFallbackPaths('PJP')).toContain('/guard/discipline');
+    expect(getRoleFallbackPaths('PJP')).toEqual([]);
     const adminOption = ROLE_OPTIONS.find((opt) => opt.value === 'admin');
     expect(adminOption?.label).toBe('Super Admin (SAD)');
     expect(adminOption?.description).toBe('Super Admin: konfigurasi sistem & audit');
@@ -106,7 +106,7 @@ describe('rolePermissions helpers', () => {
     expect(isRoleKomandan('KMD')).toBe(true);
     expect(isRoleStaf('STF')).toBe(true);
     expect(isRolePrajurit('PRJ')).toBe(true);
-    expect(isRoleGuard('PJP')).toBe(true);
+    expect(isRoleGuard('PJP')).toBe(false);
     expect(isRoleGuard('staf')).toBe(false);
   });
 });

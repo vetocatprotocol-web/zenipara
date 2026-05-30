@@ -6,16 +6,16 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import DashboardShortcutGrid from '@/features/shared/components/ui/DashboardShortcutGrid';
 import { StatCardsSkeleton, CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import Button from '@/features/shared/components/common/Button';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 import { supabase } from '@/features/shared/lib/supabase';
 import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { ensureStoredSessionContext } from '@/features/shared/lib/api/sessionContext';
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
-import type { IconName } from '../../icons';
+import type { IconName } from '@/icons';
 
 interface StafStats {
   totalPersonel: number;

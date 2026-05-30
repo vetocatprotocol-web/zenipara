@@ -5,8 +5,8 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { supabase } from '@/features/shared/lib/supabase';
 import { SimpleCache } from '@/features/shared/lib/cache';
-import type { AuditLog } from '../types';
-import { useAuthStore } from '../store/authStore';
+import type { AuditLog } from '@/types';
+import { useAuthStore } from '@/store/authStore';
 
 interface UseAuditLogsOptions {
   userId?: string;

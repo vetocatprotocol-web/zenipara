@@ -6,8 +6,8 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import { requestCoalescer } from '@/features/shared/lib/requestCoalescer';
-import type { Message } from '../types';
-import { useAuthStore } from '../store/authStore';
+import type { Message } from '@/types';
+import { useAuthStore } from '@/store/authStore';
 
 const inboxCache = new SimpleCache<Message[]>();
 const sentCache = new SimpleCache<Message[]>();

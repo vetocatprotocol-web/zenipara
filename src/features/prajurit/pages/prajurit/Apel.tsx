@@ -3,10 +3,10 @@ import DashboardLayout from '@/features/shared/components/layout/DashboardLayout
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { useApel } from '@/features/shared/hooks/useApel';
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 
 function isSessionOpen(waktuBuka: string, waktuTutup: string): boolean {
   const now = Date.now();

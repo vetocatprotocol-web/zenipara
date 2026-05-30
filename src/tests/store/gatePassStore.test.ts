@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useGatePassStore } from '../../store/gatePassStore';
-import { useAuthStore } from '../../store/authStore';
-import type { GatePass } from '../../types';
+import { useGatePassStore } from '@/store/gatePassStore';
+import { useAuthStore } from '@/store/authStore';
+import type { GatePass } from '@/types';
 
 // Supabase mocks typed
 const mockSupabase = supabase as unknown as {
@@ -113,7 +113,7 @@ describe('gatePassStore', () => {
 
   it('scans gate pass and returns the updated GatePass object', async () => {
     useAuthStore.setState({
-      user: { id: 'u2', nrp: '22222', nama: 'Guard A', role: 'guard', satuan: 'Pos X', is_active: true, is_online: true, login_attempts: 0, created_at: now.toISOString(), updated_at: now.toISOString() },
+      user: { id: 'u2', nrp: '22222', nama: 'Petugas Scan', role: 'admin', satuan: 'Pos X', is_active: true, is_online: true, login_attempts: 0, created_at: now.toISOString(), updated_at: now.toISOString() },
       isAuthenticated: true, isLoading: false, isInitialized: true, error: null,
     });
 

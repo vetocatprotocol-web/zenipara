@@ -1,4 +1,4 @@
-import type { KaryoSession } from '../types';
+import type { KaryoSession } from '@/types';
 
 const SESSION_CONTEXT_KEY = 'karyo_session_context';
 

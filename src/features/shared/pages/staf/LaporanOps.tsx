@@ -8,11 +8,11 @@ import Badge from '@/features/shared/components/common/Badge';
 import Table from '@/features/shared/components/ui/Table';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { isRoleAdmin } from '@/features/shared/lib/rolePermissions';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { useLaporanOps } from '@/features/shared/hooks/useLaporanOps';
-import type { LaporanOpsJenis, LaporanOpsStatus } from '../../types';
+import type { LaporanOpsJenis, LaporanOpsStatus } from '@/types';
 
 const JENIS_OPTIONS: { value: LaporanOpsJenis; label: string }[] = [
   { value: 'harian',     label: 'Laporan Harian' },

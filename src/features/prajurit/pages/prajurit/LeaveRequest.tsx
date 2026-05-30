@@ -9,9 +9,9 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
-import type { LeaveRequest } from '../../types';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import type { LeaveRequest } from '@/types';
 
 function LeaveStatusBadge({ status }: { status: string }) {
   const map = {

@@ -1,6 +1,6 @@
 import Button from '../../common/Button';
 import Modal from '../../common/Modal';
-import type { User } from '../../../types';
+import type { User } from '@/types';
 
 function formatDateTime(value?: string) {
   if (!value) return '—';

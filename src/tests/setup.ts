@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 // Mock supabase module to prevent env var errors and network calls in tests
-vi.mock('../lib/supabase', () => ({
+vi.mock('@/features/shared/lib/supabase', () => ({
   supabase: {
     from: vi.fn(),
     rpc: vi.fn().mockResolvedValue({ data: null, error: null }),

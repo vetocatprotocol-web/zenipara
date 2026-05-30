@@ -5,10 +5,10 @@ import { useTasks } from '@/features/shared/hooks/useTasks';
 import { useAttendance } from '@/features/shared/hooks/useAttendance';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
 import { useMessages } from '@/features/shared/hooks/useMessages';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
-import { useGatePassStore } from '../../store/gatePassStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import Button from '@/features/shared/components/common/Button';
@@ -19,7 +19,7 @@ import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 
 export default function PrajuritDashboard() {

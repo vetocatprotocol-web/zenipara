@@ -3,7 +3,7 @@ import { AlertTriangle, Info } from 'lucide-react';
 import Button from '../common/Button';
 import Modal from '../common/Modal';
 import { ROLE_OPTIONS, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
-import type { User, Role, CommandLevel } from '../../types';
+import type { User, Role, CommandLevel } from '@/types';
 
 export interface BatchOperationModalsProps {
   isOpen: boolean;

@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { GatePass } from '../../types';
+import type { GatePass } from '@/types';
 import { ensureSessionContext } from './sessionContext';
 
 const READ_RETRY_MAX_ATTEMPTS = 3;

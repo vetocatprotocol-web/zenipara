@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { LeaveRequest, LeaveStatus } from '../../types';
+import type { LeaveRequest, LeaveStatus } from '@/types';
 
 export interface FetchLeaveRequestsParams {
   callerId: string;

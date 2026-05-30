@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { LaporanOps } from '../../types';
+import type { LaporanOps } from '@/types';
 
 export interface FetchLaporanOpsParams {
   status?: string;

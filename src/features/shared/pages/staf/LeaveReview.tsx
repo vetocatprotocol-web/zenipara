@@ -10,10 +10,10 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import { LeaveStatusBadge } from '@/features/shared/components/common/Badge';
 import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
-import type { LeaveRequest } from '../../types';
+import type { LeaveRequest } from '@/types';
 
 const JENIS_LABEL: Record<string, string> = {
   cuti: 'Cuti',

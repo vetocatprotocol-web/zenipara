@@ -9,11 +9,11 @@ import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import Table from '@/features/shared/components/ui/Table';
 import Badge from '@/features/shared/components/common/Badge';
 import { useSprint } from '@/features/shared/hooks/useSprint';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { isRoleAdmin, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
-import type { Sprint, SprintPersonel, SprintStatus } from '../../types';
+import type { Sprint, SprintPersonel, SprintStatus } from '@/types';
 
 const STATUS_LABEL: Record<SprintStatus, string> = {
   draft: 'Draft',

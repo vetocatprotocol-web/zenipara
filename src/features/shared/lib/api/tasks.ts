@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Task, TaskReport, TaskStatus } from '../../types';
+import type { Task, TaskReport, TaskStatus } from '@/types';
 import { ensureSessionContext } from './sessionContext';
 
 export interface FetchTasksParams {

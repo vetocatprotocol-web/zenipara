@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { LogisticsRequest, LogisticsRequestStatus } from '../../types';
+import type { LogisticsRequest, LogisticsRequestStatus } from '@/types';
 
 export interface FetchLogisticsRequestsParams {
   callerId: string;

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '@/features/shared/lib/supabase';
 import { readSessionContext } from '@/features/shared/lib/sessionContext';
-import type { SatuanBranding } from '../types';
+import type { SatuanBranding } from '@/types';
 
 export default function useSatuanBranding(satuanIdParam?: string) {
   const [branding, setBranding] = useState<SatuanBranding | null>(null);

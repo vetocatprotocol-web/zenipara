@@ -14,11 +14,11 @@ import Modal from './Modal';
 import Button from './Button';
 import Input from './Input';
 import { RoleBadge } from './Badge';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { fetchUserPersonalStats, fetchUserDisciplineNotes, type UserPersonalStats } from '@/features/shared/lib/api/users';
 import { ROLE_OPTIONS, getOperationalRoleLabel, getRoleCode, getRoleDisplayLabel, isRoleAdmin, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import { validateRoleEditForm, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
-import type { User, Role, DisciplineNote, CommandLevel } from '../../types';
+import type { User, Role, DisciplineNote, CommandLevel } from '@/types';
 
 type Tab = 'info' | 'personal' | 'stats' | 'disiplin';
 type ModalMode = 'view' | 'edit';

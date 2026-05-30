@@ -1,4 +1,4 @@
-import type { Satuan } from '../../types';
+import type { Satuan } from '@/types';
 
 interface SatuanSelectorProps {
   value?: string;

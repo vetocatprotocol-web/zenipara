@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { useUsers } from '@/features/shared/hooks/useUsers';
-import type { Role } from '../../types';
+import type { Role } from '@/types';
 
 interface UserSearchSelectProps {
   value: string;

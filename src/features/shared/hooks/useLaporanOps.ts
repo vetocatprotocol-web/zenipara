@@ -7,7 +7,7 @@ import {
   type CreateLaporanOpsParams,
   type FetchLaporanOpsParams,
 } from '@/features/shared/lib/api/laporanOps';
-import type { LaporanOps, LaporanOpsStatus } from '../types';
+import type { LaporanOps, LaporanOpsStatus } from '@/types';
 
 interface UseLaporanOpsOptions {
   autoFetch?: boolean;

@@ -3,7 +3,7 @@
  * Useful for 600+ user management to reduce API calls
  */
 
-import type { User } from '../types';
+import type { User } from '@/types';
 
 interface CacheEntry<T> {
   data: T;

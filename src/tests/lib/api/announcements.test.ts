@@ -6,7 +6,7 @@ import {
   patchAnnouncement,
   deleteAnnouncement,
 } from '@/features/shared/lib/api/announcements';
-import type { Announcement } from '../../../types';
+import type { Announcement } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import GatePassForm from '@/features/shared/components/gatepass/GatePassForm';
 import GatePassList from '@/features/shared/components/gatepass/GatePassList';
-import { useGatePassStore } from '../../store/gatePassStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 import { useOverdueNotification } from '@/features/shared/hooks/useOverdueNotification';
 import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import type { GatePass } from '../../types';
+import type { GatePass } from '@/types';
 
 export default function GatePassPage() {
   const gatePasses = useGatePassStore(s => s.gatePasses);

@@ -9,9 +9,9 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useMessages } from '@/features/shared/hooks/useMessages';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
-import type { Message } from '../../types';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import type { Message } from '@/types';
 import Input from '@/features/shared/components/common/Input';
 
 type Tab = 'inbox' | 'sent';

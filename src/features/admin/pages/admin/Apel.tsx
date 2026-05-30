@@ -3,10 +3,10 @@ import DashboardLayout from '@/features/shared/components/layout/DashboardLayout
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
-import { useUIStore } from '../../store/uiStore';
-import { useAuthStore } from '../../store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import { useAuthStore } from '@/store/authStore';
 import { useApel } from '@/features/shared/hooks/useApel';
-import type { ApelJenis } from '../../types';
+import type { ApelJenis } from '@/types';
 
 function toIsoLocalDateTime(date: string, time: string): string {
   const local = new Date(`${date}T${time}:00`);

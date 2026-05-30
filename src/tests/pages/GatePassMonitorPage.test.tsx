@@ -2,10 +2,10 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
 import { act } from 'react';
 import type { ReactNode } from 'react';
-import GatePassMonitorPage from '../../pages/admin/GatePassMonitorPage';
-import type { GatePass } from '../../types';
+import GatePassMonitorPage from '@/features/admin/pages/admin/GatePassMonitorPage';
+import type { GatePass } from '@/types';
 
-vi.mock('../../lib/supabase', () => ({
+vi.mock('@/features/shared/lib/supabase', () => ({
   supabase: {
     rpc: vi.fn(async () => ({ data: 20, error: null })),
     from: vi.fn(() => ({
@@ -24,15 +24,15 @@ const mockState: {
   fetchGatePasses: vi.fn(async () => undefined),
 };
 
-vi.mock('../../store/gatePassStore', () => ({
+vi.mock('@/store/gatePassStore', () => ({
   useGatePassStore: (selector: (state: typeof mockState) => unknown) => selector(mockState),
 }));
 
-vi.mock('../../hooks/useGatePassRealtime', () => ({
+vi.mock('@/features/shared/hooks/useGatePassRealtime', () => ({
   useGatePassRealtime: vi.fn(),
 }));
 
-vi.mock('../../components/layout/DashboardLayout', () => ({
+vi.mock('@/features/shared/components/layout/DashboardLayout', () => ({
   default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }));
 

@@ -91,7 +91,7 @@ export const FEATURE_DEFINITIONS: FeatureDefinition[] = [
     key: 'gate_pass',
     label: 'Gate Pass',
     description: 'Pengajuan, approval, monitoring, dan pemindaian Gate Pass.',
-    paths: ['/admin/gatepass-monitor', '/komandan/gatepass-approval', '/komandan/gatepass-monitor', '/prajurit/gatepass', '/guard/gatepass-scan'],
+    paths: ['/admin/gatepass-monitor', '/komandan/gatepass-approval', '/komandan/gatepass-monitor', '/prajurit/gatepass'],
   },
   {
     key: 'pos_jaga',
@@ -127,7 +127,7 @@ export const FEATURE_DEFINITIONS: FeatureDefinition[] = [
     key: 'reports',
     label: 'Laporan & Evaluasi',
     description: 'Halaman laporan dan evaluasi untuk peran komandan.',
-    paths: ['/komandan/reports', '/komandan/evaluation', '/guard/discipline'],
+    paths: ['/komandan/reports', '/komandan/evaluation'],
   },
 ];
 

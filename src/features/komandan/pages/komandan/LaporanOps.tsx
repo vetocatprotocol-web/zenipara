@@ -5,9 +5,9 @@ import Badge from '@/features/shared/components/common/Badge';
 import Table from '@/features/shared/components/ui/Table';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { useLaporanOps } from '@/features/shared/hooks/useLaporanOps';
-import type { LaporanOpsStatus } from '../../types';
+import type { LaporanOpsStatus } from '@/types';
 import { useState } from 'react';
 
 const STATUS_BADGE: Record<LaporanOpsStatus, 'neutral' | 'warning' | 'info' | 'success'> = {

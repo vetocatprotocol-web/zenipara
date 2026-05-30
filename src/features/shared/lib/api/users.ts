@@ -1,6 +1,6 @@
 import { supabase } from '../supabase';
 import { normalizeRole } from '../rolePermissions';
-import type { User, Role, DisciplineNote } from '../../types';
+import type { User, Role, DisciplineNote } from '@/types';
 
 // Helper: validate ID format (strict for real UUID, lenient for test IDs)
 function validateId(value: string): boolean {

@@ -3,7 +3,7 @@
  * Provides consistent UI and logic for batch operations.
  */
 
-import type { User } from '../../types';
+import type { User } from '@/types';
 
 export interface BatchOperation {
   id: string;

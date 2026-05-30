@@ -1,6 +1,6 @@
 import { Link, type To } from 'react-router-dom';
-import { ICONS } from '../../icons';
-import type { IconName } from '../../icons';
+import { ICONS } from '@/icons';
+import type { IconName } from '@/icons';
 
 interface ShortcutItem {
   href: To;

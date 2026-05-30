@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { supabase } from '@/features/shared/lib/supabase';
 import { clearSessionContext, readSessionContext, writeSessionContext } from '@/features/shared/lib/sessionContext';
 import { normalizeRole } from '@/features/shared/lib/rolePermissions';
-import type { User, KaryoSession } from '../../types';
+import type { User, KaryoSession } from '@/types';
 
 const SESSION_KEY = 'karyo_session';
 const CRYPTO_KEY_SESSION = 'karyo_session_key';
@@ -227,21 +227,7 @@ const buildDemoUsers = (): User[] => {
       created_at: now,
       updated_at: now,
     },
-    {
-      id: 'demo-guard',
-      nrp: '4000001',
-      nama: 'Deni Ramadhan',
-      role: 'guard',
-      satuan: 'Batalyon 1',
-      pangkat: 'Sersan Satu',
-      jabatan: 'Pos Jaga Utama',
-      is_active: true,
-      is_online: false,
-      login_attempts: 0,
-      force_change_pin: false,
-      created_at: now,
-      updated_at: now,
-    },
+    // demo guard removed
     {
       id: 'demo-staf',
       nrp: '5000001',

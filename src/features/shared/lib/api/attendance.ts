@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Attendance } from '../../types';
+import type { Attendance } from '@/types';
 import type { GeoCoordinates } from '../geolocation';
 
 export async function fetchAttendance(callerId: string, callerRole: string, userId: string, limit = 30): Promise<Attendance[]> {

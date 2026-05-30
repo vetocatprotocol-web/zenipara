@@ -20,16 +20,16 @@ import {
 } from '@/features/shared/components/admin/modals';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { useSatuans } from '@/features/shared/hooks/useSatuans';
-import { useUIStore } from '../../store/uiStore';
-import { useAuthStore } from '../../store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import { useAuthStore } from '@/store/authStore';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 import { supabase } from '@/features/shared/lib/supabase';
 import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 import { ensureSessionContext } from '@/features/shared/lib/api/sessionContext';
 import { ROLE_OPTIONS, getRoleCode, getRoleDisplayLabel, isRoleAdmin, isRoleKomandan, normalizeRole } from '@/features/shared/lib/rolePermissions';
 import { validatePin, validateRoleEditForm, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
-import type { User, Role, CommandLevel } from '../../types';
+import type { User, Role, CommandLevel } from '@/types';
 
 const PAGE_SIZE = 50;
 const MAX_IMPORT_ROWS = 5000;
@@ -54,7 +54,7 @@ interface RegistrationFormLink {
 
 function normalizeImportedRole(value: string | undefined): Role {
   const normalized = normalizeRole(value ?? '') ?? 'prajurit';
-  return (normalized === 'admin' || normalized === 'komandan' || normalized === 'staf' || normalized === 'guard' || normalized === 'prajurit')
+  return (normalized === 'admin' || normalized === 'komandan' || normalized === 'staf' || normalized === 'prajurit')
     ? normalized
     : 'prajurit';
 }

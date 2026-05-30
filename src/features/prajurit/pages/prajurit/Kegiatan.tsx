@@ -4,10 +4,10 @@ import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { useKegiatan } from '@/features/shared/hooks/useKegiatan';
-import { ICONS } from '../../icons';
-import type { Kegiatan, KegiatanJenis, RsvpStatus } from '../../types';
+import { ICONS } from '@/icons';
+import type { Kegiatan, KegiatanJenis, RsvpStatus } from '@/types';
 
 const JENIS_OPTIONS: { value: KegiatanJenis; label: string }[] = [
   { value: 'latihan',    label: 'Latihan' },

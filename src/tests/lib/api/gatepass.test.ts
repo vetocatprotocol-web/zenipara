@@ -8,7 +8,7 @@ import {
   patchGatePassStatus,
   rpcScanGatePass,
 } from '@/features/shared/lib/api/gatepass';
-import type { GatePass } from '../../../types';
+import type { GatePass } from '@/types';
 
 const mockSupabase = supabase as unknown as {
   from: ReturnType<typeof vi.fn>;

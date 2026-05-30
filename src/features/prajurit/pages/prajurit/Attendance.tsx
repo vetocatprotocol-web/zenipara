@@ -1,8 +1,8 @@
 import { CalendarDays } from 'lucide-react';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import { useAttendance } from '@/features/shared/hooks/useAttendance';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { AttendanceBadge } from '@/features/shared/components/common/Badge';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';

@@ -4,11 +4,11 @@
  * Implements the access rules from SPESIFIKASI.md §3.3:
  * - Komandan bertingkat (BATALION/KOMPI/PELETON)
  * - Staf berbasis bidang (S-1 Pers / S-3 Ops / S-4 Log)
- * - Guard/Provost — baca discipline_notes
+ * - (deprecated) Guard/Provost — role telah dihapus dari model
  * - Admin — konfigurasi sistem, bukan operasional harian
  */
 
-import type { User, CommandLevel } from '../types';
+import type { User, CommandLevel } from '@/types';
 
 export const APP_ROUTE_PATHS = {
   root: '/',
@@ -18,7 +18,7 @@ export const APP_ROUTE_PATHS = {
   error: '/error',
 } as const;
 
-export const KNOWN_ROLES = ['super_admin', 'admin_satuan', 'komandan', 'prajurit', 'guard', 'admin', 'staf'] as const;
+export const KNOWN_ROLES = ['super_admin', 'admin_satuan', 'komandan', 'prajurit', 'admin', 'staf'] as const;
 export type KnownRole = typeof KNOWN_ROLES[number];
 
 export const ROLE_CODE_MAP: Record<string, string> = {
@@ -26,7 +26,7 @@ export const ROLE_CODE_MAP: Record<string, string> = {
   admin_satuan: 'ADS',
   komandan: 'KMD',
   prajurit: 'PRJ',
-  guard: 'PJP',
+  // guard removed per new role policy
   // legacy keys kept for compatibility
   admin: 'SAD',
   staf: 'STF',
@@ -97,10 +97,7 @@ export const ROLE_ROUTE_PATHS = {
     gatePass: '/prajurit/gatepass',
     scanPos: '/prajurit/scan-pos',
   },
-  guard: {
-    gatePassScan: '/guard/gatepass-scan',
-    discipline: '/guard/discipline',
-  },
+  // guard routes removed
   staf: {
     dashboard: '/staf/dashboard',
     messages: '/staf/messages',
@@ -115,12 +112,11 @@ const ROLE_CODE_TO_ROLE: Record<string, KnownRole> = Object.fromEntries(
 ) as Record<string, KnownRole>;
 
 const ROLE_ALIASES: Record<string, string> = {
-  superadmin: 'super_admin',
-  super_admin: 'super_admin',
-  'super-admin': 'super_admin',
-  admin_super: 'super_admin',
-  'super admin': 'super_admin',
-  admin: 'super_admin',
+  superadmin: 'admin',
+  super_admin: 'admin',
+  'super-admin': 'admin',
+  admin_super: 'admin',
+  'super admin': 'admin',
   staff: 'staf',
   'staf operasional': 'staf',
   staf_operasional: 'staf',
@@ -130,15 +126,7 @@ const ROLE_ALIASES: Record<string, string> = {
   'staff ops': 'staf',
   stafops: 'staf',
   stafop: 'staf',
-  'petugas jaga': 'guard',
-  provos: 'guard',
-  provost: 'guard',
-  'petugas jaga provos': 'guard',
-  'petugas jaga provost': 'guard',
-  petugas_jaga: 'guard',
-  'petugas-jaga': 'guard',
-  'petugas jaga / provos': 'guard',
-  'petugas jaga / provost': 'guard',
+  // guard aliases removed
 };
 
 const ROLE_ACCESS_MAP: Record<KnownRole, string> = {
@@ -146,8 +134,8 @@ const ROLE_ACCESS_MAP: Record<KnownRole, string> = {
   admin_satuan: 'Hanya satuan miliknya: kelola user, branding, feature flags, laporan',
   komandan: 'Hanya satuan miliknya: tasks, personnel, gate pass approval, laporan',
   prajurit: 'Hanya data pribadi di satuan miliknya: gate pass, absen, tugas, profil',
-  guard: 'Hanya satuan miliknya: scan gate pass, catatan disiplin',
-  admin: 'Semua satuan, tambah/nonaktifkan satuan, kelola admin_satuan, settings global',
+  // guard access removed
+  admin: 'Super Admin: konfigurasi sistem & audit',
   staf: 'Staf berbasis bidang: tugas operasional per bidang (S-1 Pers, S-3 Ops, S-4 Log)',
 };
 
@@ -156,8 +144,8 @@ const ROLE_DEFAULT_PATH_MAP: Record<KnownRole, string> = {
   admin_satuan: ROLE_ROUTE_PATHS.admin.dashboard,
   komandan: ROLE_ROUTE_PATHS.komandan.dashboard,
   prajurit: ROLE_ROUTE_PATHS.prajurit.dashboard,
-  guard: ROLE_ROUTE_PATHS.guard.gatePassScan,
-  admin: ROLE_ROUTE_PATHS.super_admin.dashboard,
+  // guard default removed
+  admin: ROLE_ROUTE_PATHS.admin.dashboard,
   staf: ROLE_ROUTE_PATHS.staf.dashboard,
 };
 
@@ -166,8 +154,8 @@ const ROLE_FALLBACK_PATH_MAP: Record<KnownRole, string[]> = {
   admin_satuan: [ROLE_ROUTE_PATHS.admin.dashboard, ROLE_ROUTE_PATHS.admin.settings],
   komandan: [ROLE_ROUTE_PATHS.komandan.dashboard, ROLE_ROUTE_PATHS.komandan.tasks, ROLE_ROUTE_PATHS.komandan.attendance],
   prajurit: [ROLE_ROUTE_PATHS.prajurit.dashboard, ROLE_ROUTE_PATHS.prajurit.profile],
-  guard: [ROLE_ROUTE_PATHS.guard.gatePassScan, ROLE_ROUTE_PATHS.guard.discipline],
-  admin: [ROLE_ROUTE_PATHS.super_admin.dashboard, ROLE_ROUTE_PATHS.super_admin.settings],
+  // guard fallbacks removed
+  admin: [ROLE_ROUTE_PATHS.admin.dashboard, ROLE_ROUTE_PATHS.admin.settings],
   staf: [ROLE_ROUTE_PATHS.staf.dashboard, ROLE_ROUTE_PATHS.admin.users],
 };
 
@@ -176,8 +164,8 @@ const ROLE_PROFILE_PATH_MAP: Record<KnownRole, string> = {
   admin_satuan: ROLE_ROUTE_PATHS.admin.users,
   komandan: ROLE_ROUTE_PATHS.komandan.personnel,
   prajurit: ROLE_ROUTE_PATHS.prajurit.profile,
-  guard: ROLE_ROUTE_PATHS.guard.gatePassScan,
-  admin: ROLE_ROUTE_PATHS.super_admin.satuans,
+  // guard profile removed
+  admin: ROLE_ROUTE_PATHS.admin.users,
   staf: ROLE_ROUTE_PATHS.admin.users,
 };
 
@@ -220,10 +208,11 @@ export function getRoleDisplayLabel(role: string | null | undefined): string {
   if (!normalized) return '—';
   switch (normalized) {
     case 'super_admin': return 'Super Admin';
+    case 'admin': return 'Super Admin';
     case 'admin_satuan': return 'Admin Satuan';
     case 'komandan': return 'Komandan';
     case 'prajurit': return 'Prajurit';
-    case 'guard': return 'Petugas Jaga / Provost';
+    // guard display removed
     default: return humanizeRole(normalized);
   }
 }
@@ -236,12 +225,12 @@ export const ROLE_OPTIONS = KNOWN_ROLES.map((role) => ({
 }));
 
 export const ROUTE_ROLE_GROUPS = {
-  adminOnly: ['super_admin'],
-  adminStaf: ['admin_satuan', 'super_admin'],
-  komandanShared: ['komandan', 'admin_satuan', 'super_admin'],
-  prajuritShared: ['prajurit', 'komandan', 'admin_satuan', 'super_admin'],
-  guardShared: ['guard', 'admin_satuan', 'super_admin'],
-  stafOnly: ['super_admin'],
+  adminOnly: ['admin'],
+  adminStaf: ['admin_satuan', 'admin'],
+  komandanShared: ['komandan', 'admin_satuan', 'admin'],
+  prajuritShared: ['prajurit', 'komandan', 'admin_satuan', 'admin'],
+  // guardShared removed
+  stafOnly: ['admin'],
 } as const;
 
 export function getRoleCode(role: string | null | undefined): string {
@@ -323,8 +312,9 @@ export function isRolePrajurit(role: string | null | undefined): boolean {
   return hasRole(role, 'prajurit');
 }
 
-export function isRoleGuard(role: string | null | undefined): boolean {
-  return hasRole(role, 'guard');
+export function isRoleGuard(_role: string | null | undefined): boolean {
+  // Role `guard` telah dihapus; kembalikan false untuk mencegah pemberian akses
+  return false;
 }
 
 // ── Staf bidang ──────────────────────────────────────────────────────────────
@@ -364,7 +354,7 @@ const BIDANG_WRITE_MAP: Record<StafBidang, WriteModule[]> = {
  * - Admin → always allowed (for their own admin pages)
  * - Komandan → allowed on operational modules they command
  * - Staf → allowed only for their bidang
- * - Others (prajurit, guard) → not allowed
+ * - Others (prajurit) → not allowed
  */
 export function canWrite(user: User | null, module: WriteModule): boolean {
   if (!user) return false;
@@ -439,7 +429,7 @@ export function getOperationalRoleLabel(user: User | null): string {
   switch (role) {
     case 'admin':    return getRoleDisplayLabel(user.role);
     case 'prajurit': return getRoleDisplayLabel(user.role);
-    case 'guard':    return getRoleDisplayLabel(user.role);
+    // guard operational label removed
     case 'komandan': return getKomandanScopeLabel(user.level_komando);
     case 'staf': {
       const b = getBidangFromJabatan(user.jabatan);
@@ -455,11 +445,8 @@ export function getOperationalRoleLabel(user: User | null): string {
   }
 }
 
-// ── Guard access ──────────────────────────────────────────────────────────────
-
-/** True if the user is a Guard/Provost and can read discipline notes. */
+/** Returns true when the user can read discipline notes (Komandan or Admin). */
 export function canReadDisciplineNotes(user: User | null): boolean {
   if (!user) return false;
-  const role = normalizeRole(user.role);
-  return isRoleGuard(role) || isRoleKomandan(role) || isRoleAdmin(role);
+  return isRoleKomandan(user.role) || isRoleAdmin(user.role);
 }

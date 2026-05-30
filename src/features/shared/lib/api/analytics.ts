@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { AttendanceStatus, TaskStatus } from '../../types';
+import type { AttendanceStatus, TaskStatus } from '@/types';
 
 export interface TaskStatusCount {
   status: TaskStatus;

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ComponentType } from 'react';
 import Button from '../common/Button';
 import { Download, Printer } from 'lucide-react';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 interface Props {
   posJaga: { nama: string; qr_token: string };

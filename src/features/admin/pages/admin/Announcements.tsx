@@ -10,10 +10,10 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
-import type { Announcement, Role } from '../../types';
+import type { Announcement, Role } from '@/types';
 
 const ANNOUNCEMENT_TARGET_ROLES = ['admin', 'komandan', 'prajurit'] as const;
 type AnnouncementTargetRole = (typeof ANNOUNCEMENT_TARGET_ROLES)[number];

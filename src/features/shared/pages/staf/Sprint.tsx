@@ -1,2 +1,2 @@
 // Staf memakai halaman sprint yang sama dengan komandan.
-export { default } from '../komandan/Sprint';
+export { default } from '@/features/komandan/pages/komandan/Sprint';

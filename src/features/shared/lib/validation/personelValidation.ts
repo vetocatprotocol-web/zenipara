@@ -3,7 +3,7 @@
  * Centralized, reusable validation logic.
  */
 
-import type { Role, CommandLevel } from '../../types';
+import type { Role, CommandLevel } from '@/types';
 import { isRoleKomandan } from '../rolePermissions';
 
 export interface ValidationError {
@@ -49,7 +49,7 @@ export function validatePin(pin: unknown): ValidationError | null {
 
 /** Validate role */
 export function validateRole(role: unknown): ValidationError | null {
-  const validRoles = ['prajurit', 'staf', 'komandan', 'guard', 'admin'];
+  const validRoles = ['prajurit', 'staf', 'komandan', 'admin'];
   if (!role || !validRoles.includes(String(role))) {
     return { field: 'role', message: 'Role tidak valid' };
   }

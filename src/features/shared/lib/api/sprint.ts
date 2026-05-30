@@ -1,6 +1,6 @@
 import { supabase } from '../supabase';
 import { ensureSessionContext } from './sessionContext';
-import type { Sprint, SprintPersonel, SprintStatus } from '../../types';
+import type { Sprint, SprintPersonel, SprintStatus } from '@/types';
 
 export interface FetchSprintParams {
   callerId: string;

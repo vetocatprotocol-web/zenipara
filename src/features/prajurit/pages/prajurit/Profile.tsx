@@ -7,8 +7,8 @@ import AvatarUpload from '@/features/shared/components/common/AvatarUpload';
 import { RoleBadge } from '@/features/shared/components/common/Badge';
 import AttendanceHeatmap from '@/features/shared/components/ui/AttendanceHeatmap';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { useAttendance } from '@/features/shared/hooks/useAttendance';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { supabase } from '@/features/shared/lib/supabase';
@@ -16,7 +16,7 @@ import { fetchUserPersonalStats } from '@/features/shared/lib/api/users';
 import { notifyDataChanged } from '@/features/shared/lib/dataSync';
 import { handleError } from '@/features/shared/lib/handleError';
 import { getRoleCode, getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
-import type { User } from '../../types';
+import type { User } from '@/types';
 
 interface PersonalStats {
   totalTasks: number;

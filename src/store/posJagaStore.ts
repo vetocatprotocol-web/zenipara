@@ -8,9 +8,9 @@ import {
   rotatePosJagaQr as apiRotatePosJagaQr,
   rpcScanPosJagaWithCredentials,
 } from '@/features/shared/lib/api/posJaga';
-import type { PosJaga, ScanPosJagaResult } from '../types';
+import type { PosJaga, ScanPosJagaResult } from '@/types';
 import { useAuthStore } from './authStore';
-import { normalizeScannedQrToken } from '../utils/gatepass';
+import { normalizeScannedQrToken } from '@/utils/gatepass';
 
 interface PosJagaState {
   posJagaList: PosJaga[];

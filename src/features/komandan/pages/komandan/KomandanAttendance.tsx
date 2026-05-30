@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import Table from '@/features/shared/components/ui/Table';
 import { AttendanceBadge } from '@/features/shared/components/common/Badge';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { Attendance } from '../../types';
+import type { Attendance } from '@/types';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import Button from '@/features/shared/components/common/Button';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 export default function KomandanAttendance() {
   const { user } = useAuthStore();

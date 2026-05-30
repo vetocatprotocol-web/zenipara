@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Login from '../../pages/Login';
-import { useAuthStore } from '../../store/authStore';
+import Login from '@/features/auth/LoginPage';
+import { useAuthStore } from '@/store/authStore';
 
-vi.mock('../../lib/supabase', () => ({
+vi.mock('@/features/shared/lib/supabase', () => ({
   isSupabaseConfigured: true,
 }));
 

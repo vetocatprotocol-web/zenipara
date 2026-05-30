@@ -8,10 +8,10 @@ import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
 import Input from '@/features/shared/components/common/Input';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useUIStore } from '../../store/uiStore';
-import { useAuthStore } from '../../store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import { useAuthStore } from '@/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { ShiftSchedule } from '../../types';
+import type { ShiftSchedule } from '@/types';
 import { canWrite } from '@/features/shared/lib/rolePermissions';
 
 const SHIFT_COLORS: Record<string, { bg: string; text: string; label: string }> = {

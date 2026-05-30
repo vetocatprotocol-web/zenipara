@@ -3,7 +3,7 @@
  * Consolidates 8+ modal states into a single state machine.
  */
 
-import type { User } from '../../types';
+import type { User } from '@/types';
 
 export type ModalActionType =
   | 'create'

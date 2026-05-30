@@ -7,7 +7,7 @@ import {
   type CreateKegiatanParams,
   type FetchKegiatanParams,
 } from '@/features/shared/lib/api/kegiatan';
-import type { Kegiatan, RsvpStatus } from '../types';
+import type { Kegiatan, RsvpStatus } from '@/types';
 
 interface UseKegiatanOptions {
   autoFetch?: boolean;

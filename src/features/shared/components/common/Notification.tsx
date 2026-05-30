@@ -1,7 +1,7 @@
-import { useUIStore } from '../../store/uiStore';
-import { ICONS, IconType } from '../../icons';
+import { useUIStore } from '@/store/uiStore';
+import { ICONS, IconType } from '@/icons';
 import type { JSX } from 'react';
-import type { NotificationItem } from '../../store/uiStore';
+import type { NotificationItem } from '@/store/uiStore';
 
 const colors: Record<string, string> = {
   success: 'bg-green-50 border-green-200 text-green-700 dark:bg-success/20 dark:border-success dark:text-success',

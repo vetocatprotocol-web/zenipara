@@ -1,4 +1,4 @@
-import type { Task } from '../../types';
+import type { Task } from '@/types';
 import { CalendarDays, User, Clock } from 'lucide-react';
 import { TaskStatusBadge } from '../common/Badge';
 import Button from '../common/Button';

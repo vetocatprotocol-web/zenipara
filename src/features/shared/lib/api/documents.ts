@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Document } from '../../types';
+import type { Document } from '@/types';
 
 export async function fetchDocuments(callerId: string, callerRole: string): Promise<Document[]> {
   const { data, error } = await supabase.rpc('api_get_documents', {

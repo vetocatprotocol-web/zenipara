@@ -5,7 +5,7 @@ import {
   insertLogisticsRequest,
   patchLogisticsRequestStatus,
 } from '@/features/shared/lib/api/logistics';
-import type { LogisticsRequest } from '../../../types';
+import type { LogisticsRequest } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

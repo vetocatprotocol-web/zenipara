@@ -2,9 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchGatePassesByUser, insertGatePass } from '@/features/shared/lib/api/gatepass';
 import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
-import { GatePass } from '../types';
-import { generateQrToken } from '../utils/gatepass';
-import { useAuthStore } from '../store/authStore';
+import { GatePass } from '@/types';
+import { generateQrToken } from '@/utils/gatepass';
+import { useAuthStore } from '@/store/authStore';
 
 export function useGatePass() {
   const [gatePasses, setGatePasses] = useState<GatePass[]>([]);

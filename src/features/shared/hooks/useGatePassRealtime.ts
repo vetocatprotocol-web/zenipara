@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef } from 'react';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '../store/authStore';
-import { useGatePassStore } from '../store/gatePassStore';
+import { useAuthStore } from '@/store/authStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 import { debounce } from '@/features/shared/lib/debounce';
 
 interface UseGatePassRealtimeOptions {

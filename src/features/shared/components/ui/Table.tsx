@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import EmptyState from '../common/EmptyState';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 /** Definisi satu kolom tabel */
 interface Column<T> {

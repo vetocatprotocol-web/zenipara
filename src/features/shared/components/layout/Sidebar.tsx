@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import useSatuanBranding from '@/features/shared/hooks/useSatuanBranding';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { ICONS, IconType } from '../../icons';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
-import { usePlatformStore } from '../../store/platformStore';
-import { useFeatureStore } from '../../store/featureStore';
+import { ICONS, IconType } from '@/icons';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import { usePlatformStore } from '@/store/platformStore';
+import { useFeatureStore } from '@/store/featureStore';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { APP_ROUTE_PATHS, getRoleDisplayLabel, ROLE_ROUTE_PATHS } from '@/features/shared/lib/rolePermissions';
 import { getBottomTabPaths } from './BottomTabBar';
-import type { Role } from '../../types';
+import type { Role } from '@/types';
 
 interface NavItem {
   path: string;
@@ -80,10 +80,7 @@ const NAV_ITEMS: Record<Role, NavItem[]> = {
     { path: ROLE_ROUTE_PATHS.prajurit.leave,      label: 'Permohonan Izin',   icon: 'UserCheck' },
     { path: ROLE_ROUTE_PATHS.prajurit.profile,    label: 'Profil',            icon: 'Users' },
   ],
-  guard: [
-    { path: ROLE_ROUTE_PATHS.guard.gatePassScan, label: 'Scan Gate Pass',   icon: 'ClipboardCheck' },
-    { path: ROLE_ROUTE_PATHS.guard.discipline,   label: 'Catatan Disiplin', icon: 'ScrollText' },
-  ],
+  // guard removed
   staf: [
     { path: ROLE_ROUTE_PATHS.staf.dashboard,      label: 'Pusat Staf',      icon: 'LayoutDashboard' },
     { path: ROLE_ROUTE_PATHS.admin.users,         label: 'Personel',        icon: 'Users' },

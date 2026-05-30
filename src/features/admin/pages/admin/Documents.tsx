@@ -7,11 +7,11 @@ import Modal from '@/features/shared/components/common/Modal';
 import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
 import Input from '@/features/shared/components/common/Input';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 import { fetchDocuments, insertDocument, deleteDocument } from '@/features/shared/lib/api/documents';
 import { handleError } from '@/features/shared/lib/handleError';
-import type { Document } from '../../types';
-import { useAuthStore } from '../../store/authStore';
+import type { Document } from '@/types';
+import { useAuthStore } from '@/store/authStore';
 
 export default function Documents() {
   const { showNotification } = useUIStore();

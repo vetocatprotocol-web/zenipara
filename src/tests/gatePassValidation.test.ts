@@ -214,9 +214,9 @@ describe('Gate Pass Validation Functions', () => {
       expect(result).toBe(false);
     });
 
-    it('should not auto-approve guard', () => {
+    it('should not auto-approve staf', () => {
       const result = canAutoApprove({
-        executorRole: 'guard',
+        executorRole: 'staf',
       });
       expect(result).toBe(false);
     });

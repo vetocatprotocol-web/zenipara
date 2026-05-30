@@ -1,19 +1,19 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import StafLeaveReview from '../../../pages/staf/LeaveReview';
+import StafLeaveReview from '@/features/shared/pages/staf/LeaveReview';
 
 // ── Mocks ─────────────────────────────────────────────────────────────────────
 
 const mockReviewLeaveRequest = vi.fn().mockResolvedValue(undefined);
 const mockShowNotification = vi.fn();
 
-vi.mock('../../../components/layout/DashboardLayout', () => ({
+vi.mock('@/features/shared/components/layout/DashboardLayout', () => ({
   default: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="layout">{children}</div>
   ),
 }));
 
-vi.mock('../../../components/ui/PageHeader', () => ({
+vi.mock('@/features/shared/components/ui/PageHeader', () => ({
   default: ({ title, meta }: { title: string; meta?: React.ReactNode }) => (
     <header>
       <h1>{title}</h1>
@@ -22,7 +22,7 @@ vi.mock('../../../components/ui/PageHeader', () => ({
   ),
 }));
 
-vi.mock('../../../components/ui/Table', () => ({
+vi.mock('@/features/shared/components/ui/Table', () => ({
   default: <T,>({ data, columns }: { data: T[]; columns: { key: string; header: string; render?: (row: T) => React.ReactNode }[] }) => (
     <table>
       <thead>
@@ -41,19 +41,19 @@ vi.mock('../../../components/ui/Table', () => ({
   ),
 }));
 
-vi.mock('../../../components/common/Skeleton', () => ({
+vi.mock('@/features/shared/components/common/Skeleton', () => ({
   TableSkeleton: () => <div data-testid="skeleton" />,
 }));
 
-vi.mock('../../../components/common/EmptyState', () => ({
+vi.mock('@/features/shared/components/common/EmptyState', () => ({
   default: ({ title }: { title: string }) => <div data-testid="empty">{title}</div>,
 }));
 
-vi.mock('../../../components/common/Badge', () => ({
+vi.mock('@/features/shared/components/common/Badge', () => ({
   LeaveStatusBadge: ({ status }: { status: string }) => <span data-testid="status-badge">{status}</span>,
 }));
 
-vi.mock('../../../components/common/Modal', () => ({
+vi.mock('@/features/shared/components/common/Modal', () => ({
   default: ({ isOpen, children, title, footer }: { isOpen: boolean; children: React.ReactNode; title: string; footer: React.ReactNode }) =>
     isOpen ? (
       <div role="dialog" aria-label={title}>
@@ -64,7 +64,7 @@ vi.mock('../../../components/common/Modal', () => ({
     ) : null,
 }));
 
-vi.mock('../../../components/common/Input', () => ({
+vi.mock('@/features/shared/components/common/Input', () => ({
   default: ({ label, value, onChange, placeholder }: { label?: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; placeholder?: string }) => (
     <div>
       {label && <label>{label}</label>}
@@ -73,13 +73,13 @@ vi.mock('../../../components/common/Input', () => ({
   ),
 }));
 
-vi.mock('../../../components/common/Button', () => ({
+vi.mock('@/features/shared/components/common/Button', () => ({
   default: ({ children, onClick, disabled, isLoading }: { children: React.ReactNode; onClick?: () => void; disabled?: boolean; isLoading?: boolean }) => (
     <button onClick={onClick} disabled={disabled ?? isLoading}>{isLoading ? 'Loading...' : children}</button>
   ),
 }));
 
-vi.mock('../../../store/authStore', () => ({
+vi.mock('@/features/auth/authStore', () => ({
   useAuthStore: () => ({
     user: {
       id: 'staf-s1',
@@ -90,11 +90,11 @@ vi.mock('../../../store/authStore', () => ({
   }),
 }));
 
-vi.mock('../../../store/uiStore', () => ({
+vi.mock('@/store/uiStore', () => ({
   useUIStore: () => ({ showNotification: mockShowNotification }),
 }));
 
-vi.mock('../../../lib/rolePermissions', () => ({
+vi.mock('@/features/shared/lib/rolePermissions', () => ({
   canWrite: (_user: unknown, module: string) => module === 'leave',
   getOperationalRoleLabel: () => 'Staf S-1',
 }));
@@ -126,7 +126,7 @@ const mockRequests = [
   },
 ];
 
-vi.mock('../../../hooks/useLeaveRequests', () => ({
+vi.mock('@/features/shared/hooks/useLeaveRequests', () => ({
   useLeaveRequests: () => ({
     requests: mockRequests,
     isLoading: false,

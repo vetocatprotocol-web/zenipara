@@ -3,7 +3,7 @@ import Button from '../../common/Button';
 import Modal from '../../common/Modal';
 import { ROLE_OPTIONS, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import { validateRoleEditForm, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
-import type { User, Role, CommandLevel } from '../../../types';
+import type { User, Role, CommandLevel } from '@/types';
 
 export interface RoleEditModalProps {
   isOpen: boolean;

@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { ApelAttendance, ApelJenis, ApelSession } from '../../types';
+import type { ApelAttendance, ApelJenis, ApelSession } from '@/types';
 
 interface CreateApelSessionParams {
   jenis: ApelJenis;

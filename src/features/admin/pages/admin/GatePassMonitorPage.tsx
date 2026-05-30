@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useGatePassStore } from '../../store/gatePassStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 import { useGatePassRealtime } from '@/features/shared/hooks/useGatePassRealtime';
 import GatePassStatusBadge from '@/features/shared/components/gatepass/GatePassStatusBadge';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
@@ -10,7 +10,7 @@ import { CardListSkeleton, StatCardsSkeleton } from '@/features/shared/component
 import { MapPin } from 'lucide-react';
 import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
-import type { GatePass, GatePassStatus } from '../../types';
+import type { GatePass, GatePassStatus } from '@/types';
 import { supabase } from '@/features/shared/lib/supabase';
 import { getGatePassReadResilienceStats } from '@/features/shared/lib/api/gatepass';
 

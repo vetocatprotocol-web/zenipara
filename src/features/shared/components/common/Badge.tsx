@@ -1,4 +1,4 @@
-import type { TaskStatus, AttendanceStatus, LeaveStatus, Role } from '../../types';
+import type { TaskStatus, AttendanceStatus, LeaveStatus, Role } from '@/types';
 import { getRoleDisplayLabel } from '@/features/shared/lib/rolePermissions';
 
 type BadgeVariant = 'success' | 'error' | 'warning' | 'info' | 'neutral' | 'gold';
@@ -8,7 +8,6 @@ interface BadgeProps {
   children: React.ReactNode;
   size?: 'sm' | 'md';
   dot?: boolean;
-  guard?: string;
 }
 
 const variants: Record<BadgeVariant, string> = {
@@ -42,7 +41,7 @@ export default function Badge({ variant = 'neutral', children, size = 'sm', dot 
 }
 
 // Convenience badge components
-export function TaskStatusBadge({ status }: { status: TaskStatus; guard?: string }) {
+export function TaskStatusBadge({ status }: { status: TaskStatus }) {
   const map: Record<TaskStatus, { label: string; variant: BadgeVariant; dot?: boolean }> = {
     pending:     { label: 'Menunggu',   variant: 'neutral', dot: false },
     in_progress: { label: 'Dikerjakan', variant: 'info',    dot: true },
@@ -54,7 +53,7 @@ export function TaskStatusBadge({ status }: { status: TaskStatus; guard?: string
   return <Badge variant={variant} dot={dot}>{label}</Badge>;
 }
 
-export function AttendanceBadge({ status }: { status: AttendanceStatus; guard?: string }) {
+export function AttendanceBadge({ status }: { status: AttendanceStatus }) {
   const map: Record<AttendanceStatus, { label: string; variant: BadgeVariant; dot?: boolean }> = {
     hadir:      { label: 'Hadir',      variant: 'success', dot: true },
     izin:       { label: 'Izin',       variant: 'warning', dot: false },
@@ -66,7 +65,7 @@ export function AttendanceBadge({ status }: { status: AttendanceStatus; guard?: 
   return <Badge variant={variant} dot={dot}>{label}</Badge>;
 }
 
-export function LeaveStatusBadge({ status }: { status: LeaveStatus; guard?: string }) {
+export function LeaveStatusBadge({ status }: { status: LeaveStatus }) {
   const map: Record<LeaveStatus, { label: string; variant: BadgeVariant; dot?: boolean }> = {
     pending:  { label: 'Menunggu',  variant: 'warning', dot: true },
     approved: { label: 'Disetujui', variant: 'success', dot: false },
@@ -81,7 +80,6 @@ export function RoleBadge({ role }: { role: Role }) {
     admin:    { label: 'Super Admin',  variant: 'gold' },
     komandan: { label: 'Komandan',     variant: 'info' },
     prajurit: { label: 'Prajurit',     variant: 'neutral' },
-    guard:    { label: 'Petugas Jaga / Provost', variant: 'info' },
     staf:     { label: 'Staf Operasional', variant: 'warning' },
   };
   const roleMeta = map[role];

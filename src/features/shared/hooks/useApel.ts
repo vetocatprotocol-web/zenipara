@@ -6,7 +6,7 @@ import {
   laporHadirApel as apiLaporHadirApel,
 } from '@/features/shared/lib/api/apel';
 import { handleError } from '@/features/shared/lib/handleError';
-import type { ApelAttendance, ApelJenis, ApelSession } from '../types';
+import type { ApelAttendance, ApelJenis, ApelSession } from '@/types';
 
 interface CreateApelInput {
   jenis: ApelJenis;

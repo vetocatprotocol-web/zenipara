@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchSatuans as fetchSatuansApi } from '@/features/shared/lib/api/satuans';
-import type { Satuan } from '../types';
+import type { Satuan } from '@/types';
 
 interface UseSatuansOptions {
   onlyActive?: boolean;

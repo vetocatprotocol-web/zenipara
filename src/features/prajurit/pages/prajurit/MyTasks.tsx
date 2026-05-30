@@ -8,11 +8,11 @@ import Modal from '@/features/shared/components/common/Modal';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { useTasks } from '@/features/shared/hooks/useTasks';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import type { Task, TaskStatus } from '../../types';
+import type { Task, TaskStatus } from '@/types';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 
 export default function MyTasks() {

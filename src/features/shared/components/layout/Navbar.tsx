@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ICONS } from '../../icons';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
+import { ICONS } from '@/icons';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
 import { useMessages } from '@/features/shared/hooks/useMessages';
 import { useOfflineSync } from '@/features/shared/hooks/useOfflineSync';
 import { usePWAInstall } from '@/features/shared/hooks/usePWAInstall';

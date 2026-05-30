@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import EmptyState from '@/features/shared/components/common/EmptyState';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { useApel } from '@/features/shared/hooks/useApel';
-import type { ApelAttendance } from '../../types';
+import type { ApelAttendance } from '@/types';
 
 export default function KomandanApelPage() {
   const { user } = useAuthStore();

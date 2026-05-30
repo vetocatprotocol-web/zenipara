@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Announcement, Role } from '../../types';
+import type { Announcement, Role } from '@/types';
 import { ensureSessionContext } from './sessionContext';
 
 export async function fetchAnnouncements(callerId: string, callerRole: string): Promise<Announcement[]> {

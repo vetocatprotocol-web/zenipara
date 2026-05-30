@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 
 interface OfflineIndicatorProps {
   isOnline: boolean;

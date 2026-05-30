@@ -11,12 +11,12 @@ import { AttendanceBadge } from '@/features/shared/components/common/Badge';
 import Pagination from '@/features/shared/components/ui/Pagination';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { useSatuans } from '@/features/shared/hooks/useSatuans';
 import { supabase } from '@/features/shared/lib/supabase';
 import { canWrite } from '@/features/shared/lib/rolePermissions';
-import type { Attendance } from '../../types';
+import type { Attendance } from '@/types';
 
 const PAGE_SIZE = 50;
 

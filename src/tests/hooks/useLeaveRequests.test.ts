@@ -2,8 +2,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useLeaveRequests, clearLeaveRequestsCache } from '@/features/shared/hooks/useLeaveRequests';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '../../store/authStore';
-import type { LeaveRequest } from '../../types';
+import { useAuthStore } from '@/store/authStore';
+import type { LeaveRequest } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

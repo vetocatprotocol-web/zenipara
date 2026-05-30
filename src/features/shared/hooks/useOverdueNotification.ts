@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useGatePassStore } from '../store/gatePassStore';
+import { useGatePassStore } from '@/store/gatePassStore';
 
 /**
  * Returns gate passes that are currently overdue (status === 'overdue').

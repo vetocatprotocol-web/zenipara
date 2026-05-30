@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useSatuanBranding from '@/features/shared/hooks/useSatuanBranding';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { SatuanBranding } from '../../types';
+import type { SatuanBranding } from '@/types';
 
 const SatuanBrandingPage: React.FC = () => {
   const { branding, isLoading, error, updateBranding } = useSatuanBranding();

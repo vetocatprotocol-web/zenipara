@@ -1,14 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import Profile from '../../../pages/prajurit/Profile';
-import { useAuthStore } from '../../../store/authStore';
-import { useUIStore } from '../../../store/uiStore';
+import Profile from '@/features/prajurit/pages/prajurit/Profile';
+import { useAuthStore } from '@/features/auth/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { supabase } from '@/features/shared/lib/supabase';
 
 const mockUpdateOwnProfile = vi.fn();
 const mockRestoreSession = vi.fn().mockResolvedValue(undefined);
 
-vi.mock('../../../components/layout/DashboardLayout', () => ({
+vi.mock('@/features/shared/components/layout/DashboardLayout', () => ({
   default: ({ children, title }: { children: React.ReactNode; title: string }) => (
     <div data-testid="dashboard-layout" data-title={title}>
       {children}
@@ -16,23 +16,23 @@ vi.mock('../../../components/layout/DashboardLayout', () => ({
   ),
 }));
 
-vi.mock('../../../components/common/AvatarUpload', () => ({
+vi.mock('@/features/shared/components/common/AvatarUpload', () => ({
   default: () => <div data-testid="avatar-upload" />,
 }));
 
-vi.mock('../../../hooks/useAttendance', () => ({
+vi.mock('@/features/shared/hooks/useAttendance', () => ({
   useAttendance: () => ({ attendances: [] }),
 }));
 
-vi.mock('../../../hooks/useUsers', () => ({
+vi.mock('@/features/shared/hooks/useUsers', () => ({
   useUsers: () => ({ updateOwnProfile: mockUpdateOwnProfile }),
 }));
 
-vi.mock('../../../components/ui/AttendanceHeatmap', () => ({
+vi.mock('@/features/shared/components/ui/AttendanceHeatmap', () => ({
   default: () => <div data-testid="attendance-heatmap" />,
 }));
 
-vi.mock('../../../components/ui/PageHeader', () => ({
+vi.mock('@/features/shared/components/ui/PageHeader', () => ({
   default: ({ title, subtitle, meta }: { title: string; subtitle: string; meta?: React.ReactNode }) => (
     <header>
       <h1>{title}</h1>
@@ -42,11 +42,11 @@ vi.mock('../../../components/ui/PageHeader', () => ({
   ),
 }));
 
-vi.mock('../../../lib/dataSync', () => ({
+vi.mock('@/features/shared/lib/dataSync', () => ({
   notifyDataChanged: vi.fn(),
 }));
 
-vi.mock('../../../lib/handleError', () => ({
+vi.mock('@/features/shared/lib/handleError', () => ({
   handleError: (err: unknown, fallback: string) => (err instanceof Error ? err.message : fallback),
 }));
 

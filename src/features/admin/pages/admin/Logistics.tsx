@@ -8,12 +8,12 @@ import Input from '@/features/shared/components/common/Input';
 import Badge from '@/features/shared/components/common/Badge';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useUIStore } from '../../store/uiStore';
-import { useAuthStore } from '../../store/authStore';
+import { useUIStore } from '@/store/uiStore';
+import { useAuthStore } from '@/store/authStore';
 import { useLogisticsRequests } from '@/features/shared/hooks/useLogisticsRequests';
 import { supabase } from '@/features/shared/lib/supabase';
 import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
-import type { LogisticsItem, LogisticsRequest } from '../../types';
+import type { LogisticsItem, LogisticsRequest } from '@/types';
 
 export default function Logistics() {
   const { showNotification } = useUIStore();

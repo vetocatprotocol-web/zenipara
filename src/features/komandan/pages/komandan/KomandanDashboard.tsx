@@ -12,17 +12,17 @@ import { useTasks } from '@/features/shared/hooks/useTasks';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
 import UserDetailModal from '@/features/shared/components/common/UserDetailModal';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { usePlatformStore } from '../../store/platformStore';
-import { ICONS } from '../../icons';
-import { useKomandanDashboardStore } from '../../store/komandanDashboardStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { usePlatformStore } from '@/store/platformStore';
+import { ICONS } from '@/icons';
+import { useKomandanDashboardStore } from '@/store/komandanDashboardStore';
 import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { getKomandanScopeLabel, normalizeRole } from '@/features/shared/lib/rolePermissions';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { User } from '../../types';
+import type { User } from '@/types';
 
 export default function KomandanDashboard() {
   const navigate = useNavigate();

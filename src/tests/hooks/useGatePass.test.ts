@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useGatePass } from '@/features/shared/hooks/useGatePass';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { GatePass } from '../../types';
+import type { GatePass } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

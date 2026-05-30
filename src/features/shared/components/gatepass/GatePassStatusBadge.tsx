@@ -1,9 +1,8 @@
-import { GatePass } from '../../types';
+import { GatePass } from '@/types';
 import React from 'react';
 
 interface Props {
   gatePass: GatePass;
-  guard?: string;
 }
 
 const STATUS_LABEL: Record<string, string> = {

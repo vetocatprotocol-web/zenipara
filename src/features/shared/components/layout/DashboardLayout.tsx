@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import BottomTabBar from './BottomTabBar';
 import Notification from '../common/Notification';
 import { ToastContainer } from '../common/Toast';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 interface DashboardLayoutProps {
   children: ReactNode;

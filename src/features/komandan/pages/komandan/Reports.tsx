@@ -4,14 +4,14 @@ import DashboardLayout from '@/features/shared/components/layout/DashboardLayout
 import Button from '@/features/shared/components/common/Button';
 import BarChart from '@/features/shared/components/ui/BarChart';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
 import { AttendanceBadge, TaskStatusBadge, LeaveStatusBadge } from '@/features/shared/components/common/Badge';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton, StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import type { Attendance, Task } from '../../types';
+import type { Attendance, Task } from '@/types';
 
 function downloadCSV(rows: string[][], filename: string) {
   const csv = rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');

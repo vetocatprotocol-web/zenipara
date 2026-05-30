@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../store/authStore';
-import { useFeatureStore } from '../store/featureStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { APP_ROUTE_PATHS, getRoleDefaultPath, getRoleFallbackPaths } from '@/features/shared/lib/rolePermissions';
 import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
-import type { Role } from '../types';
+import type { Role } from '@/types';
 
 interface ProtectedRouteProps {
   allowedRoles: readonly Role[];

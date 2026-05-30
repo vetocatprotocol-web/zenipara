@@ -10,9 +10,9 @@ import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
 import UserDetailModal from '@/features/shared/components/common/UserDetailModal';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { getKomandanScopeLabel, getKomandanScopeDescription, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
-import type { User } from '../../types';
+import type { User } from '@/types';
 
 export default function Personnel() {
   const { user } = useAuthStore();

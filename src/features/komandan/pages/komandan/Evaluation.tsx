@@ -8,10 +8,10 @@ import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
 import Badge from '@/features/shared/components/common/Badge';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useAuthStore } from '../../store/authStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useUIStore } from '@/store/uiStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { DisciplineNote } from '../../types';
+import type { DisciplineNote } from '@/types';
 
 export default function Evaluation() {
   const { user } = useAuthStore();

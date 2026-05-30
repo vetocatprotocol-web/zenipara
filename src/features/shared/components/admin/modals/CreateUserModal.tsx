@@ -5,7 +5,7 @@ import Input from '../../common/Input';
 import SatuanSelector from '../../common/SatuanSelector';
 import { ROLE_OPTIONS, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import { validateNewUserForm, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
-import type { Satuan, Role, CommandLevel } from '../../../types';
+import type { Satuan, Role, CommandLevel } from '@/types';
 
 export interface CreateUserModalProps {
   isOpen: boolean;

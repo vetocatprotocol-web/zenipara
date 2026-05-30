@@ -6,7 +6,7 @@ import BarChart from '@/features/shared/components/ui/BarChart';
 import Button from '@/features/shared/components/common/Button';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { StatCardsSkeleton } from '@/features/shared/components/common/Skeleton';
-import { ICONS } from '../../icons';
+import { ICONS } from '@/icons';
 import { useSatuans } from '@/features/shared/hooks/useSatuans';
 import { fetchAnalyticsSnapshot, type AnalyticsSnapshot } from '@/features/shared/lib/api/analytics';
 import { handleError } from '@/features/shared/lib/handleError';

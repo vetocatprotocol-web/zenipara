@@ -4,7 +4,7 @@
  */
 
 import { CalendarDays } from 'lucide-react';
-import type { Attendance } from '../../types';
+import type { Attendance } from '@/types';
 
 interface Props {
   attendances: Attendance[];

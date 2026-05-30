@@ -1,7 +1,7 @@
 import { CacheWithTTL } from '../cacheWithTTL';
 import { requestCoalescer } from '../requestCoalescer';
 import { supabase } from '../supabase';
-import type { Satuan } from '../../types';
+import type { Satuan } from '@/types';
 
 function slugify(text: string): string {
   const normalized = text

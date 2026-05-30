@@ -9,7 +9,7 @@ import { useAuditLogs } from '@/features/shared/hooks/useAuditLogs';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useDebounce } from '@/features/shared/hooks/useDebounce';
 import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
-import type { AuditLog } from '../../types';
+import type { AuditLog } from '@/types';
 
 const PAGE_SIZE = 50;
 

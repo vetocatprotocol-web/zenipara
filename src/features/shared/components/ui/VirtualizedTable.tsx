@@ -1,7 +1,7 @@
 import { ReactNode, useRef } from 'react';
 import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual';
 import EmptyState from '../common/EmptyState';
-import { useUIStore } from '../../store/uiStore';
+import { useUIStore } from '@/store/uiStore';
 
 interface Column<T> {
   key: keyof T | string;

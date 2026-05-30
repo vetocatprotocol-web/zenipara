@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Message } from '../../types';
+import type { Message } from '@/types';
 import { ensureSessionContext } from './sessionContext';
 
 export async function fetchInbox(callerId: string, callerRole: string): Promise<Message[]> {

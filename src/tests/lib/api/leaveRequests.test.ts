@@ -5,7 +5,7 @@ import {
   insertLeaveRequest,
   patchLeaveRequestStatus,
 } from '@/features/shared/lib/api/leaveRequests';
-import type { LeaveRequest } from '../../../types';
+import type { LeaveRequest } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

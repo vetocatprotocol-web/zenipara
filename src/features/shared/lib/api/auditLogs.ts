@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { AuditLog } from '../../types';
+import type { AuditLog } from '@/types';
 
 function isMissingExtendedClearRpc(error: unknown): boolean {
   if (!error || typeof error !== 'object') return false;

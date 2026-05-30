@@ -22,7 +22,7 @@ export interface UserRecord {
   nrp: string;
   nama: string;
   email: string;
-  role: 'admin' | 'komandan' | 'prajurit' | 'guard' | 'staf_ops';
+  role: 'admin' | 'komandan' | 'prajurit' | 'staf_ops';
   satuan: string;
   is_active: boolean;
   foto_url?: string;

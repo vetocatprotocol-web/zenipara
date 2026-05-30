@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useGatePassStore } from '../../store/gatePassStore';
-import { useUIStore } from '../../store/uiStore';
+import { useGatePassStore } from '@/store/gatePassStore';
+import { useUIStore } from '@/store/uiStore';
 import Input from '../common/Input';
 import Button from '../common/Button';
 import {

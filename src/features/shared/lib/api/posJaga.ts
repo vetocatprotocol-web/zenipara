@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { PosJaga, ScanPosJagaResult } from '../../types';
+import type { PosJaga, ScanPosJagaResult } from '@/types';
 import { ensureSessionContext } from './sessionContext';
 
 export async function fetchAllPosJaga(callerId: string, callerRole: string): Promise<PosJaga[]> {

@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useAnnouncements, clearAnnouncementsCache } from '@/features/shared/hooks/useAnnouncements';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '@/store/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import type { Announcement } from '../../types';
+import type { Announcement } from '@/types';
 
 const mockSupabase = supabase as unknown as { rpc: ReturnType<typeof vi.fn> };
 

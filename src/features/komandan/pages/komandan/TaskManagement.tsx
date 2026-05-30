@@ -9,11 +9,11 @@ import UserSearchSelect from '@/features/shared/components/common/UserSearchSele
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { TaskStatusBadge } from '@/features/shared/components/common/Badge';
 import { useTasks } from '@/features/shared/hooks/useTasks';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import type { Task, TaskReport, TaskStatus } from '../../types';
+import type { Task, TaskReport, TaskStatus } from '@/types';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import { Link } from 'react-router-dom';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';

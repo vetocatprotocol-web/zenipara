@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { Kegiatan, RsvpStatus } from '../../types';
+import type { Kegiatan, RsvpStatus } from '@/types';
 
 export interface FetchKegiatanParams {
   tanggalDari?: string;

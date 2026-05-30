@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 const rpcMock = vi.fn();
 
-vi.mock('../../../lib/supabase', () => ({
+vi.mock('@/features/shared/lib/supabase', () => ({
   supabase: {
     rpc: (...args: unknown[]) => rpcMock(...args),
   },
@@ -33,7 +33,7 @@ const mockSnapshot = {
 };
 
 async function loadDashboardApi() {
-  return import('../../../lib/api/dashboard');
+  return import('@/features/shared/lib/api/dashboard');
 }
 
 describe('dashboard API', () => {

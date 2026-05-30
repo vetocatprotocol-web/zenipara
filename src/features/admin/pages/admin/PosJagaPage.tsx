@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { usePosJagaStore } from '../../store/posJagaStore';
+import { usePosJagaStore } from '@/store/posJagaStore';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import Button from '@/features/shared/components/common/Button';
 import Input from '@/features/shared/components/common/Input';
@@ -7,8 +7,8 @@ import Modal from '@/features/shared/components/common/Modal';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import PosJagaQRCode from '@/features/shared/components/gatepass/PosJagaQRCode';
-import { ICONS } from '../../icons';
-import type { PosJaga } from '../../types';
+import { ICONS } from '@/icons';
+import type { PosJaga } from '@/types';
 
 export default function PosJagaPage() {
   const posJagaList = usePosJagaStore(s => s.posJagaList);

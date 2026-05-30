@@ -2,14 +2,13 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
+import { useAuthStore } from '@/store/authStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
 import { supabase } from '@/features/shared/lib/supabase';
-import AdminDashboard from '../../pages/admin/AdminDashboard';
-import KomandanDashboard from '../../pages/komandan/KomandanDashboard';
-import PrajuritDashboard from '../../pages/prajurit/PrajuritDashboard';
-import GuardDashboard from '../../pages/guard/GuardDashboard';
+import AdminDashboard from '@/features/admin/pages/admin/AdminDashboard';
+import KomandanDashboard from '@/features/komandan/pages/komandan/KomandanDashboard';
+import PrajuritDashboard from '@/features/prajurit/pages/prajurit/PrajuritDashboard';
 import { DEFAULT_FEATURE_FLAGS } from '@/features/shared/lib/featureFlags';
 import type { AdminDashboardSnapshot } from '@/features/shared/lib/api/dashboard';
 
@@ -363,19 +362,5 @@ describe('End-to-end dashboard rendering', () => {
       expect(screen.getByRole('link', { name: /Lihat laporan →/i })).toBeInTheDocument();
     });
 
-  it('renders the guard dashboard for guard role', async () => {
-    useAuthStore.setState({
-      user: { id: 'u4', nrp: '11223', nama: 'Guard Delta', role: 'guard', satuan: 'Satuan D', is_active: true, is_online: true, login_attempts: 0, created_at: '2026-04-14T00:00:00Z', updated_at: '2026-04-14T00:00:00Z' },
-      isAuthenticated: true,
-    });
-
-    render(
-      <MemoryRouter>
-        <GuardDashboard />
-      </MemoryRouter>,
-    );
-
-    await waitFor(() => expect(screen.getByRole('heading', { name: /Scan Gate Pass/i })).toBeInTheDocument());
-    expect(screen.getByRole('heading', { name: /Scan Gate Pass/i })).toBeInTheDocument();
-  });
+  // Guard role removed; related dashboard test omitted
 });

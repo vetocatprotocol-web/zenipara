@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { useAuthStore } from '../../../store/authStore';
-import { useUIStore } from '../../../store/uiStore';
-import SatuanManagement from '../../../pages/admin/SatuanManagement';
+import { useAuthStore } from '@/features/auth/authStore';
+import { useUIStore } from '@/store/uiStore';
+import SatuanManagement from '@/features/admin/pages/admin/SatuanManagement';
 
 const mockFetchSatuans = vi.fn();
 const mockUpdateSatuan = vi.fn();
@@ -36,11 +36,11 @@ let satuans = [
   },
 ];
 
-vi.mock('../../../components/layout/DashboardLayout', () => ({
+vi.mock('@/features/shared/components/layout/DashboardLayout', () => ({
   default: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
 
-vi.mock('../../../lib/api/satuans', () => ({
+vi.mock('@/features/shared/lib/api/satuans', () => ({
   fetchSatuans: (...args: unknown[]) => mockFetchSatuans(...args),
   createSatuan: (...args: unknown[]) => mockCreateSatuan(...args),
   updateSatuan: (...args: unknown[]) => mockUpdateSatuan(...args),

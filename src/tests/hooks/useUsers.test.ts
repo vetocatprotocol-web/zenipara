@@ -3,8 +3,8 @@ import { renderHook, act, waitFor } from '@testing-library/react';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { supabase } from '@/features/shared/lib/supabase';
 import { userSearchCache } from '@/features/shared/lib/cacheWithTTL600';
-import { useAuthStore } from '../../store/authStore';
-import type { User } from '../../types';
+import { useAuthStore } from '@/store/authStore';
+import type { User } from '@/types';
 
 const mockSupabase = supabase as unknown as {
   rpc: ReturnType<typeof vi.fn>;

@@ -3,7 +3,7 @@ import Button from '../../common/Button';
 import Modal from '../../common/Modal';
 import Input from '../../common/Input';
 import { validatePin, getFirstErrorMessage } from '@/features/shared/lib/validation/personelValidation';
-import type { User } from '../../../types';
+import type { User } from '@/types';
 
 export interface ResetPinModalProps {
   isOpen: boolean;

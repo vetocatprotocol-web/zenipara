@@ -1,5 +1,5 @@
 import { supabase } from '../supabase';
-import type { AuditLog, Attendance, LogisticsItem } from '../../types';
+import type { AuditLog, Attendance, LogisticsItem } from '@/types';
 import { CacheWithTTL } from '../cacheWithTTL';
 import { requestCoalescer } from '../requestCoalescer';
 import { ensureStoredSessionContext } from './sessionContext';
