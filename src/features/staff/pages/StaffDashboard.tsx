@@ -6,7 +6,7 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import DashboardShortcutGrid from '@/features/shared/components/ui/DashboardShortcutGrid';
 import { StatCardsSkeleton, CardListSkeleton } from '@/features/shared/components/common/Skeleton';
 import Button from '@/features/shared/components/common/Button';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useAnnouncements } from '@/features/shared/hooks/useAnnouncements';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';

@@ -13,7 +13,7 @@ import { useAuthStore } from '@/features/auth/authStore';
 import { isRoleAdmin, isRoleKomandan } from '@/features/shared/lib/rolePermissions';
 import { useUIStore } from '@/store/uiStore';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
-import type { Sprint, SprintPersonel, SprintStatus } from '@/features/staff/types';
+import type { Sprint, SprintPersonel, SprintStatus } from '@/types';
 
 const STATUS_LABEL: Record<SprintStatus, string> = {
   draft: 'Draft',

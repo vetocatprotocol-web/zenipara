@@ -8,7 +8,7 @@ import ConfirmModal from '@/features/shared/components/common/ConfirmModal';
 import Badge from '@/features/shared/components/common/Badge';
 import UserSearchSelect from '@/features/shared/components/common/UserSearchSelect';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { DisciplineNote } from '@/types';

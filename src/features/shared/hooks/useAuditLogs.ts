@@ -6,7 +6,7 @@ import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { supabase } from '@/features/shared/lib/supabase';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { AuditLog } from '@/types';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 interface UseAuditLogsOptions {
   userId?: string;

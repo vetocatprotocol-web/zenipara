@@ -3,7 +3,7 @@ import { renderHook, act, waitFor } from '@testing-library/react';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { supabase } from '@/features/shared/lib/supabase';
 import { userSearchCache } from '@/features/shared/lib/cacheWithTTL600';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import type { User } from '@/types';
 
 const mockSupabase = supabase as unknown as {

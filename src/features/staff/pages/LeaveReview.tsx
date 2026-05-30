@@ -10,7 +10,7 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import { LeaveStatusBadge } from '@/features/shared/components/common/Badge';
 import { TableSkeleton } from '@/features/shared/components/common/Skeleton';
 import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { canWrite, getOperationalRoleLabel } from '@/features/shared/lib/rolePermissions';
 import type { LeaveRequest } from '@/types';

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ICONS } from '@/icons';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useUIStore } from '@/store/uiStore';
 import { useMessages } from '@/features/shared/hooks/useMessages';

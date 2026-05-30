@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { act } from 'react';
-import { useAuthStore, saveSession } from '@/features/store/authStore';
+import { useAuthStore, saveSession } from '@/features/auth/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { Role } from '@/types';
 

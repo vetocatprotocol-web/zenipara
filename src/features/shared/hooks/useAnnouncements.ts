@@ -6,7 +6,7 @@ import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/d
 import { supabase } from '@/features/shared/lib/supabase';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { Announcement, Role } from '@/types';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 /** Module-level cache: data pengumuman di-cache 5 menit per user */
 const announcementsCache = new SimpleCache<Announcement[]>();

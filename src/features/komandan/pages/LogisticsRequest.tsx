@@ -9,7 +9,7 @@ import EmptyState from '@/features/shared/components/common/EmptyState';
 import LoadingSpinner from '@/features/shared/components/common/LoadingSpinner';
 import PageHeader from '@/features/shared/components/ui/PageHeader';
 import { useLogisticsRequests } from '@/features/shared/hooks/useLogisticsRequests';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import type { LogisticsRequest } from '@/types';
 

@@ -2,5 +2,4 @@ name = "zenipara"
 
 # Build settings are intentionally minimal — adapt to your project build output
 [site]
-bucket = "./dist"
-entry-point = "./"
+bucket = "dist"

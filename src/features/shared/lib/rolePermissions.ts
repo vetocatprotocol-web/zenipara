@@ -264,35 +264,150 @@ export type GlobalSearchResultType = 'task' | 'user' | 'announcement';
 export function getGlobalSearchResultPath(type: GlobalSearchResultType, role: string | null | undefined): string {
   if (type === 'task') {
     if (isRolePrajurit(role)) return ROLE_ROUTE_PATHS.prajurit.tasks;
-    if (isRoleStaff(role)) return ROLE_ROUTE_PATHS.staff_satuan.sprint;
     if (isRoleKomandan(role)) return ROLE_ROUTE_PATHS.komandan.tasks;
     return ROLE_ROUTE_PATHS.admin_satuan.dashboard;
   }
 
   if (type === 'user') {
-    if (isRoleSuperAdmin(role)) return ROLE_ROUTE_PATHS.super_admin.dashboard;
-    return ROLE_ROUTE_PATHS.admin_satuan.users;
+    if (isRoleAdmin(role)) return ROLE_ROUTE_PATHS.admin_satuan.users;
+    if (isRoleKomandan(role)) return ROLE_ROUTE_PATHS.komandan.personnel;
+    return ROLE_ROUTE_PATHS.admin_satuan.dashboard;
   }
 
-  return APP_ROUTE_PATHS.error;
+  if (isRoleAdmin(role)) return ROLE_ROUTE_PATHS.admin_satuan.announcements;
+  if (isRoleKomandan(role)) return ROLE_ROUTE_PATHS.komandan.dashboard;
+  if (isRolePrajurit(role)) return ROLE_ROUTE_PATHS.prajurit.dashboard;
+  return getRoleDefaultPath(role) ?? APP_ROUTE_PATHS.error;
 }
 
-export function isRoleSuperAdmin(role: string | null | undefined): role is KnownRole {
-  return normalizeRole(role) === 'super_admin';
+export function hasRole(role: string | null | undefined, expectedRole: KnownRole): boolean {
+  return normalizeRole(role) === expectedRole;
 }
 
-export function isRoleAdmin(role: string | null | undefined): role is KnownRole {
-  return normalizeRole(role) === 'admin_satuan';
+export function isRoleAdmin(role: string | null | undefined): boolean {
+  return hasRole(role, 'super_admin') || hasRole(role, 'admin_satuan');
 }
 
-export function isRoleKomandan(role: string | null | undefined): role is KnownRole {
-  return normalizeRole(role) === 'komandan';
+export function isRoleSuperAdmin(role: string | null | undefined): boolean {
+  return hasRole(role, 'super_admin');
 }
 
-export function isRoleStaff(role: string | null | undefined): role is KnownRole {
+export function isRoleKomandan(role: string | null | undefined): boolean {
+  return hasRole(role, 'komandan');
+}
+
+export function isRoleStaff(role: string | null | undefined): boolean {
   return normalizeRole(role) === 'staff_satuan';
 }
 
-export function isRolePrajurit(role: string | null | undefined): role is KnownRole {
-  return normalizeRole(role) === 'prajurit';
+export function isRolePrajurit(role: string | null | undefined): boolean {
+  return hasRole(role, 'prajurit');
+}
+
+// ── Staff bidang ─────────────────────────────────────────────────────────────
+
+export type StaffBidang = 's1' | 's3' | 's4' | 'umum';
+
+export function getBidangFromJabatan(jabatan?: string): StaffBidang {
+  if (!jabatan) return 'umum';
+  const j = jabatan.toLowerCase();
+  if (j.includes('s-1') || j.includes('s1') || j.includes('pers')) return 's1';
+  if (j.includes('s-4') || j.includes('s4') || j.includes('log')) return 's4';
+  if (j.includes('s-3') || j.includes('s3') || j.includes('ops')) return 's3';
+  return 'umum';
+}
+
+export type WriteModule =
+  | 'attendance'
+  | 'leave'
+  | 'tasks'
+  | 'shifts'
+  | 'logistics';
+
+const BIDANG_WRITE_MAP: Record<StaffBidang, WriteModule[]> = {
+  s1: ['attendance', 'leave'],
+  s3: ['tasks', 'shifts'],
+  s4: ['logistics'],
+  umum: [],
+};
+
+export function canWrite(user: User | null, module: WriteModule): boolean {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  if (isRoleAdmin(role)) return true;
+  if (isRoleKomandan(role)) return true;
+  if (isRoleStaff(role)) {
+    const bidang = getBidangFromJabatan(user.jabatan);
+    return BIDANG_WRITE_MAP[bidang].includes(module);
+  }
+  return false;
+}
+
+export function isReadOnlyUser(user: User | null, module: WriteModule): boolean {
+  return !canWrite(user, module);
+}
+
+export type KomandanScope = 'batalion' | 'kompi' | 'peleton' | 'none';
+
+const LEVEL_TO_SCOPE: Record<CommandLevel, KomandanScope> = {
+  BATALION: 'batalion',
+  KOMPI: 'kompi',
+  PELETON: 'peleton',
+};
+
+export function getKomandanScope(user: User | null): KomandanScope {
+  if (!user || !isRoleKomandan(user.role)) return 'none';
+  if (!user.level_komando) return 'none';
+  return LEVEL_TO_SCOPE[user.level_komando] ?? 'none';
+}
+
+export function getKomandanScopeLabel(level?: CommandLevel | null): string {
+  if (!level) return '—';
+  const labels: Record<CommandLevel, string> = {
+    BATALION: 'Komandan Batalion',
+    KOMPI: 'Komandan Kompi',
+    PELETON: 'Komandan Peleton',
+  };
+  return labels[level];
+}
+
+export function getKomandanScopeDescription(level?: CommandLevel | null): string {
+  if (!level) return 'Akses data tidak terkonfigurasi.';
+  const desc: Record<CommandLevel, string> = {
+    BATALION: 'Akses penuh seluruh data satuan batalion.',
+    KOMPI: 'Akses data kompi dan peleton di bawah kompinya.',
+    PELETON: 'Akses terbatas pada data peleton sendiri.',
+  };
+  return desc[level];
+}
+
+export function getOperationalRoleLabel(user: User | null): string {
+  if (!user) return '—';
+  const role = normalizeRole(user.role);
+  switch (role) {
+    case 'admin_satuan':
+      return getRoleDisplayLabel(user.role);
+    case 'prajurit':
+      return getRoleDisplayLabel(user.role);
+    case 'komandan':
+      return getKomandanScopeLabel(user.level_komando);
+    case 'staff_satuan': {
+      const bidang = getBidangFromJabatan(user.jabatan);
+      const labels: Record<StaffBidang, string> = {
+        s1: 'Staff Bidang S-1 Personel',
+        s3: 'Staff Bidang S-3 Operasional',
+        s4: 'Staff Bidang S-4 Logistik',
+        umum: 'Staff Operasional',
+      };
+      return labels[bidang];
+    }
+    default:
+      return getRoleDisplayLabel(user.role);
+  }
+}
+
+export function canReadDisciplineNotes(user: User | null): boolean {
+  if (!user) return false;
+  const role = normalizeRole(user.role);
+  return isRoleKomandan(role) || isRoleAdmin(role);
 }

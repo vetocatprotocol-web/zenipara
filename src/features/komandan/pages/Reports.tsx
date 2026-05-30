@@ -4,7 +4,7 @@ import DashboardLayout from '@/features/shared/components/layout/DashboardLayout
 import Button from '@/features/shared/components/common/Button';
 import BarChart from '@/features/shared/components/ui/BarChart';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { useLeaveRequests } from '@/features/shared/hooks/useLeaveRequests';
 import { AttendanceBadge, TaskStatusBadge, LeaveStatusBadge } from '@/features/shared/components/common/Badge';

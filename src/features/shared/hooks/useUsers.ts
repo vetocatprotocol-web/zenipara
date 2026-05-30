@@ -18,7 +18,7 @@ import { readSessionContext } from '@/features/shared/lib/sessionContext';
 import { globalRequestCoalescer, createRequestKey } from '@/features/shared/lib/requestCoalescer600';
 import { userSearchCache, createUserSearchCacheKey } from '@/features/shared/lib/cacheWithTTL600';
 import type { User, Role } from '@/types';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 interface UseUsersOptions {
   role?: Role;

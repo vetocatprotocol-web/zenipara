@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useMessages } from '@/features/shared/hooks/useMessages';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { supabase } from '@/features/shared/lib/supabase';
 import type { Message } from '@/types';
 

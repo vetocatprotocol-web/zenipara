@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/features/shared/lib/supabase';
 import { notifyDataChanged, type DataResource } from '@/features/shared/lib/dataSync';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 const REALTIME_FLUSH_DEBOUNCE_MS = 240;
 

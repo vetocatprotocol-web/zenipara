@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import useSatuanBranding from '@/features/shared/hooks/useSatuanBranding';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ICONS, IconType } from '@/icons';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { usePlatformStore } from '@/store/platformStore';
 import { useFeatureStore } from '@/store/featureStore';

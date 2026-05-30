@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Camera } from 'lucide-react';
 import { uploadAvatar } from '@/features/shared/lib/api/users';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { readSessionContext } from '@/features/shared/lib/sessionContext';
 import { notifyDataChanged } from '@/features/shared/lib/dataSync';

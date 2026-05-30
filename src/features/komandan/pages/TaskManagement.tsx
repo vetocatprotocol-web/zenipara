@@ -9,7 +9,7 @@ import UserSearchSelect from '@/features/shared/components/common/UserSearchSele
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { TaskStatusBadge } from '@/features/shared/components/common/Badge';
 import { useTasks } from '@/features/shared/hooks/useTasks';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { useUIStore } from '@/store/uiStore';
 import PageHeader from '@/features/shared/components/ui/PageHeader';

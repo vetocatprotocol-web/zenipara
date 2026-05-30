@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@/features/shared/components/common/Button';
 import Input from '@/features/shared/components/common/Input';
 import { APP_ROUTE_PATHS, getRoleDefaultPath } from '@/features/shared/lib/rolePermissions';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 export default function ForceChangePin() {
   const navigate = useNavigate();

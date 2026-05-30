@@ -8,7 +8,7 @@ import Badge from '@/features/shared/components/common/Badge';
 import Table from '@/features/shared/components/ui/Table';
 import EmptyState from '@/features/shared/components/common/EmptyState';
 import { CardListSkeleton } from '@/features/shared/components/common/Skeleton';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { isRoleAdmin } from '@/features/shared/lib/rolePermissions';
 import { useUIStore } from '@/store/uiStore';
 import { useLaporanOps } from '@/features/shared/hooks/useLaporanOps';

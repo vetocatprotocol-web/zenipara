@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useTasks, clearTasksCache } from '@/features/shared/hooks/useTasks';
 import { supabase } from '@/features/shared/lib/supabase';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import type { Task } from '@/types';
 
 const mockSupabase = supabase as unknown as {

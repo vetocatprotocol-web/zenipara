@@ -1,7 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AlertTriangle, Eye, EyeOff, Link2, Lock, Pin, Zap } from 'lucide-react';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import Button from '@/features/shared/components/common/Button';
 import Input from '@/features/shared/components/common/Input';
 import Notification from '@/features/shared/components/common/Notification';

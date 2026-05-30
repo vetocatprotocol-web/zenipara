@@ -1,7 +1,7 @@
 import { CalendarDays } from 'lucide-react';
 import DashboardLayout from '@/features/shared/components/layout/DashboardLayout';
 import { useAttendance } from '@/features/shared/hooks/useAttendance';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { useUIStore } from '@/store/uiStore';
 import { AttendanceBadge } from '@/features/shared/components/common/Badge';
 import Button from '@/features/shared/components/common/Button';

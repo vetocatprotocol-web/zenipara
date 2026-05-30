@@ -8,7 +8,7 @@ import Input from '@/features/shared/components/common/Input';
 import Table from '@/features/shared/components/ui/Table';
 import Badge from '@/features/shared/components/common/Badge';
 import { useUIStore } from '@/store/uiStore';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 import { createSatuan, deleteSatuan, fetchSatuans, updateSatuan } from '@/features/shared/lib/api/satuans';
 import type { Satuan } from '@/types';
 

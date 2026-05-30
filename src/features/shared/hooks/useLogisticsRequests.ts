@@ -6,7 +6,7 @@ import { handleError } from '@/features/shared/lib/handleError';
 import { notifyDataChanged, subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { SimpleCache } from '@/features/shared/lib/cache';
 import type { LogisticsRequest, LogisticsRequestStatus } from '@/types';
-import { useAuthStore } from '@/features/store/authStore';
+import { useAuthStore } from '@/features/auth/authStore';
 
 interface UseLogisticsRequestsOptions {
   satuan?: string;

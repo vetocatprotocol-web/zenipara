@@ -4,8 +4,8 @@ import {
   UserCheck, Users, Settings, ScanLine,
 } from 'lucide-react';
 import { useAuthStore } from '@/features/auth/authStore';
-import { useFeatureStore } from '../../store/featureStore';
-import { useUIStore } from '../../store/uiStore';
+import { useFeatureStore } from '@/store/featureStore';
+import { useUIStore } from '@/store/uiStore';
 import { useMessages } from '@/features/shared/hooks/useMessages';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';
 import { ROLE_ROUTE_PATHS } from '@/features/shared/lib/rolePermissions';
