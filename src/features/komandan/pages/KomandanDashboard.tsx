@@ -16,7 +16,7 @@ import { useAuthStore } from '@/features/auth/authStore';
 import { useFeatureStore } from '@/store/featureStore';
 import { usePlatformStore } from '@/store/platformStore';
 import { ICONS } from '@/icons';
-import { useKomandanDashboardStore } from '@/features/komandan/store/komandanDashboardStore';
+import { useKomandanDashboardStore } from '@/features/komandan/komandanStore';
 import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
 import { isPathEnabled } from '@/features/shared/lib/featureFlags';

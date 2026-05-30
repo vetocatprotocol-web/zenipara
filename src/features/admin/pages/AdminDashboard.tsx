@@ -14,7 +14,7 @@ import { useUIStore } from '@/store/uiStore';
 import AttendanceHeatmap from '@/features/shared/components/ui/AttendanceHeatmap';
 import type { IconName } from '@/icons';
 import { ICONS } from '@/icons';
-import { useAdminDashboardStore } from '@/features/admin/store/adminDashboardStore';
+import { useAdminDashboardStore } from '@/features/admin/adminStore';
 import { subscribeDataChanges } from '@/features/shared/lib/dataSync';
 import { useUsers } from '@/features/shared/hooks/useUsers';
 import { useVisibilityAwareRefresh } from '@/features/shared/hooks/useVisibilityAwareRefresh';
